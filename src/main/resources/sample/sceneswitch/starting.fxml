@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="600.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/17.0.6" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.sceneswitch.LoginController">
+   <children>
+      <TextField fx:id="textfield01" layoutX="279.0" layoutY="255.0" prefHeight="25.0" prefWidth="251.0" promptText="Enter Your Username" styleClass="text-field_B">
+         <font>
+            <Font size="14.0" />
+         </font></TextField>
+      <Button fx:id="submitbutton" layoutX="282.0" layoutY="382.0" mnemonicParsing="false" onAction="#submit" prefHeight="40.0" prefWidth="108.0" styleClass="button_custom" text="LOGIN" />
+      <Button fx:id="submitbutton1" layoutX="404.0" layoutY="382.0" mnemonicParsing="false" onAction="#switch_to_register" prefHeight="40.0" prefWidth="119.0" styleClass="button_custom_W" text="REGISTER" />
+      <ImageView fitHeight="136.0" fitWidth="238.0" layoutX="285.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Asset%202.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="283.0" layoutY="230.0" styleClass="label_login" text="NAME">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+      <Label layoutX="281.0" layoutY="298.0" styleClass="label_login" text="PASSWORD">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+      <PasswordField fx:id="passfield" layoutX="279.0" layoutY="321.0" prefHeight="33.0" prefWidth="251.0" promptText="Enter Your Password" styleClass="text-field_B">
+         <font>
+            <Font size="14.0" />
+         </font></PasswordField>
+      <Label fx:id="mylabel" alignment="CENTER" layoutX="198.0" layoutY="469.0" minWidth="50.0" prefHeight="39.0" prefWidth="331.0" styleClass="label_login" text="Label">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="600.0" fitWidth="238.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <image>
+            <Image url="@Asset%2030.png" />
+         </image>
+      </ImageView>
+      <Button alignment="TOP_LEFT" layoutX="19.0" layoutY="201.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="157.0" styleClass="butto_222" text="VISITORS" />
+      <Button alignment="TOP_LEFT" layoutX="19.0" layoutY="234.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="149.0" styleClass="butto_222" text="ROOMS" />
+   </children>
+</AnchorPane>
