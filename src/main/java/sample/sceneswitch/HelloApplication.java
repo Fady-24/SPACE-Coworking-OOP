@@ -26,12 +26,12 @@ public class HelloApplication extends Application {
     public void start(Stage primaryStage) throws IOException, ClassNotFoundException {
         System.setProperty("prism.lcdtext", "false");
         stg = primaryStage;
-        Parent root2 = FXMLLoader.load(getClass().getResource("starting.fxml"));
+        Parent root2 = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("starting.fxml")));
         primaryStage.setTitle("SPACE");
         Image icon = new Image(new FileInputStream(new File("C:\\Users\\fa\\IdeaProjects\\sceneswitch\\src\\main\\resources\\sample\\sceneswitch\\TEST-03.png")));
         primaryStage.getIcons().add(icon);
         Scene scene = new Scene(root2);
-        String CSS =this.getClass().getResource("application.css").toExternalForm();
+        String CSS = Objects.requireNonNull(this.getClass().getResource("application.css")).toExternalForm();
         scene.getStylesheets().add(CSS);
         primaryStage.setResizable(false);
         primaryStage.setScene(scene);
