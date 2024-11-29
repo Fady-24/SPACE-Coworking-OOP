@@ -1,4 +1,5 @@
 package sample.sceneswitch;
+import javafx.animation.FadeTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -7,7 +8,9 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -27,13 +30,14 @@ public class LoginController{
 
     @FXML
     private PasswordField passfield;
+    //public static Visitor CurrentVisitor;
 
     int age;
     private Stage stage;
     private Scene scene;
     private Parent root;
     @FXML
-
+    public static Visitor Currentvisitor;
     public void switch_to_register (ActionEvent e) throws IOException {
         HelloApplication h = new HelloApplication();
         h.changescene("register.fxml");
@@ -45,18 +49,29 @@ public class LoginController{
         ObjectInputStream ois = new ObjectInputStream(new FileInputStream(f));
         ArrayList<Visitor> visitors = (ArrayList<Visitor>) ois.readObject();
 
+
        for(Visitor visitor : visitors) {
            System.out.println(visitor.toString());
            String name = textfield01.getText();
            String pass = passfield.getText();
-           if(visitor.getName().equals(name) & visitor.getPassword().equals(pass)) {
+           if(visitor.getName().equals(name) && visitor.getPassword().equals(pass)) {
+               Currentvisitor = visitor;
+               System.out.println("current visitor " + Currentvisitor.getName());
+               System.out.println("current type " + Currentvisitor.getType());
+
+               HelloApplication h = new HelloApplication();
+               h.changescene("scene1.fxml");
                mylabel.setText("Successfully logged in");
                break;
            }else{
                mylabel.setText("Incorrect username or password");
            }
+
        }
     }
+
+
+
 
 
 
