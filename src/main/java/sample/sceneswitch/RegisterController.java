@@ -69,6 +69,9 @@ public class RegisterController implements Initializable {
             reactivelabel.setText("PASSWORD CONFIRMATION DOESN'T MATCH");
 
         }
+        else if (type == null){
+            reactivelabel.setText("PLEASE CHOOSE A VISITOR TYPE");
+        }
         else {
             File f = new File("visitor.dat");
             ArrayList<Visitor> visitors;

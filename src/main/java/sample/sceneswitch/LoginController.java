@@ -30,13 +30,14 @@ public class LoginController{
 
     @FXML
     private PasswordField passfield;
-    public static Visitor CurrentVisitor;
+    //public static Visitor CurrentVisitor;
+
     int age;
     private Stage stage;
     private Scene scene;
     private Parent root;
     @FXML
-
+    public static Visitor Currentvisitor;
     public void switch_to_register (ActionEvent e) throws IOException {
         HelloApplication h = new HelloApplication();
         h.changescene("register.fxml");
@@ -54,8 +55,10 @@ public class LoginController{
            String name = textfield01.getText();
            String pass = passfield.getText();
            if(visitor.getName().equals(name) && visitor.getPassword().equals(pass)) {
-               CurrentVisitor = visitor;
-               System.out.println("current visitor " + CurrentVisitor.getName());
+               Currentvisitor = visitor;
+               System.out.println("current visitor " + Currentvisitor.getName());
+               System.out.println("current type " + Currentvisitor.getType());
+
                HelloApplication h = new HelloApplication();
                h.changescene("scene1.fxml");
                mylabel.setText("Successfully logged in");
@@ -63,6 +66,7 @@ public class LoginController{
            }else{
                mylabel.setText("Incorrect username or password");
            }
+
        }
     }
 
