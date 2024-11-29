@@ -21,12 +21,12 @@
             <Image url="@Asset%209.png" />
          </image>
       </ImageView>
-      <Label fx:id="type" alignment="CENTER" layoutX="39.0" layoutY="143.0" prefHeight="36.0" prefWidth="154.0" text="TYPE" textFill="WHITE">
+      <Label fx:id="type22" alignment="CENTER" layoutX="39.0" layoutY="143.0" prefHeight="36.0" prefWidth="154.0" text="TYPE" textFill="WHITE">
          <font>
             <Font name="TT Lakes Neue Trial Regular" size="20.0" />
          </font>
       </Label>
-      <Label fx:id="Welcome" alignment="CENTER" layoutX="14.0" layoutY="190.0" prefHeight="36.0" prefWidth="204.0" text="WELCOME, USER" textFill="WHITE">
+      <Label fx:id="welcome" alignment="CENTER" layoutX="14.0" layoutY="190.0" prefHeight="36.0" prefWidth="204.0" text="WELCOME, USER" textFill="WHITE">
          <font>
             <Font name="TT Lakes Neue Trial Regular" size="20.0" />
          </font>
