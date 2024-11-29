@@ -2,16 +2,35 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.sceneswitch.SceneController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.sceneswitch.VisitorProfileController">
    <children>
-      <Label layoutX="209.0" layoutY="115.0" text="Scene1">
+      <ImageView fitHeight="600.0" fitWidth="232.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <image>
+            <Image url="@Asset%203.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="profileButton" alignment="TOP_LEFT" layoutX="35.0" layoutY="234.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="122.0" styleClass="butto_222" stylesheets="@application.css" text="PROFILE" />
+      <Button fx:id="ReservationButton" alignment="TOP_LEFT" layoutX="35.0" layoutY="277.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="198.0" styleClass="butto_222" stylesheets="@application.css" text="RESERVATION" />
+      <ImageView fitHeight="90.0" fitWidth="169.0" layoutX="34.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Asset%209.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="type" alignment="CENTER" layoutX="39.0" layoutY="143.0" prefHeight="36.0" prefWidth="154.0" text="TYPE" textFill="WHITE">
          <font>
-            <Font size="58.0" />
+            <Font name="TT Lakes Neue Trial Regular" size="20.0" />
          </font>
       </Label>
-      <Button layoutX="254.0" layoutY="216.0" mnemonicParsing="false" onAction="#SwitchToScene2" prefHeight="40.0" prefWidth="92.0" styleClass="shiny-orange" text="Switch" />
+      <Label fx:id="Welcome" alignment="CENTER" layoutX="14.0" layoutY="190.0" prefHeight="36.0" prefWidth="204.0" text="WELCOME, USER" textFill="WHITE">
+         <font>
+            <Font name="TT Lakes Neue Trial Regular" size="20.0" />
+         </font>
+      </Label>
+      <Button fx:id="logout" layoutX="63.0" layoutY="521.0" mnemonicParsing="false" onAction="#user_logout" prefHeight="36.0" prefWidth="103.0" styleClass="button_custom" text="LOGOUT" />
    </children>
 </AnchorPane>

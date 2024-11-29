@@ -49,7 +49,7 @@ public class Visitor implements Serializable {
         return "Visitor{" +
                 "name='" + name + '\'' +
                 ", password='" + password + '\'' +
-                ", typee='" + type + '\'' +
+                ", type='" + type + '\'' +
                 '}';
     }
 }
