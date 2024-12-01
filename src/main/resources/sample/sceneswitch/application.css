@@ -1,9 +1,36 @@
 
+@font-face {
+    font-family: "TT Lakes Neue Trial";
+    font-style: normal;
+    font-weight: normal;
+    src: local("TT Lakes Neue Trial"),url("https://db.onlinewebfonts.com/t/021f5d52a44a2b0c7da9cd8145d2bf89.ttf")format("truetype");
+
+}
+
+.button3333 {
+    -fx-opacity: 0.8;
+    transition-property: -fx-opacity;
+    transition-duration: 0.5s;
+}
+
+.button3333:hover {
+    -fx-opacity: 1;
+}
+
+
+.welcome_label{
+    -fx-font-family: "Bahij Janna";
+    -fx-font-size: 20;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
 
 
 .button_custom {
+    transition-property: -fx-background-color;
+    transition-duration: 0.5s;
     -fx-text-fill: white;
-    -fx-font-family: TT Lakes Neue Trial;
+    -fx-font-family: "Bahij Janna";
     -fx-font-weight: bold;
     -fx-font-size:16;
     -fx-background-radius: 30;
@@ -14,14 +41,8 @@
 }
 .button_custom:hover {
     -fx-text-fill: black;
-    -fx-font-family: TT Lakes Neue Trial;
-    -fx-font-weight: bold;
-    -fx-font-size:16;
-    -fx-background-radius: 30;
     -fx-background-color: white;
     -fx-border-color: black;
-    -fx-border-radius: 30;
-    -fx-border-width: 1px;
 }
 .vbox {
     -fx-background-color: black;
@@ -30,7 +51,7 @@
     -fx-text-fill: black;
     -fx-font-weight: bold;
     -fx-font-size:16;
-    -fx-font-family: TT Lakes Neue Trial;
+    -fx-font-family: "Bahij Janna";
     -fx-background-radius: 30;
     -fx-border-radius:30;
     -fx-background-color: white;
@@ -39,14 +60,8 @@
 }
 .button_custom_W:hover{
     -fx-text-fill: white;
-    -fx-font-weight: bold;
-    -fx-font-size:16;
-    -fx-font-family: TT Lakes Neue Trial;
-    -fx-background-radius: 30;
-    -fx-border-radius:30;
     -fx-background-color: black;
     -fx-border-color: white;
-    -fx-border-width: 1px;
 }
 
 .text-field_B {
@@ -94,7 +109,10 @@
 }
 
 .butto_222 {
-    -fx-text-fill: grey;
+    -fx-opacity: 0.7;
+    transition-property: -fx-opacity;
+    transition-duration: 0.5s;
+    -fx-text-fill: white;
     -fx-font-family: "Monaco";
     -fx-font-weight: bold;
     -fx-background-color: transparent;
@@ -102,15 +120,22 @@
 
 }
 .butto_222:hover{
-    -fx-text-fill: white;
-    -fx-background-color: transparent;
+    -fx-opacity: 1;
     -fx-font-size: 22;
-
 }
+
 
 .redlabel {
     -fx-text-fill: red;
     -fx-font-family: "Trebuchet MS";
     -fx-font-size: 15;
     -fx-font-weight: bold;
+}
+
+.label_PROFILE {
+    -fx-font-size: 18;
+    -fx-text-fill: black;
+    -fx-font-family: "Bahij Janna";
+    -fx-font-weight: bold;
+
 }

@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="600.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/17.0.6" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.sceneswitch.RegisterController">
+<AnchorPane prefHeight="600.0" prefWidth="600.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.sceneswitch.RegisterController">
    <children>
       <TextField fx:id="namefield" layoutX="60.0" layoutY="152.0" prefHeight="25.0" prefWidth="252.0" styleClass="text-field_B" />
       <VBox layoutX="423.0" prefHeight="600.0" prefWidth="177.0" styleClass="vbox">
@@ -57,7 +57,7 @@
       <PasswordField fx:id="passfield" layoutX="60.0" layoutY="231.0" prefHeight="32.0" prefWidth="246.0" styleClass="text-field_B" />
       <PasswordField fx:id="confirmpassfield" layoutX="56.0" layoutY="347.0" prefHeight="32.0" prefWidth="246.0" styleClass="text-field_B" />
       <Button fx:id="signbutton" layoutX="144.0" layoutY="531.0" mnemonicParsing="false" onAction="#create_new" prefHeight="43.0" prefWidth="112.0" styleClass="button_custom_W" stylesheets="@application.css" text="SIGN UP" />
-      <ImageView fx:id="astro" fitHeight="374.0" fitWidth="206.0" layoutX="336.0" layoutY="127.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="astro" fitHeight="390.0" fitWidth="228.0" layoutX="323.0" layoutY="127.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Asset%204.png" />
          </image>

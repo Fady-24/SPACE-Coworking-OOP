@@ -44,6 +44,7 @@ public class RegisterController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         choicebox01.getItems().addAll(acc_types);
+        Animation.animate(astro);
 
     }
 
@@ -84,7 +85,7 @@ public class RegisterController implements Initializable {
                 visitors = new ArrayList<>();
             }
 
-            Visitor v = new Visitor(name, pass, type);
+            Visitor v = new Visitor(name, pass, type, visitors.size()+1); // will cause a logical error in the future
             visitors.add(v);
             System.out.println("done");
 
