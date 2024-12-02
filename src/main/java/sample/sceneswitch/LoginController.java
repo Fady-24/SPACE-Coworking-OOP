@@ -54,12 +54,15 @@ public class LoginController{
            System.out.println(visitor.toString());
            String name = textfield01.getText();
            String pass = passfield.getText();
-           if(visitor.getName().equals(name) && visitor.getPassword().equals(pass)) {
+           HelloApplication h = new HelloApplication();
+           if(name.equals("admin") && pass.equals("admin")) {
+               h.changescene("admin.fxml");
+           }else if(visitor.getName().equals(name) && visitor.getPassword().equals(pass)) {
                Currentvisitor = visitor;
                System.out.println("current visitor " + Currentvisitor.getName());
                System.out.println("current type " + Currentvisitor.getType());
 
-               HelloApplication h = new HelloApplication();
+
                h.changescene("scene1.fxml");
                mylabel.setText("Successfully logged in");
                break;
