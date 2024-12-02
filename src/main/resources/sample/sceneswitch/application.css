@@ -30,19 +30,15 @@
     transition-property: -fx-background-color;
     transition-duration: 0.5s;
     -fx-text-fill: white;
-    -fx-font-family: "Bahij Janna";
+    -fx-font-family: "Poppins";
     -fx-font-weight: bold;
     -fx-font-size:16;
-    -fx-background-radius: 30;
-    -fx-background-color: black;
-    -fx-border-color: white;
-    -fx-border-radius: 30;
-    -fx-border-width: 1px;
+    -fx-background-radius: 15;
+    -fx-background-color: #383838;
 }
 .button_custom:hover {
-    -fx-text-fill: black;
-    -fx-background-color: white;
-    -fx-border-color: black;
+    -fx-text-fill: white;
+    -fx-background-color: #7E60BF;
 }
 .vbox {
     -fx-background-color: black;
@@ -68,17 +64,19 @@
     -fx-text-fill: white;
     -fx-font-size: 16;
     -fx-font-family: Cairo;
-    -fx-background-radius: 30;
-    -fx-border-radius:30;
-    -fx-background-color: black;
-    -fx-border-color: white;
+    -fx-background-radius: 10;
+    -fx-background-color: #383838;
+}
+.text-field_B:focused{
+    -fx-border-color: #9332D8;
+    -fx-border-radius:10;
+    -fx-border-width: 1;
 }
 
 .label_login {
-    -fx-text-fill: black;
-    -fx-font-family: "Bahij Janna";
-    -fx-font-weight: bold;
-
+    -fx-text-fill: White;
+    -fx-font-family: "Poppins";
+    -fx-font-size: 20;
 }
 
 .combo-box{
@@ -113,15 +111,14 @@
     transition-property: -fx-opacity;
     transition-duration: 0.5s;
     -fx-text-fill: white;
-    -fx-font-family: "Monaco";
-    -fx-font-weight: bold;
+    -fx-font-family: "Poppins";
     -fx-background-color: transparent;
     -fx-font-size: 20;
 
 }
 .butto_222:hover{
     -fx-opacity: 1;
-    -fx-font-size: 22;
+    -fx-font-weight: bold;
 }
 .butto_222_B {
     -fx-opacity: 0.7;
