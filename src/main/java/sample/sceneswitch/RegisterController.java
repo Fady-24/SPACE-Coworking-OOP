@@ -19,8 +19,7 @@ import java.util.ResourceBundle;
 
 public class RegisterController implements Initializable {
     @FXML
-    private Button backbutton;
-    private Button signbutton;
+    private Button signbutton, login_switch;
     private String[] acc_types = {"GENERAL","INSTRUCTOR","FORMAL"};
     @FXML
     private ComboBox<String> choicebox01;
@@ -35,8 +34,6 @@ public class RegisterController implements Initializable {
     private PasswordField confirmpassfield;
     @FXML
     private Label reactivelabel;
-    @FXML
-    private ImageView astro;
 
 
 
@@ -44,7 +41,7 @@ public class RegisterController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         choicebox01.getItems().addAll(acc_types);
-        Animation.animate(astro);
+
 
     }
 

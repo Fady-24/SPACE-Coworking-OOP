@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
@@ -9,32 +8,19 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="600.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.sceneswitch.RegisterController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #1e1e1e;" stylesheets="@Register.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.sceneswitch.RegisterController">
    <children>
-      <TextField fx:id="namefield" layoutX="60.0" layoutY="152.0" prefHeight="25.0" prefWidth="252.0" styleClass="text-field_B" />
-      <VBox layoutX="423.0" prefHeight="600.0" prefWidth="177.0" styleClass="vbox">
-         <children>
-            <ImageView fitHeight="563.0" fitWidth="177.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@Asset%2030.png" />
-               </image>
-            </ImageView>
-            <Button fx:id="backbutton" mnemonicParsing="false" onAction="#switch_to_main" prefHeight="41.0" prefWidth="87.0" styleClass="button_custom" text="BACK" VBox.vgrow="NEVER">
-               <VBox.margin>
-                  <Insets left="50.0" right="50.0" top="70.0" />
-               </VBox.margin>
-            </Button>
-         </children></VBox>
-      <ComboBox fx:id="choicebox01" layoutX="60.0" layoutY="412.0" prefHeight="43.0" prefWidth="246.0" promptText="VISITOR TYPE" />
-      <ImageView fitHeight="56.0" fitWidth="306.0" layoutX="65.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="600.0" fitWidth="800.0" layoutX="-1.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-1.0" AnchorPane.rightAnchor="1.332763671875" AnchorPane.topAnchor="0.0">
          <image>
-            <Image url="@Asset%205.png" />
+            <Image url="@Asset_16.png" />
          </image>
       </ImageView>
-      <Label layoutX="65.0" layoutY="120.0" prefHeight="32.0" prefWidth="166.0" styleClass="label_login" text="ENTER YOUR NAME">
+      <TextField fx:id="namefield" layoutX="60.0" layoutY="152.0" prefHeight="25.0" prefWidth="252.0" styleClass="text-field_B" />
+      <ComboBox fx:id="choicebox01" layoutX="60.0" layoutY="412.0" prefHeight="43.0" prefWidth="246.0" promptText="VISITOR TYPE" />
+      <Label layoutX="65.0" layoutY="120.0" prefHeight="32.0" prefWidth="189.0" styleClass="label_login" text="ENTER YOUR NAME">
          <font>
             <Font size="18.0" />
          </font>
@@ -44,24 +30,32 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="60.0" layoutY="315.0" prefHeight="32.0" prefWidth="236.0" styleClass="label_login" text="CONFIRM YOUR PASSWORD">
+      <Label layoutX="60.0" layoutY="315.0" prefHeight="32.0" prefWidth="278.0" styleClass="label_login" text="CONFIRM YOUR PASSWORD">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
       <ImageView fitHeight="43.0" fitWidth="236.0" layoutX="65.0" layoutY="279.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Asset%206.png" />
+            <Image url="@Asset_18.png" />
          </image>
       </ImageView>
       <PasswordField fx:id="passfield" layoutX="60.0" layoutY="231.0" prefHeight="32.0" prefWidth="246.0" styleClass="text-field_B" />
-      <PasswordField fx:id="confirmpassfield" layoutX="56.0" layoutY="347.0" prefHeight="32.0" prefWidth="246.0" styleClass="text-field_B" />
-      <Button fx:id="signbutton" layoutX="144.0" layoutY="531.0" mnemonicParsing="false" onAction="#create_new" prefHeight="43.0" prefWidth="112.0" styleClass="button_custom_W" stylesheets="@application.css" text="SIGN UP" />
-      <ImageView fx:id="astro" fitHeight="390.0" fitWidth="228.0" layoutX="323.0" layoutY="127.0" pickOnBounds="true" preserveRatio="true">
+      <PasswordField fx:id="confirmpassfield" layoutX="58.0" layoutY="347.0" prefHeight="32.0" prefWidth="246.0" styleClass="text-field_B" />
+      <Button fx:id="signbutton" layoutX="159.0" layoutY="507.0" mnemonicParsing="false" onAction="#create_new" prefHeight="43.0" prefWidth="112.0" styleClass="button_custom" stylesheets="@Register.css" text="SIGN UP" />
+      <Label fx:id="reactivelabel" alignment="CENTER" layoutX="11.0" layoutY="479.0" prefHeight="41.0" prefWidth="349.0" styleClass="redlabel" stylesheets="@application.css" text=" " />
+      <ImageView fitHeight="50.0" fitWidth="128.0" layoutX="37.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Asset%204.png" />
+            <Image url="@Asset_15.png" />
          </image>
       </ImageView>
-      <Label fx:id="reactivelabel" alignment="CENTER" layoutX="11.0" layoutY="479.0" prefHeight="41.0" prefWidth="349.0" styleClass="redlabel" stylesheets="@application.css" text=" " />
+      <ImageView fitHeight="72.0" fitWidth="319.0" layoutX="455.0" layoutY="333.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Asset_17.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="login_switch" layoutX="213.0" layoutY="42.0" mnemonicParsing="false" onAction="#switch_to_main" styleClass="butto_222" stylesheets="@application.css" text="Login" />
+      <Button fx:id="submitbutton1" layoutX="309.0" layoutY="42.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="119.0" styleClass="butto_222" text="Register" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff8057" height="5.0" layoutX="325.0" layoutY="83.0" stroke="BLACK" strokeType="INSIDE" width="85.0" />
    </children>
 </AnchorPane>
