@@ -28,8 +28,8 @@ public class HelloApplication extends Application {
         stg = primaryStage;
         Parent root2 = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("starting.fxml")));
         primaryStage.setTitle("SPACE");
-        Image icon = new Image(new FileInputStream(new File("C:\\Users\\fa\\IdeaProjects\\sceneswitch\\src\\main\\resources\\sample\\sceneswitch\\TEST-03.png")));
-        primaryStage.getIcons().add(icon);
+      //  Image icon = new Image(new FileInputStream(new File("C:\\Users\\fa\\IdeaProjects\\sceneswitch\\src\\main\\resources\\sample\\sceneswitch\\TEST-03.png")));
+        //primaryStage.getIcons().add(icon);
         Scene scene = new Scene(root2);
         String CSS = Objects.requireNonNull(this.getClass().getResource("application.css")).toExternalForm();
         scene.getStylesheets().add(CSS);
