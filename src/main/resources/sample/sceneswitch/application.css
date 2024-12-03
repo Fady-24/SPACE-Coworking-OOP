@@ -139,9 +139,9 @@
 
 
 .redlabel {
-    -fx-text-fill: red;
+    -fx-text-fill: #C25557;
     -fx-font-family: "Trebuchet MS";
-    -fx-font-size: 15;
+    -fx-font-size: 16;
     -fx-font-weight: bold;
 }
 

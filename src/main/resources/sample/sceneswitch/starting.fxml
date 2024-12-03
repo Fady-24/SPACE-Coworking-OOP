@@ -14,7 +14,7 @@
    <children>
       <AnchorPane fx:id="anchor" layoutX="6.0" prefHeight="600.0" prefWidth="806.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <ImageView fitHeight="600.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="600.0" fitWidth="800.0" layoutX="11.0" layoutY="-14.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Asset_13.png" />
                </image>
@@ -24,7 +24,6 @@
                   <Font size="14.0" />
                </font>
             </TextField>
-            <Button fx:id="submitbutton" layoutX="230.0" layoutY="397.0" mnemonicParsing="false" onAction="#submit" onMouseEntered="#button_transition" onMouseExited="#button_transition2" prefHeight="40.0" prefWidth="108.0" styleClass="button_custom" text="LOGIN" />
             <Label layoutX="68.0" layoutY="177.0" prefHeight="40.0" prefWidth="137.0" styleClass="label_login" text="Username">
                <font>
                   <Font size="16.0" />
@@ -40,16 +39,18 @@
                   <Font size="14.0" />
                </font>
             </PasswordField>
-            <Label fx:id="mylabel" alignment="CENTER" layoutX="85.0" layoutY="522.0" minWidth="50.0" prefHeight="30.0" prefWidth="331.0" styleClass="label_login" text="Label">
+            <Label fx:id="mylabel" alignment="CENTER" layoutX="23.0" layoutY="399.0" minWidth="50.0" prefHeight="30.0" prefWidth="331.0" styleClass="label_login" text=" ">
                <font>
                   <Font size="23.0" />
                </font>
             </Label>
+            <Rectangle fx:id="rect" arcHeight="30.0" arcWidth="30.0" fill="#383838" height="43.0" layoutX="232.0" layoutY="474.0" onMouseClicked="#submit" onMouseEntered="#button_transition" onMouseExited="#button_transition2" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="button_custom" width="112.0" />
             <ImageView fitHeight="78.0" fitWidth="279.0" layoutX="463.0" layoutY="302.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Asset_14.png" />
                </image>
             </ImageView>
+            <Button fx:id="submitbutton" layoutX="241.0" layoutY="477.0" mnemonicParsing="false" mouseTransparent="true" prefHeight="35.0" prefWidth="96.0" style="-fx-background-color: transparent;" styleClass="button_custom" text="LOGIN" />
          </children>
       </AnchorPane>
       <AnchorPane layoutX="46.0" layoutY="37.8">

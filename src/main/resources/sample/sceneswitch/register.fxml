@@ -44,13 +44,14 @@
             </ImageView>
             <PasswordField fx:id="passfield" layoutX="61.0" layoutY="231.0" prefHeight="32.0" prefWidth="246.0" styleClass="text-field_B" />
             <PasswordField fx:id="confirmpassfield" layoutX="59.0" layoutY="347.0" prefHeight="32.0" prefWidth="246.0" styleClass="text-field_B" />
-            <Button fx:id="signbutton" layoutX="199.0" layoutY="475.0" mnemonicParsing="false" onAction="#create_new" onMouseEntered="#button_transition" onMouseExited="#button_transition2" prefHeight="43.0" prefWidth="112.0" styleClass="button_custom" stylesheets="@Register.css" text="SIGN UP" />
-            <Label fx:id="reactivelabel" alignment="CENTER" layoutX="33.0" layoutY="530.0" prefHeight="41.0" prefWidth="302.0" styleClass="redlabel" stylesheets="@application.css" text=" " />
+            <Label fx:id="reactivelabel" alignment="CENTER" layoutX="25.0" layoutY="530.0" prefHeight="41.0" prefWidth="372.0" styleClass="redlabel" stylesheets="@application.css" text=" " />
             <ImageView fitHeight="72.0" fitWidth="319.0" layoutX="456.0" layoutY="333.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Asset_17.png" />
                </image>
             </ImageView>
+            <Rectangle fx:id="rect" arcHeight="30.0" arcWidth="30.0" fill="#383838" height="43.0" layoutX="200.0" layoutY="476.0" onMouseClicked="#create_new" onMouseEntered="#button_transition" onMouseExited="#button_transition2" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="button_custom" width="112.0" />
+            <Button fx:id="signbutton" layoutX="199.0" layoutY="475.0" mnemonicParsing="false" mouseTransparent="true" prefHeight="43.0" prefWidth="112.0" style="-fx-background-color: transparent;" styleClass="button_custom" stylesheets="@Register.css" text="SIGN UP" />
          </children>
       </AnchorPane>
       <AnchorPane layoutX="46.0" layoutY="37.8">

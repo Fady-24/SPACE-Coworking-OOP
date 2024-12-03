@@ -11,6 +11,8 @@ import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Shape;
 import javafx.stage.Stage;
 
 import java.io.*;
@@ -41,7 +43,12 @@ public class RegisterController implements Initializable {
 
 
 
-
+    public void button_transition(MouseEvent e) {
+        Animation.enlarge((Shape) e.getSource(), Color.rgb(56, 56, 56), Color.rgb(255, 128, 78));
+    }
+    public void button_transition2(MouseEvent e) {
+        Animation.en_small((Shape) e.getSource(), Color.rgb(255, 128, 78), Color.rgb(56, 56, 56));
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         choicebox01.getItems().addAll(acc_types);
@@ -49,14 +56,14 @@ public class RegisterController implements Initializable {
 
 
     }
-    public void button_transition(MouseEvent e) {
-        Animation.enlarge((Node) e.getSource());
-    }
-    public void button_transition2(MouseEvent e) {
-        Animation.en_small((Node) e.getSource());
-    }
-
-    public void switch_to_main (ActionEvent e) throws IOException {
+//    public void button_transition(MouseEvent e) {
+//        Animation.enlarge((Node) e.getSource());
+//    }
+//    public void button_transition2(MouseEvent e) {
+//        Animation.en_small((Node) e.getSource());
+//    }
+//
+   public void switch_to_main (ActionEvent e) throws IOException {
         Animation.fade_transition(anchor,"starting.fxml");
     }
 
