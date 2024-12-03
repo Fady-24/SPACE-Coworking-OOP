@@ -6,8 +6,8 @@ public abstract class ROOM {
     protected int numofvisitors;
     protected int num_of_rooms;
     protected Visitor[] List_of_Visitors;
-    protected Slot[] List_of_Slots;
-    public Room(String room_name, int room_Id, int numofvisitors, int num_of_rooms, Visitor[] List_of_Visitors, Slot[] List_of_Slots) {
+    protected Slots[] List_of_Slots;
+    public ROOM(String room_name, int room_Id, int numofvisitors, int num_of_rooms, Visitor[] List_of_Visitors, Slots[] List_of_Slots) {
         this.room_name = room_name;
         this.room_Id = room_Id;
         this.numofvisitors = numofvisitors;
