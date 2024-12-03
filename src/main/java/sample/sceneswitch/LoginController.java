@@ -10,6 +10,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.shape.Shape;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -35,6 +38,8 @@ public class LoginController implements Initializable {
     private AnchorPane anchor;
     @FXML
     private Button submitbutton;
+    @FXML
+    private Rectangle rect;
     //public static Visitor CurrentVisitor;
 
     int age;
@@ -48,12 +53,12 @@ public class LoginController implements Initializable {
 
     }
     public void button_transition(MouseEvent e) {
-        Animation.enlarge((Node) e.getSource());
+        Animation.enlarge((Shape) e.getSource(), Color.rgb(56, 56, 56), Color.rgb(126, 96, 191));
     }
     public void button_transition2(MouseEvent e) {
-        Animation.en_small((Node) e.getSource());
+        Animation.en_small((Shape) e.getSource(), Color.rgb(126, 96, 191), Color.rgb(56, 56, 56));
     }
-    public void submit(ActionEvent actionEvent) throws IOException, ClassNotFoundException {
+    public void submit(MouseEvent actionEvent) throws IOException, ClassNotFoundException {
         File f = new File("visitor.dat");
         ObjectInputStream ois = new ObjectInputStream(new FileInputStream(f));
         ArrayList<Visitor> visitors = (ArrayList<Visitor>) ois.readObject();
