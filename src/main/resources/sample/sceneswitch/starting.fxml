@@ -12,45 +12,53 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #1e1e1e;" stylesheets="@application.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.sceneswitch.LoginController">
    <children>
-      <ImageView fitHeight="600.0" fitWidth="800.0" layoutX="6.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.6666666666667425" AnchorPane.leftAnchor="6.0" AnchorPane.rightAnchor="-5.3333333333332575" AnchorPane.topAnchor="0.0">
-         <image>
-            <Image url="@Asset_13.png" />
-         </image>
-      </ImageView>
-      <TextField fx:id="textfield01" layoutX="69.0" layoutY="259.0" prefHeight="36.0" prefWidth="276.0" promptText="Enter Your Username" styleClass="text-field_B">
-         <font>
-            <Font size="14.0" />
-         </font></TextField>
-      <Button fx:id="submitbutton" layoutX="236.0" layoutY="431.0" mnemonicParsing="false" onAction="#submit" prefHeight="40.0" prefWidth="108.0" styleClass="button_custom" text="LOGIN" />
-      <Button fx:id="submitbutton1" layoutX="309.0" layoutY="42.0" mnemonicParsing="false" onAction="#switch_to_register" prefHeight="40.0" prefWidth="119.0" styleClass="butto_222" text="Register" />
-      <Label layoutX="74.0" layoutY="211.0" prefHeight="40.0" prefWidth="137.0" styleClass="label_login" text="Username">
-         <font>
-            <Font size="16.0" />
-         </font></Label>
-      <Label layoutX="74.0" layoutY="323.0" prefHeight="25.0" prefWidth="127.0" styleClass="label_login" text="Password">
-         <font>
-            <Font size="16.0" />
-         </font></Label>
-      <PasswordField fx:id="passfield" layoutX="69.0" layoutY="362.0" prefHeight="36.0" prefWidth="278.0" promptText="Enter Your Password" styleClass="text-field_B">
-         <font>
-            <Font size="14.0" />
-         </font></PasswordField>
-      <Label fx:id="mylabel" alignment="CENTER" layoutX="91.0" layoutY="522.0" minWidth="50.0" prefHeight="30.0" prefWidth="331.0" styleClass="label_login" text="Label">
-         <font>
-            <Font size="23.0" />
-         </font>
-      </Label>
-      <Button layoutX="213.0" layoutY="42.0" mnemonicParsing="false" styleClass="butto_222" stylesheets="@application.css" text="Login" />
-      <ImageView fitHeight="50.0" fitWidth="128.0" layoutX="37.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@Asset_15.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="78.0" fitWidth="279.0" layoutX="469.0" layoutY="302.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@Asset_14.png" />
-         </image>
-      </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9332d8" height="5.0" layoutX="221.0" layoutY="83.0" stroke="BLACK" strokeType="INSIDE" width="65.0" />
+      <AnchorPane fx:id="anchor" layoutX="6.0" prefHeight="600.0" prefWidth="806.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fitHeight="600.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Asset_13.png" />
+               </image>
+            </ImageView>
+            <TextField fx:id="textfield01" layoutX="63.0" layoutY="225.0" prefHeight="36.0" prefWidth="276.0" promptText="Enter Your Username" styleClass="text-field_B">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <Button fx:id="submitbutton" layoutX="230.0" layoutY="397.0" mnemonicParsing="false" onAction="#submit" prefHeight="40.0" prefWidth="108.0" styleClass="button_custom" text="LOGIN" />
+            <Button fx:id="submitbutton1" layoutX="303.0" layoutY="30.0" mnemonicParsing="false" onAction="#switch_to_register" prefHeight="40.0" prefWidth="119.0" styleClass="butto_222" text="Register" />
+            <Label layoutX="68.0" layoutY="177.0" prefHeight="40.0" prefWidth="137.0" styleClass="label_login" text="Username">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="68.0" layoutY="289.0" prefHeight="25.0" prefWidth="127.0" styleClass="label_login" text="Password">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <PasswordField fx:id="passfield" layoutX="63.0" layoutY="328.0" prefHeight="36.0" prefWidth="278.0" promptText="Enter Your Password" styleClass="text-field_B">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </PasswordField>
+            <Label fx:id="mylabel" alignment="CENTER" layoutX="85.0" layoutY="522.0" minWidth="50.0" prefHeight="30.0" prefWidth="331.0" styleClass="label_login" text="Label">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+            <Button layoutX="207.0" layoutY="30.0" mnemonicParsing="false" styleClass="butto_222" stylesheets="@application.css" text="Login" />
+            <ImageView fitHeight="50.0" fitWidth="89.0" layoutX="46.0" layoutY="37.8" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Asset_15.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="78.0" fitWidth="279.0" layoutX="463.0" layoutY="302.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Asset_14.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9332d8" height="5.0" layoutX="215.0" layoutY="72.0" stroke="BLACK" strokeType="INSIDE" width="65.0" />
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>
