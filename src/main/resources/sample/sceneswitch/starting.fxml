@@ -24,8 +24,7 @@
                   <Font size="14.0" />
                </font>
             </TextField>
-            <Button fx:id="submitbutton" layoutX="230.0" layoutY="397.0" mnemonicParsing="false" onAction="#submit" prefHeight="40.0" prefWidth="108.0" styleClass="button_custom" text="LOGIN" />
-            <Button fx:id="submitbutton1" layoutX="303.0" layoutY="30.0" mnemonicParsing="false" onAction="#switch_to_register" prefHeight="40.0" prefWidth="119.0" styleClass="butto_222" text="Register" />
+            <Button fx:id="submitbutton" layoutX="230.0" layoutY="397.0" mnemonicParsing="false" onAction="#submit" onMouseEntered="#button_transition" onMouseExited="#button_transition2" prefHeight="40.0" prefWidth="108.0" styleClass="button_custom" text="LOGIN" />
             <Label layoutX="68.0" layoutY="177.0" prefHeight="40.0" prefWidth="137.0" styleClass="label_login" text="Username">
                <font>
                   <Font size="16.0" />
@@ -46,18 +45,23 @@
                   <Font size="23.0" />
                </font>
             </Label>
-            <Button layoutX="207.0" layoutY="30.0" mnemonicParsing="false" styleClass="butto_222" stylesheets="@application.css" text="Login" />
-            <ImageView fitHeight="50.0" fitWidth="89.0" layoutX="46.0" layoutY="37.8" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@Asset_15.png" />
-               </image>
-            </ImageView>
             <ImageView fitHeight="78.0" fitWidth="279.0" layoutX="463.0" layoutY="302.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Asset_14.png" />
                </image>
             </ImageView>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9332d8" height="5.0" layoutX="215.0" layoutY="72.0" stroke="BLACK" strokeType="INSIDE" width="65.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="46.0" layoutY="37.8">
+         <children>
+            <Button fx:id="submitbutton1" layoutX="257.0" mnemonicParsing="false" onAction="#switch_to_register" prefHeight="40.0" prefWidth="119.0" styleClass="butto_222" text="Register" />
+            <Button layoutX="161.0" mnemonicParsing="false" styleClass="butto_222" stylesheets="@application.css" text="Login" />
+            <ImageView fitHeight="50.0" fitWidth="89.0" layoutY="7.799999237060547" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Asset_15.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9332d8" height="5.0" layoutX="169.0" layoutY="42.0" stroke="BLACK" strokeType="INSIDE" width="65.0" />
          </children>
       </AnchorPane>
    </children>

@@ -33,6 +33,8 @@ public class LoginController implements Initializable {
     private PasswordField passfield;
     @FXML
     private AnchorPane anchor;
+    @FXML
+    private Button submitbutton;
     //public static Visitor CurrentVisitor;
 
     int age;
@@ -45,7 +47,12 @@ public class LoginController implements Initializable {
         Animation.fade_transition(anchor,"register.fxml");
 
     }
-
+    public void button_transition(MouseEvent e) {
+        Animation.enlarge((Node) e.getSource());
+    }
+    public void button_transition2(MouseEvent e) {
+        Animation.en_small((Node) e.getSource());
+    }
     public void submit(ActionEvent actionEvent) throws IOException, ClassNotFoundException {
         File f = new File("visitor.dat");
         ObjectInputStream ois = new ObjectInputStream(new FileInputStream(f));

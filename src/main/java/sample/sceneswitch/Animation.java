@@ -2,6 +2,7 @@ package sample.sceneswitch;
 
 import javafx.animation.FadeTransition;
 import javafx.animation.KeyFrame;
+import javafx.animation.ScaleTransition;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -13,6 +14,9 @@ import javafx.util.Duration;
 import java.io.IOException;
 
 public class Animation {
+
+
+    static ScaleTransition st;
 
     public static void fade_transition(Node button,String path) {  // Still needs configuration
         FadeTransition ft = new FadeTransition(Duration.millis(250), button);
@@ -34,11 +38,27 @@ public class Animation {
     }
 
     public static void fade_in(Node button){
-        FadeTransition ft = new FadeTransition(Duration.millis(250), button);
+        FadeTransition ft = new FadeTransition(Duration.millis(450), button);
         button.setOpacity(0.0);
         ft.setFromValue(0.0);
         ft.setToValue(1.0);
         ft.play();
+    }
+    public static void enlarge(Node button){
+        st = new ScaleTransition(Duration.millis(250), button);
+        st.setFromX(1.0);
+        st.setFromY(1.0);
+        st.setToX(1.2);
+        st.setToY(1.2);
+        st.play();
+    }
+    public static void en_small(Node button){
+        st = new ScaleTransition(Duration.millis(250), button);
+        st.setFromX(1.2);
+        st.setFromY(1.2);
+        st.setToX(1.0);
+        st.setToY(1.0);
+        st.play();
     }
 
 
