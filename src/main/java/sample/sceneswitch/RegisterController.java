@@ -9,6 +9,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.*;
@@ -34,6 +36,8 @@ public class RegisterController implements Initializable {
     private PasswordField confirmpassfield;
     @FXML
     private Label reactivelabel;
+    @FXML
+    private AnchorPane anchor;
 
 
 
@@ -41,14 +45,19 @@ public class RegisterController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         choicebox01.getItems().addAll(acc_types);
+        Animation.fade_in(anchor);
 
 
     }
+    public void button_transition(MouseEvent e) {
+        Animation.enlarge((Node) e.getSource());
+    }
+    public void button_transition2(MouseEvent e) {
+        Animation.en_small((Node) e.getSource());
+    }
 
     public void switch_to_main (ActionEvent e) throws IOException {
-        HelloApplication h = new HelloApplication();
-        h.changescene("starting.fxml");
-
+        Animation.fade_transition(anchor,"starting.fxml");
     }
 
     public void create_new() throws IOException, ClassNotFoundException {

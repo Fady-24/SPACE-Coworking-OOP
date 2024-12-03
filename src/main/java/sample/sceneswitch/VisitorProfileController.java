@@ -26,11 +26,11 @@ public class VisitorProfileController implements Initializable {
         HelloApplication h = new HelloApplication();
         h.changescene("starting.fxml");
     }
-    public void prof_hover(MouseEvent e) throws IOException {
-
-        Animation.fade_transition((Button) e.getSource() );
-
-    }
+//    public void prof_hover(MouseEvent e) throws IOException {
+//
+//        Animation.fade_transition((Button) e.getSource() );
+//
+//    }
     public void show_pass(ActionEvent e) {
         if (passtoggle.isSelected()) {
             passwordlabel.setText("PASSWORD: " + v.getPassword());
