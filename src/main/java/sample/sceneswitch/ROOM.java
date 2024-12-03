@@ -14,6 +14,7 @@ public abstract class ROOM {
         this.num_of_rooms = num_of_rooms;
         this.List_of_Visitors = List_of_Visitors;
         this.List_of_Slots = List_of_Slots;
+        //k
     }
 
 
