@@ -8,12 +8,8 @@ import java.io.IOException;
 
 public class AdminController {
 
-    @FXML
-    private Button logout;
-
     public void log_out(ActionEvent event) throws IOException {
         HelloApplication h = new HelloApplication();
         h.changescene("starting.fxml");
-
     }
 }
