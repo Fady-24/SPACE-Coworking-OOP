@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -21,7 +22,7 @@ import java.util.ArrayList;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-public class LoginController{
+public class LoginController implements Initializable {
     @FXML
     private TextField textfield01;
     private Button button01;
@@ -30,6 +31,10 @@ public class LoginController{
 
     @FXML
     private PasswordField passfield;
+    @FXML
+    private AnchorPane anchor;
+    @FXML
+    private Button submitbutton;
     //public static Visitor CurrentVisitor;
 
     int age;
@@ -39,11 +44,15 @@ public class LoginController{
     @FXML
     public static Visitor Currentvisitor;
     public void switch_to_register (ActionEvent e) throws IOException {
-        HelloApplication h = new HelloApplication();
-        h.changescene("register.fxml");
+        Animation.fade_transition(anchor,"register.fxml");
 
     }
-
+    public void button_transition(MouseEvent e) {
+        Animation.enlarge((Node) e.getSource());
+    }
+    public void button_transition2(MouseEvent e) {
+        Animation.en_small((Node) e.getSource());
+    }
     public void submit(ActionEvent actionEvent) throws IOException, ClassNotFoundException {
         File f = new File("visitor.dat");
         ObjectInputStream ois = new ObjectInputStream(new FileInputStream(f));
@@ -73,9 +82,8 @@ public class LoginController{
        }
     }
 
-
-
-
-
-
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        Animation.fade_in(anchor);
+    }
 }

@@ -1,0 +1,71 @@
+.text-field_B {
+    -fx-text-fill: white;
+    -fx-font-size: 16;
+    -fx-font-family: Cairo;
+    -fx-background-radius: 10;
+    -fx-background-color: #383838;
+}
+.text-field_B:focused{
+    -fx-border-color: #FF8057;
+    -fx-border-radius:10;
+    -fx-border-width: 1;
+}
+.button_custom {
+    transition-property: -fx-background-color;
+    transition-duration: 0.5s;
+    -fx-text-fill: white;
+    -fx-font-family: "Poppins";
+    -fx-font-weight: bold;
+    -fx-font-size:16;
+    -fx-background-radius: 15;
+    -fx-background-color: #383838;
+}
+.button_custom:hover {
+    -fx-text-fill: white;
+    -fx-background-color: #FF8057;
+}
+.label_login {
+    -fx-text-fill: White;
+    -fx-font-family: "Poppins";
+    -fx-font-size: 20;
+}
+.combo-box{
+    -fx-background-color:#383838;
+    -fx-background-radius: 10;
+}
+.combo-box .list-view {
+    -fx-background-color:#383838;
+    -fx-background-radius: 10;
+}
+.combo-box .list-cell{
+    -fx-background-color: transparent;
+    -fx-font-family: "Poppins";
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 15;
+}
+.combo-box .list-cell:selected:filled {
+    -fx-text-fill: white;
+    -fx-font-size: 15;
+}
+.combo-box .list-cell:hover{
+    -fx-background-radius: 10;
+    -fx-background-color: #FF8057;
+}
+.combo-box .arrow-button .arrow{
+    -fx-background-color: white;
+}
+.butto_222 {
+    -fx-opacity: 0.7;
+    transition-property: -fx-opacity;
+    transition-duration: 0.5s;
+    -fx-text-fill: white;
+    -fx-font-family: "Poppins";
+    -fx-background-color: transparent;
+    -fx-font-size: 20;
+
+}
+.butto_222:hover{
+    -fx-opacity: 1;
+    -fx-font-weight: bold;
+}

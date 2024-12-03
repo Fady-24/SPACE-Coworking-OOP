@@ -2,24 +2,64 @@ package sample.sceneswitch;
 
 import javafx.animation.FadeTransition;
 import javafx.animation.KeyFrame;
+import javafx.animation.ScaleTransition;
 import javafx.animation.Timeline;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 
+import java.io.IOException;
+
 public class Animation {
 
-    public static void fade_transition(Node button) {  // Still needs configuration
-        FadeTransition ft = new FadeTransition(Duration.millis(500), button);
-        button.setOpacity(0.7);
-        ft.setFromValue(0.7);
-        ft.setToValue(1.0);
-        ft.autoReverseProperty().set(true);
 
+    static ScaleTransition st;
+
+    public static void fade_transition(Node button,String path) {  // Still needs configuration
+        FadeTransition ft = new FadeTransition(Duration.millis(250), button);
+        ft.setFromValue(1.0);
+        ft.setToValue(0);
+
+        ft.setOnFinished((ActionEvent event) -> {
+           HelloApplication h = new HelloApplication();
+            try {
+                h.changescene(path);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
+        });
+
+
+        ft.play();
     }
 
-
+    public static void fade_in(Node button){
+        FadeTransition ft = new FadeTransition(Duration.millis(450), button);
+        button.setOpacity(0.0);
+        ft.setFromValue(0.0);
+        ft.setToValue(1.0);
+        ft.play();
+    }
+    public static void enlarge(Node button){
+        st = new ScaleTransition(Duration.millis(250), button);
+        st.setFromX(1.0);
+        st.setFromY(1.0);
+        st.setToX(1.2);
+        st.setToY(1.2);
+        st.play();
+    }
+    public static void en_small(Node button){
+        st = new ScaleTransition(Duration.millis(250), button);
+        st.setFromX(1.2);
+        st.setFromY(1.2);
+        st.setToX(1.0);
+        st.setToY(1.0);
+        st.play();
+    }
 
 
     public static void animate(ImageView imageView) {
