@@ -1,6 +1,7 @@
 module sample.sceneswitch {
     requires java.sql;
-    requires MaterialFX;
+    requires javafx.fxml;
+    requires javafx.controls;
 
 
     opens sample.sceneswitch to javafx.fxml;
