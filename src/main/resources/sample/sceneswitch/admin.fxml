@@ -10,12 +10,12 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.sceneswitch.AdminController">
    <children>
-      <ImageView fx:id="anchor" fitHeight="600.0" fitWidth="828.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-28.0" AnchorPane.topAnchor="0.0">
+      <ImageView fitHeight="671.0" fitWidth="1162.0" layoutX="-213.0" layoutY="-20.0" opacity="0.33" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Asset_26.png" />
+            <Image url="@Asset_40.jpg" />
          </image>
       </ImageView>
-      <StackPane fx:id="stack" onMouseEntered="#hover_in" onMouseExited="#hover_out" prefHeight="600.0" prefWidth="819.0" />
+      <StackPane fx:id="stack" layoutX="1.0" layoutY="7.0" onMouseEntered="#hover_in" onMouseExited="#hover_out" prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="-7.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="7.0" />
       <Button layoutX="61.0" layoutY="513.0" mnemonicParsing="false" onAction="#log_out" prefHeight="39.0" prefWidth="101.0" styleClass="button_custom" stylesheets="@application.css" text="LOGOUT" />
       <ImageView layoutX="20.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -33,7 +33,7 @@
          </font>
       </Label>
       <ImageView layoutX="29.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="visitors" fitWidth="223.0" layoutX="29.0" layoutY="150.0" onMouseEntered="#hover_in" onMouseExited="#hover_out" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="visitors" fitWidth="223.0" layoutX="20.0" layoutY="149.0" onMouseClicked="#switch_to_visitor" onMouseEntered="#hover_in" onMouseExited="#hover_out" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Asset_27.png" />
          </image>

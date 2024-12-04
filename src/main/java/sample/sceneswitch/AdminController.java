@@ -27,6 +27,9 @@ public class AdminController {
         HelloApplication h = new HelloApplication();
         h.changescene("starting.fxml");
     }
+    public void switch_to_visitor (MouseEvent e) throws IOException {
+        Animation.fade_transition((Node)e.getSource(),"Visitor.fxml");
+    }
 
     public void hover_in(MouseEvent actionEvent) throws IOException  {
         Animation.enlarge_image((Node)actionEvent.getSource());
@@ -84,5 +87,6 @@ public class AdminController {
     public void hover_out(MouseEvent actionEvent) throws IOException  {
         Animation.ensmall_image((Node)actionEvent.getSource());
     }
+
 
 }

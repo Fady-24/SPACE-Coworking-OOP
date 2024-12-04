@@ -50,7 +50,6 @@ public class LoginController implements Initializable {
     public static Visitor Currentvisitor;
     public void switch_to_register (ActionEvent e) throws IOException {
         Animation.fade_transition(anchor,"register.fxml");
-
     }
     public void button_transition(MouseEvent e) {
         Animation.enlarge((Shape) e.getSource(), Color.rgb(56, 56, 56), Color.rgb(126, 96, 191));

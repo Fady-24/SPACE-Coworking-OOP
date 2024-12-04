@@ -36,12 +36,10 @@ public class HelloApplication extends Application {
         primaryStage.setResizable(false);
         primaryStage.setScene(scene);
         primaryStage.show();
-
     }
     public void changescene (String fxml) throws IOException {
          Parent changeRoot = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(fxml))) ;
          stg.getScene().setRoot(changeRoot);
          stg.show();
-
     }
 }
