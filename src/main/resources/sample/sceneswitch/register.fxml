@@ -15,24 +15,24 @@
    <children>
       <AnchorPane fx:id="anchor" layoutX="9.0" layoutY="10.0" prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <ImageView fitHeight="600.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="600.0" fitWidth="800.0" layoutX="7.0" pickOnBounds="true">
                <image>
                   <Image url="@Asset_16.png" />
                </image>
             </ImageView>
             <TextField fx:id="namefield" layoutX="61.0" layoutY="152.0" prefHeight="25.0" prefWidth="252.0" styleClass="text-field_B" />
             <ComboBox fx:id="choicebox01" layoutX="61.0" layoutY="412.0" prefHeight="43.0" prefWidth="246.0" promptText="VISITOR TYPE" />
-            <Label layoutX="66.0" layoutY="120.0" prefHeight="32.0" prefWidth="189.0" styleClass="label_login" text="ENTER YOUR NAME">
+            <Label layoutX="66.0" layoutY="120.0" prefHeight="32.0" prefWidth="189.0" styleClass="label_login" stylesheets="@application.css" text="ENTER YOUR NAME">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="66.0" layoutY="199.0" prefHeight="32.0" prefWidth="166.0" styleClass="label_login" text="PASSWORD">
+            <Label layoutX="66.0" layoutY="199.0" prefHeight="32.0" prefWidth="166.0" styleClass="label_login" stylesheets="@application.css" text="PASSWORD">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="61.0" layoutY="315.0" prefHeight="32.0" prefWidth="278.0" styleClass="label_login" text="CONFIRM YOUR PASSWORD">
+            <Label layoutX="61.0" layoutY="315.0" prefHeight="32.0" prefWidth="278.0" styleClass="label_login" stylesheets="@application.css" text="CONFIRM YOUR PASSWORD">
                <font>
                   <Font size="18.0" />
                </font>

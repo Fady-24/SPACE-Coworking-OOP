@@ -75,8 +75,9 @@
 
 .label_login {
     -fx-text-fill: White;
+    -fx-font-weight: bold;
     -fx-font-family: "Poppins";
-    -fx-font-size: 20;
+    -fx-font-size: 18;
 }
 
 .combo-box{

@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.effect.GaussianBlur;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -23,6 +24,8 @@ public class AdminController {
     @FXML
     private ImageView Slots,Rooms,visitors,anchor;
     private boolean v_selected,r_selected,s_selected;
+    @FXML
+    private Label v_info,r_info,s_info;
     public void log_out(ActionEvent event) throws IOException {
         HelloApplication h = new HelloApplication();
         h.changescene("starting.fxml");
@@ -61,24 +64,37 @@ public class AdminController {
         }
         if(v_selected==true)
         {
+//            Animation.fade_in(v_info);
+//            Animation.fade_out(r_info);
+//            Animation.fade_out(s_info);
             Rooms.setEffect(Animation.blur);
             Slots.setEffect(Animation.blur);
             visitors.setEffect(null);
         }
         else if (r_selected==true)
         {
+//            Animation.fade_in(r_info);
+//            Animation.fade_out(v_info);
+//            Animation.fade_out(s_info);
             Rooms.setEffect(null);
             Slots.setEffect(Animation.blur);
             visitors.setEffect(Animation.blur);
         }
         else if (s_selected==true)
         {
+//            Animation.fade_in(s_info);
+//            Animation.fade_out(v_info);
+//            Animation.fade_out(r_info);
             Rooms.setEffect(Animation.blur);
             Slots.setEffect(null);
             visitors.setEffect(Animation.blur);
         }
         else
         {
+//            Animation.fade_out(v_info);
+//            Animation.fade_out(r_info);
+//            Animation.fade_out(s_info);
+
             Rooms.setEffect(null);
             Slots.setEffect(null);
             visitors.setEffect(null);

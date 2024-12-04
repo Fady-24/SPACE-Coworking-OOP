@@ -42,18 +42,19 @@ public class Animation {
     }
 
     public static void fade_in(Node button){
-        FadeTransition ft = new FadeTransition(Duration.millis(450), button);
+        FadeTransition ft = new FadeTransition(Duration.millis(300), button);
         button.setOpacity(0.0);
         ft.setFromValue(0.0);
         ft.setToValue(1.0);
         ft.play();
     }
     public static void fade_out(Node button){
-        FadeTransition ft = new FadeTransition(Duration.millis(450), button);
+        FadeTransition ft = new FadeTransition(Duration.millis(300), button);
         ft.setFromValue(button.getOpacity());
         ft.setToValue(0.0);
         ft.play();
     }
+
     public static void enlarge(Shape button, Color colorfrom, Color colorto) {
         FillTransition fl = new FillTransition(Duration.millis(500), button);
         fl.setFromValue(colorfrom);
