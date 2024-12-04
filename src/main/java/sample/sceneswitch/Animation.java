@@ -5,9 +5,14 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.effect.BoxBlur;
+import javafx.scene.effect.Effect;
+import javafx.scene.effect.GaussianBlur;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Shape;
+import javafx.scene.text.Text;
 import javafx.util.Duration;
 
 import java.io.IOException;
@@ -47,9 +52,24 @@ public class Animation {
         FillTransition fl = new FillTransition(Duration.millis(500), button);
         fl.setFromValue(colorfrom);
         fl.setToValue(colorto);
-        System.out.println("ay 7aga");
         fl.play();
 
+    }
+    public static void enlarge_image(Node image) {
+        ScaleTransition st = new ScaleTransition(Duration.millis(300), image);
+        st.setFromX(1.0);
+        st.setFromY(1.0);
+        st.setToX(1.2);
+        st.setToY(1.2);
+        st.play();
+    }
+    public static void ensmall_image(Node image) {
+        ScaleTransition st = new ScaleTransition(Duration.millis(300), image);
+        st.setFromX(1.2);
+        st.setFromY(1.2);
+        st.setToX(1.0);
+        st.setToY(1.0);
+        st.play();
     }
     public static void en_small(Shape button, Color colorfrom, Color colorto) {
         FillTransition fl = new FillTransition(Duration.millis(500), button);
@@ -90,4 +110,7 @@ public class Animation {
         timeline.setCycleCount(Timeline.INDEFINITE); // Repeat the animation indefinitely
         timeline.play();
     }
+    public static Effect blur=new BoxBlur(5.0,5.0,1);
+
+
 }
