@@ -1,0 +1,6 @@
+.label_info{
+    -fx-text-fill: white;
+    -fx-font-size: 18;
+    -fx-font-family: Monaco;
+    -fx-effect: dropshadow(gaussian , black , 10 , 0.3 ,2 ,2 );
+}

@@ -24,12 +24,12 @@
                   <Font size="14.0" />
                </font>
             </TextField>
-            <Label layoutX="68.0" layoutY="177.0" prefHeight="40.0" prefWidth="137.0" styleClass="label_login" text="Username">
+            <Label layoutX="68.0" layoutY="185.0" prefHeight="40.0" prefWidth="137.0" styleClass="label_login" text="Username">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label layoutX="68.0" layoutY="289.0" prefHeight="25.0" prefWidth="127.0" styleClass="label_login" text="Password">
+            <Label layoutX="68.0" layoutY="299.0" prefHeight="25.0" prefWidth="127.0" styleClass="label_login" text="Password">
                <font>
                   <Font size="16.0" />
                </font>
