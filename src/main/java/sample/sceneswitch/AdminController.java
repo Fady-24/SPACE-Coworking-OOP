@@ -31,33 +31,55 @@ public class AdminController {
     public void hover_in(MouseEvent actionEvent) throws IOException  {
         Animation.enlarge_image((Node)actionEvent.getSource());
         if((Node)actionEvent.getSource()==visitors){
-            Rooms.setEffect(Animation.blur);
-            Slots.setEffect(Animation.blur);
+//            Rooms.setEffect(Animation.blur);
+//            Slots.setEffect(Animation.blur);
             v_selected=true;
             r_selected=false;
             s_selected=false;
         } else if ((Node)actionEvent.getSource()==Rooms) {
-            visitors.setEffect(Animation.blur);
-            Slots.setEffect(Animation.blur);
+//            visitors.setEffect(Animation.blur);
+//            Slots.setEffect(Animation.blur);
             v_selected=false;
             r_selected=true;
             s_selected=false;
         } else if ((Node)actionEvent.getSource()==Slots) {
-            visitors.setEffect(Animation.blur);
-            Rooms.setEffect(Animation.blur);
+//            visitors.setEffect(Animation.blur);
+//            Rooms.setEffect(Animation.blur);
             v_selected = false;
             r_selected = false;
             s_selected = true;
         }else if((Node)actionEvent.getSource()==stack) {
-            visitors.setEffect(null);
-            Rooms.setEffect(null);
-            Slots.setEffect(null);
+//            visitors.setEffect(null);
+//            Rooms.setEffect(null);
+//            Slots.setEffect(null);
             v_selected = false;
             r_selected = false;
             s_selected = false;
         }
-
-
+        if(v_selected==true)
+        {
+            Rooms.setEffect(Animation.blur);
+            Slots.setEffect(Animation.blur);
+            visitors.setEffect(null);
+        }
+        else if (r_selected==true)
+        {
+            Rooms.setEffect(null);
+            Slots.setEffect(Animation.blur);
+            visitors.setEffect(Animation.blur);
+        }
+        else if (s_selected==true)
+        {
+            Rooms.setEffect(Animation.blur);
+            Slots.setEffect(null);
+            visitors.setEffect(Animation.blur);
+        }
+        else
+        {
+            Rooms.setEffect(null);
+            Slots.setEffect(null);
+            visitors.setEffect(null);
+        }
     }
     public void hover_out(MouseEvent actionEvent) throws IOException  {
         Animation.ensmall_image((Node)actionEvent.getSource());
