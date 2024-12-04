@@ -25,7 +25,7 @@
             <Image url="@Asset_26_1.png" />
          </image>
       </ImageView>
-      <Label layoutX="672.0" layoutY="28.0" prefHeight="15.0" prefWidth="45.0" text="Admin" textFill="WHITE">
+      <Label layoutX="675.0" layoutY="30.0" prefHeight="15.0" prefWidth="45.0" text="Admin" textFill="WHITE">
          <font>
             <Font size="15.0" />
          </font>
@@ -35,7 +35,7 @@
             <Image url="@Asset_15.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="search" fitHeight="24.0" fitWidth="29.0" layoutX="474.0" layoutY="134.0" onMouseClicked="#search" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="search" fitHeight="21.0" fitWidth="23.0" layoutX="478.0" layoutY="135.0" onMouseClicked="#search" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Asset_36.png" />
          </image>
@@ -52,27 +52,11 @@
       </TextField>
       <AnchorPane fx:id="visitorinfo" layoutX="37.0" layoutY="198.0" opacity="0.0" prefHeight="356.0" prefWidth="734.0">
          <children>
-            <Label fx:id="visitorid" layoutX="2.0" prefHeight="60.0" prefWidth="155.0" text="VISITOR ID:" textFill="WHITE">
-               <font>
-                  <Font name="Poppins Medium" size="24.0" />
-               </font>
-            </Label>
-            <Label fx:id="visitortotalhours" layoutX="2.0" layoutY="203.0" prefHeight="38.0" prefWidth="387.0" text="VISITOR TOTAL HOURS:" textFill="WHITE">
-               <font>
-                  <Font name="Poppins Medium" size="24.0" />
-               </font>
-            </Label>
-            <Label fx:id="visitorname" layoutY="61.0" prefHeight="60.0" prefWidth="396.0" text="VISITOR NAME:" textFill="WHITE">
-               <font>
-                  <Font name="Poppins Medium" size="24.0" />
-               </font>
-            </Label>
-            <Label fx:id="visitortype" layoutX="2.0" layoutY="131.0" prefHeight="54.0" prefWidth="376.0" text="VISITOR TYPE:" textFill="WHITE">
-               <font>
-                  <Font name="Poppins Medium" size="24.0" />
-               </font>
-            </Label>
-            <ImageView fitHeight="255.0" fitWidth="270.0" layoutX="477.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+            <Label fx:id="visitorid" layoutX="31.0" layoutY="35.0" prefHeight="60.0" prefWidth="155.0" styleClass="label_info" stylesheets="@Register.css" text="VISITOR ID :" textFill="WHITE" />
+            <Label fx:id="visitortotalhours" layoutX="35.0" layoutY="185.0" prefHeight="38.0" prefWidth="387.0" styleClass="label_info" stylesheets="@Register.css" text="VISITOR TOTAL HOURS :" textFill="WHITE" />
+            <Label fx:id="visitorname" layoutX="31.0" layoutY="81.0" prefHeight="60.0" prefWidth="396.0" styleClass="label_info" stylesheets="@Register.css" text="VISITOR NAME :" textFill="WHITE" />
+            <Label fx:id="visitortype" layoutX="35.0" layoutY="131.0" prefHeight="54.0" prefWidth="376.0" styleClass="label_info" stylesheets="@Register.css" text="VISITOR TYPE :" textFill="WHITE" />
+            <ImageView layoutX="429.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Asset_35.png" />
                </image>

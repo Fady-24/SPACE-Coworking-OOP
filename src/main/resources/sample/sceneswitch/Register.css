@@ -29,6 +29,12 @@
     -fx-font-family: "Poppins";
     -fx-font-size: 20;
 }
+.label_info {
+    -fx-text-fill: White;
+    -fx-font-family: "Poppins";
+    -fx-font-weight: 500;
+    -fx-font-size: 20;
+}
 .combo-box{
     -fx-background-color:#383838;
     -fx-background-radius: 10;

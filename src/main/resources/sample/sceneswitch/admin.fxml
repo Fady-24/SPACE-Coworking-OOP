@@ -8,21 +8,21 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pickOnBounds="false" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #1E1E1E;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.sceneswitch.AdminController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.sceneswitch.AdminController">
    <children>
-      <ImageView fx:id="anchor" fitHeight="600.0" fitWidth="828.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-28.0" AnchorPane.topAnchor="0.0">
+      <ImageView fitHeight="671.0" fitWidth="1162.0" layoutX="-225.0" layoutY="-27.0" opacity="0.33" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@guibg.png" />
+            <Image url="@Asset_40.jpg" />
          </image>
       </ImageView>
-      <StackPane fx:id="stack" onMouseEntered="#hover_in" onMouseExited="#hover_out" prefHeight="600.0" prefWidth="800.0" />
+      <StackPane fx:id="stack" layoutX="1.0" layoutY="7.0" onMouseEntered="#hover_in" onMouseExited="#hover_out" prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="-7.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="7.0" />
       <Button layoutX="61.0" layoutY="513.0" mnemonicParsing="false" onAction="#log_out" prefHeight="39.0" prefWidth="101.0" styleClass="button_custom" stylesheets="@application.css" text="LOGOUT" />
-      <ImageView layoutX="35.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView layoutX="20.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Asset_15.png" />
          </image>
       </ImageView>
-      <ImageView layoutX="34.0" layoutY="78.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView layoutX="19.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Asset_25.png" />
          </image>
@@ -33,14 +33,14 @@
          </font>
       </Label>
       <ImageView layoutX="29.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="visitors" fitWidth="223.0" layoutX="36.0" layoutY="150.0" onMouseClicked="#switch_to_visitor" onMouseEntered="#hover_in" onMouseExited="#hover_out" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="visitors" fitWidth="223.0" layoutX="20.0" layoutY="149.0" onMouseClicked="#switch_to_visitor" onMouseEntered="#hover_in" onMouseExited="#hover_out" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Asset%2031.png" />
+            <Image url="@Asset_27.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="Rooms" fitHeight="315.0" fitWidth="223.0" layoutX="296.0" layoutY="150.0" onMouseEntered="#hover_in" onMouseExited="#hover_out" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="Rooms" fitHeight="315.0" fitWidth="223.0" layoutX="289.0" layoutY="150.0" onMouseEntered="#hover_in" onMouseExited="#hover_out" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Asset%2032.png" />
+            <Image url="@Asset_28.png" />
          </image>
       </ImageView>
       <ImageView layoutX="688.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
@@ -48,13 +48,10 @@
             <Image url="@Asset_262.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="Slots" fitHeight="315.0" fitWidth="223.0" layoutX="553.0" layoutY="150.0" onMouseEntered="#hover_in" onMouseExited="#hover_out" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="Slots" fitHeight="315.0" fitWidth="223.0" layoutX="546.0" layoutY="150.0" onMouseEntered="#hover_in" onMouseExited="#hover_out" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Asset%2033.png" />
+            <Image url="@Asset_29.png" />
          </image>
       </ImageView>
-      <Label layoutX="71.0" layoutY="379.0" mouseTransparent="true" opacity="0.0" style="-fx-effect: shadow;" styleClass="label_info" stylesheets="@admin_home.css" text="MANAGE VISITORS" />
-      <Label layoutX="336.0" layoutY="379.0" mouseTransparent="true" opacity="0.0" style="-fx-effect: shadow;" styleClass="label_info" stylesheets="@admin_home.css" text="MANAGE ROOMS" />
-      <Label layoutX="566.0" layoutY="379.0" mouseTransparent="true" opacity="0.0" style="-fx-effect: shadow;" styleClass="label_info" stylesheets="@admin_home.css" text="ADD OR REMOVE SLOTS" />
    </children>
 </AnchorPane>
