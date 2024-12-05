@@ -33,6 +33,8 @@ public class HelloApplication extends Application {
         Scene scene = new Scene(root2);
         String CSS = Objects.requireNonNull(this.getClass().getResource("application.css")).toExternalForm();
         scene.getStylesheets().add(CSS);
+        primaryStage.setWidth(800);
+        primaryStage.setHeight(600);
         primaryStage.setResizable(false);
         primaryStage.setScene(scene);
         primaryStage.show();

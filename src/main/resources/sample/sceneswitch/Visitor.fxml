@@ -20,17 +20,17 @@
             <Rectangle2D minX="800.0" minY="600.0" width="800.0" />
          </viewport>
       </ImageView>
-      <ImageView fx:id="adminhome" fitHeight="24.0" fitWidth="29.0" layoutX="643.0" layoutY="27.0" onMouseClicked="#adminhome" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="adminhome" layoutX="688.0" layoutY="25.0" onMouseClicked="#adminhome" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Asset_26_1.png" />
          </image>
       </ImageView>
-      <Label layoutX="675.0" layoutY="30.0" prefHeight="15.0" prefWidth="45.0" text="Admin" textFill="WHITE">
+      <Label layoutX="719.0" layoutY="23.0" styleClass="label_info" stylesheets="@admin_home.css" text="Admin" textFill="WHITE">
          <font>
-            <Font size="15.0" />
+            <Font size="18.0" />
          </font>
       </Label>
-      <ImageView layoutX="46.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView layoutX="20.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Asset_15.png" />
          </image>
@@ -40,7 +40,7 @@
             <Image url="@Asset_36.png" />
          </image>
       </ImageView>
-      <Label layoutX="46.0" layoutY="64.0" prefHeight="51.0" prefWidth="208.0" text="VISITORS" textAlignment="CENTER" textFill="WHITE">
+      <Label layoutX="19.0" layoutY="65.0" prefHeight="51.0" prefWidth="208.0" text="VISITORS" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Poppins Medium" size="43.0" />
          </font>

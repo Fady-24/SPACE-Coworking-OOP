@@ -27,8 +27,6 @@
 
 
 .button_custom {
-    transition-property: -fx-background-color;
-    transition-duration: 0.5s;
     -fx-text-fill: white;
     -fx-font-family: "Poppins";
     -fx-font-weight: bold;
@@ -152,4 +150,17 @@
     -fx-font-family: "Bahij Janna";
     -fx-font-weight: bold;
 
+}
+.roomhomepagebuttons {
+    -fx-text-fill: white;
+    -fx-font-family: "Poppins";
+    -fx-font-weight: bold;
+    -fx-font-size:16;
+    -fx-background-radius: 30;
+    -fx-border-radius: 10;
+    -fx-background-color: #383838;
+}
+.roomhomepagebuttons:hover {
+    -fx-text-fill: white;
+    -fx-background-color: #7E60BF;
 }

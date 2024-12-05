@@ -52,10 +52,10 @@ public class LoginController implements Initializable {
         Animation.fade_transition(anchor,"register.fxml");
     }
     public void button_transition(MouseEvent e) {
-        Animation.enlarge((Shape) e.getSource(), Color.rgb(56, 56, 56), Color.rgb(126, 96, 191));
+        Animation.colorfillin((Shape) e.getSource(), Color.rgb(56, 56, 56), Color.rgb(126, 96, 191));
     }
     public void button_transition2(MouseEvent e) {
-        Animation.en_small((Shape) e.getSource(), Color.rgb(126, 96, 191), Color.rgb(56, 56, 56));
+        Animation.colorfillout((Shape) e.getSource(), Color.rgb(126, 96, 191), Color.rgb(56, 56, 56));
     }
     public void submit(MouseEvent actionEvent) throws IOException, ClassNotFoundException {
         File f = new File("visitor.dat");
