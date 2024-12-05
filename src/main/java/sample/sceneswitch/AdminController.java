@@ -33,6 +33,9 @@ public class AdminController {
     public void switch_to_visitor (MouseEvent e) throws IOException {
         Animation.fade_transition((Node)e.getSource(),"Visitor.fxml");
     }
+    public void switch_to_rooms (MouseEvent e) throws IOException {
+        Animation.fade_transition((Node)e.getSource(),"roomhomepage.fxml");
+    }
 
     public void hover_in(MouseEvent actionEvent) throws IOException  {
         Animation.enlarge_image((Node)actionEvent.getSource());

@@ -44,10 +44,10 @@ public class RegisterController implements Initializable {
 
 
     public void button_transition(MouseEvent e) {
-        Animation.enlarge((Shape) e.getSource(), Color.rgb(56, 56, 56), Color.rgb(255, 128, 78));
+        Animation.colorfillin((Shape) e.getSource(), Color.rgb(56, 56, 56), Color.rgb(255, 128, 78));
     }
     public void button_transition2(MouseEvent e) {
-        Animation.en_small((Shape) e.getSource(), Color.rgb(255, 128, 78), Color.rgb(56, 56, 56));
+        Animation.colorfillout((Shape) e.getSource(), Color.rgb(255, 128, 78), Color.rgb(56, 56, 56));
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

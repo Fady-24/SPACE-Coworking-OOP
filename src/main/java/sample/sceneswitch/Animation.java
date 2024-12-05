@@ -55,7 +55,7 @@ public class Animation {
         ft.play();
     }
 
-    public static void enlarge(Shape button, Color colorfrom, Color colorto) {
+    public static void colorfillin(Shape button, Color colorfrom, Color colorto) {
         FillTransition fl = new FillTransition(Duration.millis(500), button);
         fl.setFromValue(colorfrom);
         fl.setToValue(colorto);
@@ -78,7 +78,7 @@ public class Animation {
         st.setToY(1.0);
         st.play();
     }
-    public static void en_small(Shape button, Color colorfrom, Color colorto) {
+    public static void colorfillout(Shape button, Color colorfrom, Color colorto) {
         FillTransition fl = new FillTransition(Duration.millis(500), button);
         fl.setFromValue(colorfrom);
         fl.setToValue(colorto);
