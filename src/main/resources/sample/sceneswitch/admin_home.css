@@ -1,6 +1,43 @@
-.label_info{
+
+@font-face{
+    -fx-font-family: "Poppins SemiBold";
+    src: url("fonts/Poppins-SemiBold.ttf");
+}
+@font-face{
+    -fx-font-family: "Poppins ExtraLight";
+    src: url("fonts/Poppins-ExtraLight.ttf");
+}
+@font-face{
+    -fx-font-family: "Poppins Medium";
+    src: url("fonts/Poppins-Medium.ttf");
+}
+
+
+.label_big{
     -fx-text-fill: white;
-    -fx-font-size: 18;
-    -fx-font-family: Monaco;
-    -fx-effect: dropshadow(gaussian , black , 10 , 0.3 ,2 ,2 );
+    -fx-font-family: "Poppins Medium";
+    -fx-font-size: 50;
+}
+.label_big_thin{
+    -fx-text-fill: white;
+    -fx-font-family: "Poppins ExtraLight";
+    -fx-font-size: 50;
+}
+.label_small_thin{
+    -fx-text-fill: white;
+    -fx-font-family: "Poppins Medium";
+    -fx-font-size: 20;
+}
+.button_custom {
+    -fx-text-fill: white;
+    -fx-background-color: transparent;
+    -fx-font-family: "Poppins";
+    -fx-font-weight: bold;
+    -fx-font-size:16;
+    -fx-background-radius: 15;
+}
+.label_small_yellow{
+    -fx-text-fill: #E2A723;
+    -fx-font-family: "Poppins ExtraLight";
+    -fx-font-size: 30;
 }

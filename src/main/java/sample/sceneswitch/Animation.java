@@ -8,6 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.effect.BoxBlur;
 import javafx.scene.effect.Effect;
 import javafx.scene.effect.GaussianBlur;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
@@ -16,12 +17,23 @@ import javafx.scene.text.Text;
 import javafx.util.Duration;
 
 import java.io.IOException;
+import java.io.InputStream;
 
 public class Animation {
 
 
 
+    public static void changeImageSmoothly(ImageView imageView, String newImagePath) {
+        InputStream is = Animation.class.getResourceAsStream(newImagePath);
+            imageView.setImage(new Image(is));
 
+            // Create a fade-in transition
+            FadeTransition fadeIn = new FadeTransition(Duration.millis(300), imageView);
+            fadeIn.setFromValue(0.0);
+            fadeIn.setToValue(1.0);
+            fadeIn.play();
+
+    }
     public static void fade_transition(Node button,String path) {  // Still needs configuration
         FadeTransition ft = new FadeTransition(Duration.millis(250), button);
         ft.setFromValue(1.0);

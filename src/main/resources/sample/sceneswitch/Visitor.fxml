@@ -12,7 +12,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="780.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.sceneswitch.VisitorsController">
    <children>
-      <ImageView layoutX="-21.0" pickOnBounds="true">
+      <ImageView layoutX="-2.0" pickOnBounds="true">
          <image>
             <Image url="@Asset_34.png" />
          </image>
@@ -30,7 +30,7 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <ImageView layoutX="20.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView layoutX="19.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Asset_15.png" />
          </image>
@@ -40,11 +40,7 @@
             <Image url="@Asset_36.png" />
          </image>
       </ImageView>
-      <Label layoutX="19.0" layoutY="65.0" prefHeight="51.0" prefWidth="208.0" text="VISITORS" textAlignment="CENTER" textFill="WHITE">
-         <font>
-            <Font name="Poppins Medium" size="43.0" />
-         </font>
-      </Label>
+      <Label layoutX="19.0" layoutY="58.0" prefHeight="71.0" prefWidth="303.0" styleClass="label_big" stylesheets="@admin_home.css" text="VISITORS" textAlignment="CENTER" textFill="WHITE" />
       <TextField fx:id="searchField" centerShape="false" layoutX="272.0" layoutY="131.0" prefHeight="30.0" prefWidth="202.0" promptText="Seach for Visitor by ID">
          <font>
             <Font size="14.0" />
