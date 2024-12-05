@@ -11,7 +11,12 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class roomhomepagecontroller {
@@ -25,7 +30,7 @@ public class roomhomepagecontroller {
     private Label initlabel;
     @FXML
     private ImageView mr1, mr2, mr3, gr1, gr2, tr1, tr2, tr3;
-
+    public static Room current_room;
     @FXML
     public void adminhome(MouseEvent event) {
         Animation.fade_transition((Node) event.getSource(), "admin.fxml");
@@ -76,6 +81,33 @@ public class roomhomepagecontroller {
             gr1.setScaleX(0.0);gr1.setScaleY(0.0);gr2.setScaleX(0.0);gr2.setScaleY(0.0);
             tr1.setScaleX(1.0);tr1.setScaleY(1.0);tr2.setScaleX(1.0);tr2.setScaleY(1.0);tr3.setScaleX(1.0);tr3.setScaleY(1.0);
             initlabel.setScaleX(0.0);initlabel.setScaleY(0.0);
+        }
+
+    }
+    public void onclick_rooms(MouseEvent event) throws IOException, ClassNotFoundException {
+
+        File f = new File("rooms.dat");
+        ObjectInputStream ois = new ObjectInputStream(new FileInputStream(f));
+        ArrayList<Room> rooms = (ArrayList<Room>) ois.readObject();
+
+        if((Node)event.getSource()==gr1)
+        {
+            for (Room room : rooms) {
+                if (room.getRoom_Id()==1){
+                    current_room = room;
+                }
+            }
+            Animation.fade_transition((Node) event.getSource(), "room_manage_scene.fxml");
+        }
+
+        if((Node)event.getSource()==gr2)
+        {
+            for (Room room : rooms) {
+                if (room.getRoom_Id()==2){
+                    current_room = room;
+                }
+            }
+            Animation.fade_transition((Node) event.getSource(), "room_manage_scene.fxml");
         }
 
     }

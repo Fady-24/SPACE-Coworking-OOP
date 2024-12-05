@@ -9,6 +9,7 @@ public class Visitor implements Serializable {
     private String password;
     private String type;
     private int hours;
+    private int reserved_slot;
 
     public Visitor(String name, String password, String type,int ID) {
         this.name = name;
