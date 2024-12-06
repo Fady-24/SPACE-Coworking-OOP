@@ -81,8 +81,6 @@ public class RoomManageSceneController implements Initializable {
 
        }
 
-
-
     }
 
 
@@ -118,10 +116,6 @@ public class RoomManageSceneController implements Initializable {
             right_arrow.setOpacity(0.5);
             right_arrow.setMouseTransparent(true);
         }
-
-
-
-
         roomname.setText(roomhomepagecontroller.current_room.getRoom_name());
         roomid.setText("ROOM ID : #"+String.valueOf(roomhomepagecontroller.current_room.getRoom_Id()));
         page_check(counter);
