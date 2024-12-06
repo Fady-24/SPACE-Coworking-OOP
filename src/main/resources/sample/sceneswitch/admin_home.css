@@ -28,6 +28,11 @@
     -fx-font-family: "Poppins Medium";
     -fx-font-size: 20;
 }
+.label_small2_thin{
+    -fx-text-fill: white;
+    -fx-font-family: "Poppins Medium";
+    -fx-font-size: 16;
+}
 .button_custom {
     -fx-text-fill: white;
     -fx-background-color: transparent;
@@ -40,4 +45,114 @@
     -fx-text-fill: #E2A723;
     -fx-font-family: "Poppins ExtraLight";
     -fx-font-size: 30;
+}
+.label_small_pink{
+    -fx-text-fill: #f687c1;
+    -fx-font-family: "Poppins ExtraLight";
+    -fx-font-size: 30;
+}
+
+
+.combo-box{
+    -fx-background-color:#383838;
+    -fx-background-radius: 10;
+}
+.combo-box .list-view {
+    -fx-background-color:#383838;
+    -fx-background-radius: 10;
+}
+.combo-box .list-cell{
+    -fx-background-color: transparent;
+    -fx-font-family: "Poppins";
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 15;
+}
+.combo-box .list-cell:selected:filled {
+    -fx-text-fill: white;
+    -fx-font-size: 15;
+}
+.combo-box .list-cell:hover{
+    -fx-background-radius: 10;
+    -fx-background-color: #f687c1;
+}
+.combo-box .arrow-button .arrow{
+    -fx-background-color: white;
+}
+
+
+.text-field_B {
+    -fx-text-fill: white;
+    -fx-font-size: 16;
+    -fx-font-family: Cairo;
+    -fx-background-radius: 10;
+    -fx-background-color: #383838;
+}
+.text-field_B:focused{
+    -fx-border-color: #f687c1;
+    -fx-border-radius:10;
+    -fx-border-width: 1;
+}
+/* Style the popup background */
+.date-picker-popup {
+    -fx-background-color: #333333; /* Dark grey */
+    -fx-control-inner-background: #333333; /* Dark grey background inside */
+}
+
+/* Style the date cells */
+.date-cell {
+    -fx-background-color: #333333; /* Dark grey */
+    -fx-text-fill: white;
+    -fx-font-family: "Poppins Medium"/* White text */
+}
+
+.date-cell:hover {
+    -fx-background-color: #555555; /* Slightly lighter grey on hover */
+}
+
+.date-cell:selected {
+    -fx-background-color: #666666; /* A bit lighter grey for selected date */
+    -fx-text-fill: white;
+    -fx-font-family: "Poppins Medium"/* White text */
+    /* Ensure text remains white */
+}
+
+.date-cell:today {
+    -fx-background-color: #444444; /* Different shade for today */
+    -fx-text-fill: white; /* Ensure text remains white */
+    -fx-border-color: white; /* Optional border for better visibility */
+}
+
+/* Style the navigation arrows and month/year selectors */
+.button {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+}
+
+/* Style the DatePicker text field */
+.date-picker .text-field {
+    -fx-background-color: #333333;
+    -fx-text-fill: white;
+    -fx-border-color: #555555;
+    -fx-border-radius: 4px;
+    -fx-font-family: "Poppins Medium"/* White text */
+
+
+}
+
+/* Style the DatePicker button */
+.date-picker .arrow-button {
+    -fx-background-color: grey; /* Dark grey */
+    -fx-padding: 5px;
+    -fx-border-color: #555555;
+    -fx-border-radius: 4px;
+}
+
+.date-picker .arrow-button .arrow {
+    -fx-background-color: white; /* White calendar icon */
+    /* Calendar symbol */
+}
+
+.date-picker .arrow-button:hover {
+    -fx-background-color: #444444; /* Slightly lighter grey on hover */
 }

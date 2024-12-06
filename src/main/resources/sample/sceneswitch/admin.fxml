@@ -33,17 +33,17 @@
          </font>
       </Label>
       <ImageView layoutX="29.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="visitors" fitHeight="315.0" fitWidth="210.0" layoutX="30.0" layoutY="150.0" onMouseClicked="#switch_to_visitor" onMouseEntered="#hover_in" onMouseExited="#hover_out" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="visitors" fitHeight="315.0" fitWidth="210.0" layoutX="40.0" layoutY="151.0" onMouseClicked="#switch_to_visitor" onMouseEntered="#hover_in" onMouseExited="#hover_out" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Asset_27.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="Rooms" fitHeight="315.0" fitWidth="210.0" layoutX="280.0" layoutY="150.0" onMouseClicked="#switch_to_rooms" onMouseEntered="#hover_in" onMouseExited="#hover_out" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="Rooms" fitHeight="315.0" fitWidth="210.0" layoutX="290.0" layoutY="151.0" onMouseClicked="#switch_to_rooms" onMouseEntered="#hover_in" onMouseExited="#hover_out" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Asset_28.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="Slots" fitHeight="315.0" fitWidth="210.0" layoutX="543.0" layoutY="150.0" onMouseEntered="#hover_in" onMouseExited="#hover_out" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="Slots" fitHeight="315.0" fitWidth="210.0" layoutX="553.0" layoutY="151.0" onMouseClicked="#switch_to_slots" onMouseEntered="#hover_in" onMouseExited="#hover_out" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Asset_29.png" />
          </image>
