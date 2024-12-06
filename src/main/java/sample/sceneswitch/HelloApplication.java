@@ -34,6 +34,32 @@ public class HelloApplication extends Application {
         primaryStage.setHeight(600);
         primaryStage.setResizable(false);
         primaryStage.setScene(scene);
+
+//        File f = new File("rooms.dat");
+//        ObjectInputStream ois = new ObjectInputStream(new FileInputStream(f));
+//        ArrayList<Room> rooms = (ArrayList<Room>) ois.readObject();
+//        for (Room room : rooms) {
+//            if (room.getRoom_Id()==1){
+//                room.New_Visitor(new Visitor("casilias","testtest","General",99));
+//                room.New_Visitor(new Visitor("vector valdes","testtest","General",99));
+//                room.New_Visitor(new Visitor("ramos","testtest","General",99));
+//                room.New_Visitor(new Visitor("puyol","testtest","General",99));
+//                room.New_Visitor(new Visitor("pepe","testtest","General",99));
+//                room.New_Visitor(new Visitor("pique","testtest","General",99));
+//                room.New_Visitor(new Visitor("xabi alonso","testtest","General",99));
+//                room.New_Visitor(new Visitor("xavi","testtest","General",99));
+//                room.New_Visitor(new Visitor("higuain","testtest","General",99));
+//                room.New_Visitor(new Visitor("david villa","testtest","General",99));
+//                room.New_Visitor(new Visitor("cristiano","testtest","General",99));
+//                room.New_Visitor(new Visitor("messi","testtest","General",99));
+//                rooms.set(rooms.indexOf(room), room);
+//                ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(f));
+//                oos.writeObject(rooms);
+//                System.out.println("here");
+//                oos.close();
+//            }
+//        }
+
 //        File f = new File("rooms.dat");
 //        ArrayList<Room> rooms = new ArrayList<>();
 //        Room room1 = new General_room("General Room 1",1);

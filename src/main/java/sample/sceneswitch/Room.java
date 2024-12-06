@@ -7,8 +7,8 @@ public abstract class Room implements Serializable {
     protected String room_name;
     protected int room_Id;
     protected int numofvisitors;
-    protected ArrayList<Visitor> List_of_Visitors;
-    protected ArrayList<Slots> List_of_Slots;
+    public ArrayList<Visitor> List_of_Visitors=new ArrayList<>();
+    public ArrayList<Slots> List_of_Slots=new ArrayList<>();
     protected int numberofslots;
 
     public Room(String room_name, int room_Id) {
@@ -16,7 +16,7 @@ public abstract class Room implements Serializable {
         this.room_Id = room_Id;
     }
     public void New_Visitor(Visitor visitor){
-        List_of_Visitors.add(visitor);
+        this.List_of_Visitors.add(visitor);
     }
     public void New_Slot(Slots slot){
         List_of_Slots.add(slot);
