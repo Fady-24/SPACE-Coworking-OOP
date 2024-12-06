@@ -26,17 +26,17 @@
             <Image url="@Asset_26_1.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="mr1" fitHeight="260.0" fitWidth="200.0" layoutX="84.0" layoutY="272.0" pickOnBounds="true" preserveRatio="true" scaleX="0.0" scaleY="0.0">
+      <ImageView fx:id="mr1" fitHeight="260.0" fitWidth="200.0" layoutX="84.0" layoutY="272.0" onMouseClicked="#onclick_rooms" pickOnBounds="true" preserveRatio="true" scaleX="0.0" scaleY="0.0">
          <image>
             <Image url="@Asset_38.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="mr2" fitHeight="260.0" fitWidth="200.0" layoutX="297.0" layoutY="272.0" pickOnBounds="true" preserveRatio="true" scaleX="0.0" scaleY="0.0">
+      <ImageView fx:id="mr2" fitHeight="260.0" fitWidth="200.0" layoutX="297.0" layoutY="272.0" onMouseClicked="#onclick_rooms" pickOnBounds="true" preserveRatio="true" scaleX="0.0" scaleY="0.0">
          <image>
             <Image url="@Asset_39.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="mr3" fitHeight="260.0" fitWidth="200.0" layoutX="514.0" layoutY="272.0" pickOnBounds="true" preserveRatio="true" scaleX="0.0" scaleY="0.0">
+      <ImageView fx:id="mr3" fitHeight="260.0" fitWidth="200.0" layoutX="514.0" layoutY="272.0" onMouseClicked="#onclick_rooms" pickOnBounds="true" preserveRatio="true" scaleX="0.0" scaleY="0.0">
          <image>
             <Image url="@Asset_43.png" />
          </image>
@@ -62,17 +62,17 @@
             <Image url="@Asset_45.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="tr1" fitHeight="260.0" fitWidth="200.0" layoutX="84.0" layoutY="272.0" pickOnBounds="true" preserveRatio="true" scaleX="0.0" scaleY="0.0">
+      <ImageView fx:id="tr1" fitHeight="260.0" fitWidth="200.0" layoutX="84.0" layoutY="272.0" onMouseClicked="#onclick_rooms" pickOnBounds="true" preserveRatio="true" scaleX="0.0" scaleY="0.0">
          <image>
             <Image url="@Asset_46.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="tr2" fitHeight="260.0" fitWidth="200.0" layoutX="297.0" layoutY="272.0" pickOnBounds="true" preserveRatio="true" scaleX="0.0" scaleY="0.0">
+      <ImageView fx:id="tr2" fitHeight="260.0" fitWidth="200.0" layoutX="297.0" layoutY="272.0" onMouseClicked="#onclick_rooms" pickOnBounds="true" preserveRatio="true" scaleX="0.0" scaleY="0.0">
          <image>
             <Image url="@Asset_47.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="tr3" fitHeight="260.0" fitWidth="200.0" layoutX="514.0" layoutY="272.0" pickOnBounds="true" preserveRatio="true" scaleX="0.0" scaleY="0.0">
+      <ImageView fx:id="tr3" fitHeight="260.0" fitWidth="200.0" layoutX="514.0" layoutY="272.0" onMouseClicked="#onclick_rooms" pickOnBounds="true" preserveRatio="true" scaleX="0.0" scaleY="0.0">
          <image>
             <Image url="@Asset_48.png" />
          </image>

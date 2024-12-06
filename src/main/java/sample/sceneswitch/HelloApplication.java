@@ -53,27 +53,52 @@ public class HelloApplication extends Application {
 //                room.New_Visitor(new Visitor("cristiano","testtest","General",99));
 //                room.New_Visitor(new Visitor("messi","testtest","General",99));
 //                rooms.set(rooms.indexOf(room), room);
-//                ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(f));
-//                oos.writeObject(rooms);
-//                System.out.println("here");
-//                oos.close();
 //            }
+//            if (room.getRoom_Id()==2){
+//                room.New_Visitor(new Visitor("casilias","testtest","General",99));
+//                room.New_Visitor(new Visitor("vector valdes","testtest","General",99));
+//                room.New_Visitor(new Visitor("ramos","testtest","General",99));
+//                room.New_Visitor(new Visitor("puyol","testtest","General",99));
+//                room.New_Visitor(new Visitor("pepe","testtest","General",99));
+//                room.New_Visitor(new Visitor("pique","testtest","General",99));
+//                room.New_Visitor(new Visitor("xabi alonso","testtest","General",99));
+//                room.New_Visitor(new Visitor("xavi","testtest","General",99));
+//                room.New_Visitor(new Visitor("higuain","testtest","General",99));
+//                room.New_Visitor(new Visitor("david villa","testtest","General",99));
+//                room.New_Visitor(new Visitor("cristiano","testtest","General",99));
+//                room.New_Visitor(new Visitor("messi","testtest","General",99));
+//                rooms.set(rooms.indexOf(room), room);
+//            }
+//            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(f));
+//            oos.writeObject(rooms);
+//            System.out.println("here");
+//            oos.close();
 //        }
 
 //        File f = new File("rooms.dat");
 //        ArrayList<Room> rooms = new ArrayList<>();
 //        Room room1 = new General_room("General Room 1",1);
 //        Room room2 = new General_room("General Room 2",2);
-//
+//        Room room3 = new Meeting_Room("Meeting Room 1", 3);
+//        Room room4 = new Meeting_Room("Meeting Room 2", 4);
+//        Room room5 = new Meeting_Room("Meeting Room 3", 5);
+//        Room room6 = new Teaching_Room("Teaching Room 1", 6,"board", "projector", "instructor");
+//        Room room7 = new Teaching_Room("Teaching Room 2", 7,"board", "projector", "instructor");
+//        Room room8 = new Teaching_Room("Teaching Room 3", 8,"board", "projector", "instructor");
 //        rooms.add(room1);
 //        rooms.add(room2);
-//
+//        rooms.add(room3);
+//        rooms.add(room4);
+//        rooms.add(room5);
+//        rooms.add(room6);
+//        rooms.add(room7);
+//        rooms.add(room8);
 //
 //        ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(f));
 //        oos.writeObject(rooms);
 //        System.out.println("here");
 //        oos.close();
-//
+
 
 
 

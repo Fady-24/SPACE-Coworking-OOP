@@ -84,31 +84,99 @@ public class roomhomepagecontroller {
         }
 
     }
-    public void onclick_rooms(MouseEvent event) throws IOException, ClassNotFoundException {
-
+    public void onclick_rooms(MouseEvent event) throws IOException, ClassNotFoundException
+    {
+        System.out.println(gr1.toString());
         File f = new File("rooms.dat");
         ObjectInputStream ois = new ObjectInputStream(new FileInputStream(f));
         ArrayList<Room> rooms = (ArrayList<Room>) ois.readObject();
-
         if((Node)event.getSource()==gr1)
         {
-            for (Room room : rooms) {
-                if (room.getRoom_Id()==1){
+            for (Room room : rooms)
+            {
+                if (room.getRoom_Id() == 1)
+                {
                     current_room = room;
                 }
             }
             Animation.fade_transition((Node) event.getSource(), "room_manage_scene.fxml");
         }
-
-        if((Node)event.getSource()==gr2)
+        else if((Node)event.getSource()==gr2)
         {
-            for (Room room : rooms) {
-                if (room.getRoom_Id()==2){
+            for (Room room : rooms)
+            {
+                if (room.getRoom_Id() == 2)
+                {
                     current_room = room;
                 }
             }
             Animation.fade_transition((Node) event.getSource(), "room_manage_scene.fxml");
         }
-
+        else if((Node)event.getSource()==mr1)
+        {
+            for (Room room : rooms)
+            {
+                if (room.getRoom_Id() == 3)
+                {
+                    current_room = room;
+                }
+            }
+            Animation.fade_transition((Node) event.getSource(), "room_manage_scene.fxml");
+        }
+        else if((Node)event.getSource()==mr2)
+        {
+            for (Room room : rooms)
+            {
+                if (room.getRoom_Id() == 4)
+                {
+                    current_room = room;
+                }
+            }
+            Animation.fade_transition((Node) event.getSource(), "room_manage_scene.fxml");
+        }
+        else if((Node)event.getSource()==mr3)
+        {
+            for (Room room : rooms)
+            {
+                if (room.getRoom_Id() == 5)
+                {
+                    current_room = room;
+                }
+            }
+            Animation.fade_transition((Node) event.getSource(), "room_manage_scene.fxml");
+        }
+        else if((Node)event.getSource()==tr1)
+        {
+            for (Room room : rooms)
+            {
+                if (room.getRoom_Id() == 6)
+                {
+                    current_room = room;
+                }
+            }
+            Animation.fade_transition((Node) event.getSource(), "room_manage_scene.fxml");
+        }
+        else if((Node)event.getSource()==tr2)
+        {
+            for (Room room : rooms)
+            {
+                if (room.getRoom_Id() == 7)
+                {
+                    current_room = room;
+                }
+            }
+            Animation.fade_transition((Node) event.getSource(), "room_manage_scene.fxml");
+        }
+        else if((Node)event.getSource()==tr3)
+        {
+            for (Room room : rooms)
+            {
+                if (room.getRoom_Id() == 8)
+                {
+                    current_room = room;
+                }
+            }
+            Animation.fade_transition((Node) event.getSource(), "room_manage_scene.fxml");
+        }
     }
 }
