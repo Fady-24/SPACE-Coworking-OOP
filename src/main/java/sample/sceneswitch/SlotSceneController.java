@@ -35,7 +35,9 @@ public class SlotSceneController implements Initializable {
     private AnchorPane Anchor_Del,Anchor_Add;
     boolean selected;
     @FXML
-    private Label red_label;
+    private Label red_label,green_label;
+
+    ArrayList<Room> rooms = DataHandling.getRooms();
 
     public void button_transition(MouseEvent e) {
         Animation.colorfillin((javafx.scene.shape.Shape) e.getSource(), javafx.scene.paint.Color.rgb(56, 56, 56), javafx.scene.paint.Color.rgb(208, 100, 157));
@@ -78,10 +80,14 @@ public class SlotSceneController implements Initializable {
         Animation.fade_out(Anchor_Add);
         Anchor_Add.setMouseTransparent(true);
         Anchor_Del.setMouseTransparent(false);
+        red_label.setText(" ");
+        green_label.setText(" ");
     }
     public void switch_to_Add(MouseEvent mouseEvent){
         Animation.fade_in(Anchor_Add);
         Animation.fade_out(Anchor_Del);
+        red_label.setText(" ");
+        green_label.setText(" ");
         Anchor_Del.setMouseTransparent(true);
         Anchor_Add.setMouseTransparent(false);
     }
@@ -91,25 +97,41 @@ public class SlotSceneController implements Initializable {
     }
 
     public void create_slot(MouseEvent e){
-        ArrayList<Room> rooms = DataHandling.getRooms();
-        String rname = (String) roomchoice.getSelectionModel().getSelectedItem();
-        LocalTime timef = LocalTime.parse((String)SlotTimeFrom.getSelectionModel().getSelectedItem());
-        LocalTime timet =  LocalTime.parse(SlotTimeto.getText());
+
+
         LocalDate date = SlotDate.getValue();
-        for (Room room : rooms){
-            if (room.getRoom_name().equals(rname)){
-                room.New_Slot(new Slots(date,timef,timet,100));
-                rooms.set(room.getRoom_Id()-1,room);
-                DataHandling.setRooms(rooms);
-                System.out.println("slot added");
-                System.out.println(room.toString());
-                break;
+        if (roomchoice.getSelectionModel().getSelectedItem() == null || SlotDate.getValue() == null || SlotTimeFrom.getValue()==null){
+            red_label.setText("Make Sure That All Fields have entries");
+            green_label.setText(" ");
+        }else if (SlotDate.getValue().isBefore(LocalDate.now())) {
+            green_label.setText(" ");
+            red_label.setText("Make Sure That the Date is entered correctly");
+        }else if(slot_already_exists((String) roomchoice.getSelectionModel().getSelectedItem(),SlotDate.getValue(),LocalTime.parse((String)SlotTimeFrom.getValue())))
+        {
+            red_label.setText("Slot Already Exists");
+            green_label.setText(" ");
+        }
+        else {
+            String rname = (String) roomchoice.getSelectionModel().getSelectedItem();
+            LocalTime timef = LocalTime.parse((String)SlotTimeFrom.getSelectionModel().getSelectedItem());
+            LocalTime timet =  LocalTime.parse(SlotTimeto.getText());
+            for (Room room : rooms) {
+                if (room.getRoom_name().equals(rname)) {
+                    room.New_Slot(new Slots(date, timef, timet, 100));
+                    rooms.set(room.getRoom_Id() - 1, room);
+                    DataHandling.setRooms(rooms);
+                    System.out.println("slot added");
+                    System.out.println(room.toString());
+                    red_label.setText(" ");
+                    green_label.setText("Slot Added");
+                    break;
+                }
             }
         }
     }
     public void check_slots(MouseEvent e){
         reset_slots();
-        ArrayList<Room> rooms = DataHandling.getRooms();
+
         ArrayList<String> list = new ArrayList<>();
         String rname = (String) roomchoice1.getSelectionModel().getSelectedItem();
         LocalDate date = SlotDate1.getValue();
@@ -126,10 +148,7 @@ public class SlotSceneController implements Initializable {
     }
     public void reset_slots(){
         Slot_picker.getItems().clear();
-        System.out.println(SlotDate1.getValue());
-
         Slot_picker.setValue(null);
-        System.out.println("done");
 
     }
     public void selected(ActionEvent e){
@@ -138,16 +157,44 @@ public class SlotSceneController implements Initializable {
     }
 
     public void delete_slot(MouseEvent e){ ////////////// WE ARE STILL HERE
-        if (!selected ||roomchoice1.getSelectionModel().getSelectedItem() == null || SlotDate1.getValue() == null){
+        if (!selected ||roomchoice1.getSelectionModel().getSelectedItem() == null || SlotDate1.getValue() == null|| Slot_picker.getValue() == null){
             red_label.setText("Make Sure That All Fields have entries");
         }else if (SlotDate1.getValue().isBefore(LocalDate.now())){
             red_label.setText("Make Sure That the Date is entered correctly");
+        }else{
+            String timefrom = (String) Slot_picker.getSelectionModel().getSelectedItem();
+            timefrom=timefrom.split(" ")[0];
+            LocalTime timef = LocalTime.parse(timefrom);
+            for (Room room : rooms) {
+                if (room.getRoom_name().equals(roomchoice1.getSelectionModel().getSelectedItem())) {
+                    room.List_of_Slots.removeIf(slot ->
+                            slot.getDate().equals(SlotDate1.getValue()) && slot.getTimef().equals(timef)
+                    );
+                    red_label.setText("Slot Removed");
+                    System.out.println("slot removed");
+                    System.out.println(room.toString());
+                    selected=false; //???
+                    break;
+                }
+            }
+
         }
 
 
 
     }
-
+    public boolean slot_already_exists (String rname , LocalDate date, LocalTime timef){
+        for (Room room : rooms){
+            if (room.getRoom_name().equals(rname)){
+                for (Slots slot : room.List_of_Slots){
+                    if(slot.getDate().equals(date)&&slot.getTimef().equals(timef)){
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

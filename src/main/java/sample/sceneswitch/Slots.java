@@ -32,4 +32,8 @@ public class Slots implements Serializable
         String t = this.timef.toString()+ " to "+this.timet.toString();
         return t;
     }
+
+    public LocalTime getTimef() {
+        return timef;
+    }
 }
