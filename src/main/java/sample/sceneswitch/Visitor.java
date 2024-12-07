@@ -9,6 +9,7 @@ public class Visitor implements Serializable {
     private String password;
     private String type;
     private int hours;
+    private int balance;
     private int reserved_slot;
 
     public Visitor(String name, String password, String type,int ID) {
@@ -16,6 +17,11 @@ public class Visitor implements Serializable {
         this.password = password;
         this.type = type;
         this.ID = ID;
+        this.balance = 1000;
+    }
+
+    public int getBalance() {
+        return balance;
     }
 
     public int getID() {

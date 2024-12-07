@@ -34,6 +34,10 @@ public class Animation {
             fadeIn.play();
 
     }
+    public static void changeImage(ImageView imageView, String newImagePath) {
+        InputStream is = Animation.class.getResourceAsStream(newImagePath);
+        imageView.setImage(new Image(is));
+    }
     public static void fade_transition(Node button,String path) {  // Still needs configuration
         FadeTransition ft = new FadeTransition(Duration.millis(250), button);
         ft.setFromValue(1.0);
