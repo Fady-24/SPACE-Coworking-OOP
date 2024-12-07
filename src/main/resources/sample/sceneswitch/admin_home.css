@@ -179,3 +179,35 @@
 .date-picker .arrow-button:hover {
     -fx-background-color: #444444; /* Slightly lighter grey on hover */
 }
+
+.choice-box{
+    -fx-background-color:#383838;
+    -fx-background-radius: 10;
+}
+.choice-box .list-view {
+    -fx-background-color: grey; /* Background of the list */
+}
+
+/* Set hover effect for the items in the dropdown */
+.choice-box .list-view .cell:hover {
+    -fx-background-color: pink; /* Background when hovering */
+    -fx-text-fill: white;       /* Text color when hovering */
+}
+
+/* Style the selected item */
+.choice-box .list-view .cell:selected {
+    -fx-background-color: pink; /* Selected background color */
+    -fx-text-fill: white;       /* Selected text color */
+}
+
+/* Style the display of the selected item in the main box */
+.choice-box {
+    -fx-font-family: 'Poppins', sans-serif; /* Font family */
+    -fx-text-fill: white;                  /* Selected item text color */
+}
+
+/* Style the items in the dropdown list */
+.choice-box .list-view .cell {
+    -fx-font-family: 'Poppins', sans-serif; /* Font for dropdown items */
+    -fx-text-fill: black;                   /* Default text color */
+}
