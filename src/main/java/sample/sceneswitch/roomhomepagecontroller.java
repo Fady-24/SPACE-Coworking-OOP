@@ -87,9 +87,7 @@ public class roomhomepagecontroller {
     public void onclick_rooms(MouseEvent event) throws IOException, ClassNotFoundException
     {
         System.out.println(gr1.toString());
-        File f = new File("rooms.dat");
-        ObjectInputStream ois = new ObjectInputStream(new FileInputStream(f));
-        ArrayList<Room> rooms = (ArrayList<Room>) ois.readObject();
+        ArrayList<Room> rooms = DataHandling.getRooms();
         if((Node)event.getSource()==gr1)
         {
             for (Room room : rooms)

@@ -86,27 +86,13 @@ public class RegisterController implements Initializable {
         else if (type == null){
             reactivelabel.setText("PLEASE CHOOSE A VISITOR TYPE");
         }
-        else {
-            File f = new File("visitor.dat");
-            ArrayList<Visitor> visitors;
-
-            if (f.exists()) {
-                try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(f))) {
-                    visitors = (ArrayList<Visitor>) ois.readObject();
-                }
-            } else {
-                visitors = new ArrayList<>();
-            }
-
+        else { // NEW DATA HANDLING METHOD
+            ArrayList<Visitor> visitors=DataHandling.getVisitors();
             Visitor v = new Visitor(name, pass, type, visitors.size()+1); // will cause a logical error in the future
             visitors.add(v);
             System.out.println("done");
-
-
             // Write
-            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(f));
-            oos.writeObject(visitors);
-            oos.close();
+            DataHandling.setVisitors(visitors);
         }
     }
     public boolean number_check(String pass) {
