@@ -1,4 +1,7 @@
 package sample.sceneswitch;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableArray;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -22,7 +25,7 @@ import java.util.ResourceBundle;
 public class SlotSceneController implements Initializable {
 
     @FXML
-    private ComboBox roomchoice,SlotTimeFrom,Slot_picker,roomchoice1;
+    private ComboBox roomchoice,SlotTimeFrom,roomchoice1,Slot_picker;
     @FXML
     private TextField SlotTimeto;
     @FXML
@@ -130,7 +133,8 @@ public class SlotSceneController implements Initializable {
         }
     }
     public void check_slots(MouseEvent e){
-        reset_slots();
+
+
 
         ArrayList<String> list = new ArrayList<>();
         String rname = (String) roomchoice1.getSelectionModel().getSelectedItem();
@@ -144,15 +148,15 @@ public class SlotSceneController implements Initializable {
                 }
             }
         }
+        // Still needs improvement
+        Slot_picker.getItems().clear();
+        Slot_picker.setVisibleRowCount(list.size());
         Slot_picker.getItems().addAll(list);
     }
-    public void reset_slots(){
-        Slot_picker.getItems().clear();
-        Slot_picker.setValue(null);
 
-    }
     public void selected(ActionEvent e){
         selected=true;
+        System.out.println(Slot_picker.getItems());
 
     }
 
@@ -202,6 +206,7 @@ public class SlotSceneController implements Initializable {
             Anchor_Del.setMouseTransparent(true);
             String roomnames[]={"General Room 1", "General Room 2","Meeting Room 1","Meeting Room 2","Meeting Room 3","Teaching Room 1","Teaching Room 2","Teaching Room 3"};
             SlotTimeFrom.getItems().addAll(generateTimeSlots(9,20));
+
             roomchoice.getItems().addAll(roomnames);
             roomchoice1.getItems().addAll(roomnames);
     }
