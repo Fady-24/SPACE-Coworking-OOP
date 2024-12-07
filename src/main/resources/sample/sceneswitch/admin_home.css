@@ -38,6 +38,11 @@
     -fx-font-family: "Poppins Medium";
     -fx-font-size: 16;
 }
+.label_small2_thin_green{
+    -fx-text-fill: lightgreen;
+    -fx-font-family: "Poppins Medium";
+    -fx-font-size: 16;
+}
 .button_custom {
     -fx-text-fill: white;
     -fx-background-color: transparent;
