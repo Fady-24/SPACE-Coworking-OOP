@@ -39,21 +39,23 @@ public class VisitorsController {
 
     public void search (MouseEvent e) throws IOException, ClassNotFoundException {
         int ID=Integer.parseInt(searchField.getText());
-        File f = new File("visitor.dat");
-        ObjectInputStream ois = new ObjectInputStream(new FileInputStream(f));
-        ArrayList<Visitor> visitors = (ArrayList<Visitor>) ois.readObject();
+        ArrayList<Visitor> visitors = DataHandling.getVisitors();
+
         for (Visitor visitor:visitors)
         {
             if(visitor.getID()==ID)
             {
                 Animation.fade_in(visitorinfo);
-                visitorid.setText("VISITOR ID :  "+visitor.getID());
-                visitorname.setText("VISITOR NAME :  "+visitor.getName());
-                visitortype.setText("VISITOR TYPE :  "+visitor.getType());
+                visitornotfound.setVisible(false);
                 CurrentVisitor=visitor;
-                visitornotfound.setOpacity(0);
+                visitorid.setText("VISITOR ID :  "+CurrentVisitor.getID());
+                visitorname.setText("VISITOR NAME :  "+CurrentVisitor.getName());
+                visitortype.setText("VISITOR TYPE :  "+CurrentVisitor.getType());
+                break;
             }
-            else {
+            else
+            {
+                visitornotfound.setVisible(true);
                 Animation.fade_in(visitornotfound);
                 Animation.fade_out(visitorinfo);
             }
@@ -75,10 +77,8 @@ public class VisitorsController {
 
 
     public void deletevisitor(MouseEvent e) throws IOException, ClassNotFoundException {
-        System.out.println("DONE");
-        File f = new File("visitor.dat");
-        ObjectInputStream ois = new ObjectInputStream(new FileInputStream(f));
-        ArrayList<Visitor> visitors = (ArrayList<Visitor>) ois.readObject();
+
+        ArrayList<Visitor> visitors = DataHandling.getVisitors();
         System.out.println(visitors);
         try {
             visitors.remove(CurrentVisitor.getID() - 1);
@@ -86,9 +86,8 @@ public class VisitorsController {
         catch (Exception bounds){
 
         }
-        ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(f));
-            oos.writeObject(visitors);
-            oos.close();
-            Animation.fade_out(visitorinfo);
+        DataHandling.setVisitors(visitors);
+        Animation.fade_out(visitorinfo);
+        System.out.println("DONE");
     }
 }

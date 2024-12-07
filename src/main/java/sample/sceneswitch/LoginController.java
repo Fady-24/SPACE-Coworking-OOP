@@ -58,26 +58,24 @@ public class LoginController implements Initializable {
         Animation.colorfillout((Shape) e.getSource(), Color.rgb(126, 96, 191), Color.rgb(56, 56, 56));
     }
     public void submit(MouseEvent actionEvent) throws IOException, ClassNotFoundException {
-        File f = new File("visitor.dat");
-        ObjectInputStream ois = new ObjectInputStream(new FileInputStream(f));
-        ArrayList<Visitor> visitors = (ArrayList<Visitor>) ois.readObject();
 
-
+        ArrayList<Visitor> visitors = DataHandling.getVisitors();
+        HelloApplication h = new HelloApplication();
        for(Visitor visitor : visitors) {
            System.out.println(visitor.toString());
            String name = textfield01.getText();
            String pass = passfield.getText();
-           HelloApplication h = new HelloApplication();
+
            if(name.equals("admin") && pass.equals("admin")) {
                h.changescene("admin.fxml");
+               break;
            }else if(visitor.getName().equals(name) && visitor.getPassword().equals(pass)) {
                Currentvisitor = visitor;
                System.out.println("current visitor " + Currentvisitor.getName());
                System.out.println("current type " + Currentvisitor.getType());
-
-
-               h.changescene("scene1.fxml");
                mylabel.setText("Successfully logged in");
+               h.changescene("scene1.fxml");
+
                break;
            }else{
                mylabel.setText("Incorrect username or password");

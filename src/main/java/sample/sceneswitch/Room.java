@@ -46,4 +46,13 @@ public abstract class Room implements Serializable {
     public void setNumofvisitors(int numofvisitors) {
         this.numofvisitors = numofvisitors;
     }
+
+    @Override
+    public String toString() {
+        return "Room{" +
+                "room_name='" + room_name + '\'' +
+                ", room_Id=" + room_Id +
+                ", List_of_Slots=" + List_of_Slots +
+                '}';
+    }
 }

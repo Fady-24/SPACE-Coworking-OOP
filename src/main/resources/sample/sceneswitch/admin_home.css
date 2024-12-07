@@ -33,6 +33,11 @@
     -fx-font-family: "Poppins Medium";
     -fx-font-size: 16;
 }
+.label_small2_thin_red{
+    -fx-text-fill: red;
+    -fx-font-family: "Poppins Medium";
+    -fx-font-size: 16;
+}
 .button_custom {
     -fx-text-fill: white;
     -fx-background-color: transparent;
@@ -89,6 +94,19 @@
     -fx-background-color: #383838;
 }
 .text-field_B:focused{
+    -fx-border-color: #f687c1;
+    -fx-border-radius:10;
+    -fx-border-width: 1;
+}
+
+.text-field_2 {
+    -fx-text-fill: white;
+    -fx-font-size: 16;
+    -fx-font-family: "Poppins Medium";
+    -fx-background-radius: 10;
+    -fx-background-color: #383838;
+}
+.text-field_2:focused{
     -fx-border-color: #f687c1;
     -fx-border-radius:10;
     -fx-border-width: 1;
