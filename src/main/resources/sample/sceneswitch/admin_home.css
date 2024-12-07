@@ -11,7 +11,18 @@
     -fx-font-family: "Poppins Medium";
     src: url("fonts/Poppins-Medium.ttf");
 }
-
+@font-face{
+    -fx-font-family: "Poppins Light";
+    src: url("fonts/Poppins-Light.ttf");
+}
+@font-face{
+    -fx-font-family: "Poppins Bold";
+    src: url("fonts/Poppins-Bold.ttf");
+}
+@font-face{
+    -fx-font-family: "Poppins Regular";
+    src: url("fonts/Poppins-Regular.ttf");
+}
 
 .label_big{
     -fx-text-fill: white;
@@ -23,6 +34,21 @@
     -fx-font-family: "Poppins ExtraLight";
     -fx-font-size: 50;
 }
+.label_big_light{
+    -fx-text-fill: white;
+    -fx-font-family: "Poppins Light";
+    -fx-font-size: 30;
+}
+.label_big_medium{
+    -fx-text-fill: white;
+    -fx-font-family: "Poppins Medium";
+    -fx-font-size: 30;
+}
+.label_med_bold{
+    -fx-text-fill: white;
+    -fx-font-family: "Poppins Bold";
+    -fx-font-size: 38;
+}
 .label_small_thin{
     -fx-text-fill: white;
     -fx-font-family: "Poppins Medium";
@@ -32,6 +58,16 @@
     -fx-text-fill: white;
     -fx-font-family: "Poppins Medium";
     -fx-font-size: 16;
+}
+.label_small2_light{
+    -fx-text-fill: white;
+    -fx-font-family: "Poppins light";
+    -fx-font-size: 16;
+}
+.label_small3_thin{
+    -fx-text-fill: white;
+    -fx-font-family: "Poppins Regular";
+    -fx-font-size: 20;
 }
 .label_small2_thin_red{
     -fx-text-fill: red;
