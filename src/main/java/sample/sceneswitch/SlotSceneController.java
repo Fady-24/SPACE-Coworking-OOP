@@ -43,10 +43,10 @@ public class SlotSceneController implements Initializable {
     ArrayList<Room> rooms = DataHandling.getRooms();
 
     public void button_transition(MouseEvent e) {
-        Animation.colorfillin((javafx.scene.shape.Shape) e.getSource(), javafx.scene.paint.Color.rgb(56, 56, 56), javafx.scene.paint.Color.rgb(208, 100, 157));
+        Animation.colorfillin((javafx.scene.shape.Shape) e.getSource(), javafx.scene.paint.Color.rgb(56, 56, 56), javafx.scene.paint.Color.rgb(51, 51, 255));
     }
     public void button_transition2(MouseEvent e) {
-        Animation.colorfillout((javafx.scene.shape.Shape) e.getSource(), javafx.scene.paint.Color.rgb(208, 100, 157), Color.rgb(56, 56, 56));
+        Animation.colorfillout((javafx.scene.shape.Shape) e.getSource(), javafx.scene.paint.Color.rgb(51, 51, 255), Color.rgb(56, 56, 56));
     }
 
     public void on_hover_plus(MouseEvent mouseEvent) {
@@ -120,14 +120,21 @@ public class SlotSceneController implements Initializable {
             LocalTime timet =  LocalTime.parse(SlotTimeto.getText());
             for (Room room : rooms) {
                 if (room.getRoom_name().equals(rname)) {
-                    room.New_Slot(new Slots(date, timef, timet, 100));
-                    rooms.set(room.getRoom_Id() - 1, room);
-                    DataHandling.setRooms(rooms);
-                    System.out.println("slot added");
-                    System.out.println(room.toString());
-                    red_label.setText(" ");
-                    green_label.setText("Slot Added");
-                    break;
+                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                    alert.setTitle("Create Slot");
+                    alert.setHeaderText("Slot creation confirmation");
+                    alert.setContentText("Are you sure you want to create a new slot");
+                    if(alert.showAndWait().get() == ButtonType.OK)
+                    {
+                        room.New_Slot(new Slots(date, timef, timet, 100));
+                        rooms.set(room.getRoom_Id() - 1, room);
+                        DataHandling.setRooms(rooms);
+                        System.out.println("slot added");
+                        System.out.println(room.toString());
+                        red_label.setText(" ");
+                        green_label.setText("Slot Added");
+                        break;
+                    }
                 }
             }
         }
@@ -174,11 +181,16 @@ public class SlotSceneController implements Initializable {
                     room.List_of_Slots.removeIf(slot ->
                             slot.getDate().equals(SlotDate1.getValue()) && slot.getTimef().equals(timef)
                     );
-                    red_label.setText("Slot Removed");
-                    System.out.println("slot removed");
-                    System.out.println(room.toString());
-                    selected=false; //???
-                    break;
+                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                    alert.setTitle("Delete Slot");
+                    alert.setHeaderText("Confirm slot deletion");
+                    alert.setContentText("Are you sure you want to delete the slot?");
+                        red_label.setText("Slot Removed");
+                        System.out.println("slot removed");
+                        System.out.println(room.toString());
+                        selected = false; //???
+                        break;
+                    }
                 }
             }
 
@@ -186,7 +198,7 @@ public class SlotSceneController implements Initializable {
 
 
 
-    }
+
     public boolean slot_already_exists (String rname , LocalDate date, LocalTime timef){
         for (Room room : rooms){
             if (room.getRoom_name().equals(rname)){

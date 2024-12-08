@@ -46,7 +46,7 @@ public class HelloApplication extends Application {
         primaryStage.setResizable(false);
         primaryStage.setScene(scene);
 
-
+//
 //        ArrayList<Room> rooms = DataHandling.getRooms();
 //        for (Room room : rooms) {
 //            if (room.getRoom_Id()==1){
@@ -81,6 +81,7 @@ public class HelloApplication extends Application {
 //            }
 //            DataHandling.setRooms(rooms);
 //        }
+
 
 //        ArrayList<Room> rooms =DataHandling.getRooms();
 //        Room room1 = new General_room("General Room 1",1);
