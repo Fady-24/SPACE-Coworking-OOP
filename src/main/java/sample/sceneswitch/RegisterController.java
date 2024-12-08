@@ -70,11 +70,12 @@ public class RegisterController implements Initializable {
         ArrayList<Visitor> visitors=DataHandling.getVisitors();
         for(Visitor visitor:visitors)
         {
-            if(name.equals(visitor.getName()) && pass.equals(visitor.getPassword()))
+            if(name.equals(visitor.getName()))
             {
-                reactivelabel.setText("This user is already registered");
+                reactivelabel.setText("This username is taken");
                 canadd = false;
                 isuserregistered = true;
+                break;
             }
             else
             {
@@ -107,7 +108,7 @@ public class RegisterController implements Initializable {
         {
             canadd=true;
         }
-        if(canadd && isuserregistered==false)
+        if(canadd && !isuserregistered)
         {// NEW DATA HANDLING METHOD
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Account Creation");
