@@ -35,7 +35,7 @@ public class HelloApplication extends Application {
         String CSS = Objects.requireNonNull(this.getClass().getResource("application.css")).toExternalForm();
         scene.getStylesheets().add(CSS);
         primaryStage.setWidth(800);
-        primaryStage.setHeight(600);
+        primaryStage.setHeight(630); //return this to 600 if needed
         primaryStage.setOnCloseRequest(event -> {
             try {
                 DataHandling.handleClose(event);

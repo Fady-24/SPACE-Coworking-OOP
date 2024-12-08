@@ -153,10 +153,7 @@
     -fx-border-width: 1;
 }
 /* Style the popup background */
-.date-picker-popup {
-    -fx-background-color: #333333; /* Dark grey */
-    -fx-control-inner-background: #333333; /* Dark grey background inside */
-}
+
 
 /* Style the date cells */
 .date-cell {
@@ -176,11 +173,7 @@
     /* Ensure text remains white */
 }
 
-.date-cell:today {
-    -fx-background-color: #444444; /* Different shade for today */
-    -fx-text-fill: white; /* Ensure text remains white */
-    -fx-border-color: white; /* Optional border for better visibility */
-}
+
 
 /* Style the navigation arrows and month/year selectors */
 .button {

@@ -20,44 +20,44 @@
                   <Image url="@Asset_13.png" />
                </image>
             </ImageView>
-            <TextField fx:id="textfield01" layoutX="63.0" layoutY="225.0" prefHeight="36.0" prefWidth="276.0" promptText="Enter Your Username" styleClass="text-field_B">
+            <TextField fx:id="textfield01" layoutX="63.0" layoutY="232.0" prefHeight="36.0" prefWidth="276.0" promptText="Enter Your Username" styleClass="text-field_B">
                <font>
                   <Font size="14.0" />
                </font>
             </TextField>
-            <Label layoutX="68.0" layoutY="185.0" prefHeight="40.0" prefWidth="137.0" styleClass="label_login" text="Username">
+            <Label layoutX="68.0" layoutY="192.0" prefHeight="40.0" prefWidth="137.0" styleClass="label_login" text="Username">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label layoutX="68.0" layoutY="299.0" prefHeight="25.0" prefWidth="127.0" styleClass="label_login" text="Password">
+            <Label layoutX="68.0" layoutY="306.0" prefHeight="25.0" prefWidth="127.0" styleClass="label_login" text="Password">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <PasswordField fx:id="passfield" layoutX="63.0" layoutY="328.0" prefHeight="36.0" prefWidth="278.0" promptText="Enter Your Password" styleClass="text-field_B">
+            <PasswordField fx:id="passfield" layoutX="63.0" layoutY="335.0" prefHeight="36.0" prefWidth="278.0" promptText="Enter Your Password" styleClass="text-field_B">
                <font>
                   <Font size="14.0" />
                </font>
             </PasswordField>
-            <Label fx:id="mylabel" alignment="CENTER" layoutX="23.0" layoutY="399.0" minWidth="50.0" prefHeight="30.0" prefWidth="331.0" styleClass="label_login" text=" ">
+            <Label fx:id="mylabel" alignment="CENTER" layoutX="40.0" layoutY="406.0" minWidth="50.0" prefHeight="30.0" prefWidth="310.0" styleClass="label_login" text=" ">
                <font>
                   <Font size="23.0" />
                </font>
             </Label>
-            <Rectangle fx:id="rect" arcHeight="30.0" arcWidth="30.0" fill="#383838" height="43.0" layoutX="298.0" layoutY="474.0" onMouseClicked="#submit" onMouseEntered="#button_transition" onMouseExited="#button_transition2" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="button_custom" width="112.0" />
+            <Rectangle fx:id="rect" arcHeight="30.0" arcWidth="30.0" fill="#383838" height="43.0" layoutX="229.0" layoutY="457.0" onMouseClicked="#submit" onMouseEntered="#button_transition" onMouseExited="#button_transition2" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="button_custom" width="112.0" />
             <ImageView fitHeight="78.0" fitWidth="279.0" layoutX="463.0" layoutY="302.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Asset_14.png" />
                </image>
             </ImageView>
-            <Button fx:id="submitbutton" layoutX="306.0" layoutY="478.0" mnemonicParsing="false" mouseTransparent="true" prefHeight="35.0" prefWidth="96.0" style="-fx-background-color: transparent;" styleClass="button_custom" stylesheets="@application.css" text="LOGIN" />
-            <Hyperlink layoutX="195.0" layoutY="480.0" onAction="#switch_to_register" prefHeight="30.0" prefWidth="96.0" text="Click Here ">
+            <Button fx:id="submitbutton" layoutX="237.0" layoutY="461.0" mnemonicParsing="false" mouseTransparent="true" prefHeight="35.0" prefWidth="96.0" style="-fx-background-color: transparent;" styleClass="button_custom" stylesheets="@application.css" text="LOGIN" />
+            <Hyperlink layoutX="241.0" layoutY="522.0" onAction="#switch_to_register" prefHeight="30.0" prefWidth="96.0" text="Click Here ">
                <font>
                   <Font name="Poppins Medium" size="16.0" />
                </font>
             </Hyperlink>
-            <Label layoutX="29.0" layoutY="483.0" text="Don't have an account?" textFill="WHITE">
+            <Label layoutX="75.0" layoutY="525.0" text="Don't have an account?" textFill="WHITE">
                <font>
                   <Font size="16.0" />
                </font></Label>
