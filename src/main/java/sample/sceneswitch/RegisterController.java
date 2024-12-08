@@ -110,13 +110,19 @@ public class RegisterController implements Initializable {
         }
         if(canadd && !isuserregistered)
         {// NEW DATA HANDLING METHOD
+            int v_id;
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Account Creation");
             alert.setHeaderText("Confirmation");
             alert.setContentText("Are you sure you want to make a new account?");
             if(alert.showAndWait().get() == ButtonType.OK)
             {
-                Visitor v = new Visitor(name, pass, type, visitors.size() + 1); // will cause a logical error in the future
+                if (visitors.isEmpty()){
+                    v_id = visitors.size()+1;
+                }else {
+                    v_id = visitors.getLast().getID()+1;
+                }
+                Visitor v = new Visitor(name, pass, type, v_id); // will cause a logical error in the future
                 visitors.add(v);
                 System.out.println("done");
                 // Write
