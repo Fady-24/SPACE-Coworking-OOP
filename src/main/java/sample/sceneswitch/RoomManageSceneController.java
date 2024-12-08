@@ -92,10 +92,10 @@ public class RoomManageSceneController implements Initializable {
     }
 
     public void button_transition(MouseEvent e) {
-        Animation.colorfillin((Shape) e.getSource(), Color.rgb(56, 56, 56), Color.rgb(226, 167, 35));
+        Animation.colorfillin((Shape) e.getSource(), Color.rgb(56, 56, 56), Color.rgb(51, 51, 255));
     }
     public void button_transition2(MouseEvent e) {
-        Animation.colorfillout((Shape) e.getSource(), Color.rgb(226, 167, 35), Color.rgb(56, 56, 56));
+        Animation.colorfillout((Shape) e.getSource(), Color.rgb(51, 51, 255), Color.rgb(56, 56, 56));
     }
 
     public void switch_to_rooms (MouseEvent mouseEvent) throws IOException {

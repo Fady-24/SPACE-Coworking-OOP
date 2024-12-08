@@ -20,16 +20,11 @@
             <Rectangle2D minX="800.0" minY="600.0" width="800.0" />
          </viewport>
       </ImageView>
-      <ImageView fx:id="adminhome" layoutX="688.0" layoutY="25.0" onMouseClicked="#adminhome" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="adminhome" layoutX="743.0" layoutY="30.0" onMouseClicked="#adminhome" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Asset_26_1.png" />
          </image>
       </ImageView>
-      <Label layoutX="719.0" layoutY="23.0" styleClass="label_info" stylesheets="@admin_home.css" text="Admin" textFill="WHITE">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
       <ImageView layoutX="19.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Asset_15.png" />
@@ -46,7 +41,7 @@
             <Font size="14.0" />
          </font>
       </TextField>
-      <AnchorPane fx:id="visitorinfo" layoutX="37.0" layoutY="198.0" opacity="0.0" prefHeight="356.0" prefWidth="734.0">
+      <AnchorPane fx:id="visitorinfo" layoutX="46.0" layoutY="191.0" opacity="0.0" prefHeight="356.0" prefWidth="734.0">
          <children>
             <Label fx:id="visitorid" layoutX="31.0" layoutY="35.0" prefHeight="60.0" prefWidth="155.0" styleClass="label_info" stylesheets="@Register.css" text="VISITOR ID :" textFill="WHITE" />
             <Label fx:id="visitortotalhours" layoutX="35.0" layoutY="185.0" prefHeight="38.0" prefWidth="387.0" styleClass="label_info" stylesheets="@Register.css" text="VISITOR TOTAL HOURS :" textFill="WHITE" />

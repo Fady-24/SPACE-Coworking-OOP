@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.shape.Rectangle?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.sceneswitch.AdminController">
    <children>
@@ -15,8 +14,7 @@
             <Image url="@gui22.png" />
          </image>
       </ImageView>
-      <StackPane fx:id="stack" layoutX="1.0" layoutY="7.0" onMouseEntered="#hover_in" onMouseExited="#hover_out" prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-      <Button layoutX="61.0" layoutY="504.0" mnemonicParsing="false" onAction="#log_out" prefHeight="39.0" prefWidth="101.0" styleClass="button_custom" stylesheets="@application.css" text="LOGOUT" />
+      <StackPane fx:id="stack" layoutX="8.0" layoutY="3.0" onMouseEntered="#hover_in" onMouseExited="#hover_out" prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="-3.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="-8.0" AnchorPane.topAnchor="3.0" />
       <ImageView layoutX="20.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Asset_15.png" />
@@ -27,11 +25,6 @@
             <Image url="@Asset_25.png" />
          </image>
       </ImageView>
-      <Label layoutX="719.0" layoutY="23.0" text="Admin" textFill="#fcfcfc">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
       <ImageView layoutX="29.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="visitors" fitHeight="315.0" fitWidth="210.0" layoutX="32.0" layoutY="151.0" onMouseClicked="#switch_to_visitor" onMouseEntered="#hover_in" onMouseExited="#hover_out" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -48,10 +41,12 @@
             <Image url="@Asset_29.png" />
          </image>
       </ImageView>
-      <ImageView layoutX="688.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView layoutX="743.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Asset_262.png" />
          </image>
       </ImageView>
+      <Rectangle fx:id="rect" arcHeight="30.0" arcWidth="30.0" fill="#383838" height="40.0" layoutX="62.0" layoutY="504.0" onMouseClicked="#log_out" onMouseEntered="#button_transition" onMouseExited="#button_transition2" stroke="BLACK" strokeType="INSIDE" width="120.0" />
+      <Button layoutX="72.0" layoutY="508.0" mnemonicParsing="false" mouseTransparent="true" onAction="#log_out" prefHeight="6.0" prefWidth="101.0" style="-fx-background-color: transparent;" styleClass="button_custom" stylesheets="@application.css" text="LOGOUT" />
    </children>
 </AnchorPane>

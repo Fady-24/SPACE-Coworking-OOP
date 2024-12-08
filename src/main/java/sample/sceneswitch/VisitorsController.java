@@ -40,26 +40,25 @@ public class VisitorsController {
     public void search (MouseEvent e) throws IOException, ClassNotFoundException {
         int ID=Integer.parseInt(searchField.getText());
         ArrayList<Visitor> visitors = DataHandling.getVisitors();
-
-        for (Visitor visitor:visitors)
-        {
-            if(visitor.getID()==ID)
+            for (Visitor visitor : visitors)
             {
-                Animation.fade_in(visitorinfo);
-                visitornotfound.setVisible(false);
-                CurrentVisitor=visitor;
-                visitorid.setText("VISITOR ID :  "+CurrentVisitor.getID());
-                visitorname.setText("VISITOR NAME :  "+CurrentVisitor.getName());
-                visitortype.setText("VISITOR TYPE :  "+CurrentVisitor.getType());
-                break;
+                if (visitor.getID() == ID)
+                {
+                    Animation.fade_in(visitorinfo);
+                    visitornotfound.setVisible(false);
+                    CurrentVisitor = visitor;
+                    visitorid.setText("VISITOR ID :  " + CurrentVisitor.getID());
+                    visitorname.setText("VISITOR NAME :  " + CurrentVisitor.getName());
+                    visitortype.setText("VISITOR TYPE :  " + CurrentVisitor.getType());
+                    break;
+                }
+                else
+                {
+                    visitornotfound.setVisible(true);
+                    Animation.fade_in(visitornotfound);
+                    Animation.fade_out(visitorinfo);
+                }
             }
-            else
-            {
-                visitornotfound.setVisible(true);
-                Animation.fade_in(visitornotfound);
-                Animation.fade_out(visitorinfo);
-            }
-        }
     }
 
 
@@ -68,26 +67,31 @@ public class VisitorsController {
     }
 
     public void button_transition(MouseEvent e) {
-        Animation.colorfillin((Shape) e.getSource(), Color.rgb(56, 56, 56), Color.rgb(255, 128, 78));
+        Animation.colorfillin((Shape) e.getSource(), Color.rgb(56, 56, 56), Color.rgb(51, 51, 255));
     }
 
     public void button_transition2(MouseEvent e) {
-        Animation.colorfillout((Shape) e.getSource(), Color.rgb(255, 128, 78), Color.rgb(56, 56, 56));
+        Animation.colorfillout((Shape) e.getSource(), Color.rgb(51, 51, 255), Color.rgb(56, 56, 56));
     }
 
 
     public void deletevisitor(MouseEvent e) throws IOException, ClassNotFoundException {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Delete Visitor");
+        alert.setHeaderText("Confirm Delete Visitor");
+        alert.setContentText("Are you sure you want to delete this Visitor?");
+        if(alert.showAndWait().get() == ButtonType.OK)
+        {
+            ArrayList<Visitor> visitors = DataHandling.getVisitors();
+            System.out.println(visitors);
+            try {
+                visitors.remove(CurrentVisitor.getID() - 1);
+            } catch (Exception bounds) {
 
-        ArrayList<Visitor> visitors = DataHandling.getVisitors();
-        System.out.println(visitors);
-        try {
-            visitors.remove(CurrentVisitor.getID() - 1);
+            }
+            DataHandling.setVisitors(visitors);
+            Animation.fade_out(visitorinfo);
+            System.out.println("DONE");
         }
-        catch (Exception bounds){
-
-        }
-        DataHandling.setVisitors(visitors);
-        Animation.fade_out(visitorinfo);
-        System.out.println("DONE");
     }
 }

@@ -40,6 +40,7 @@ public class RegisterController implements Initializable {
     private Label reactivelabel;
     @FXML
     private AnchorPane anchor;
+    private boolean canadd, isuserregistered;
 
 
 
@@ -56,13 +57,7 @@ public class RegisterController implements Initializable {
 
 
     }
-//    public void button_transition(MouseEvent e) {
-//        Animation.enlarge((Node) e.getSource());
-//    }
-//    public void button_transition2(MouseEvent e) {
-//        Animation.en_small((Node) e.getSource());
-//    }
-//
+
    public void switch_to_main (ActionEvent e) throws IOException {
         Animation.fade_transition(anchor,"starting.fxml");
     }
@@ -72,27 +67,60 @@ public class RegisterController implements Initializable {
         String name = namefield.getText();
         String pass = passfield.getText();
         String conf = confirmpassfield.getText();
+        ArrayList<Visitor> visitors=DataHandling.getVisitors();
+        for(Visitor visitor:visitors)
+        {
+            if(name.equals(visitor.getName()) && pass.equals(visitor.getPassword()))
+            {
+                reactivelabel.setText("This user is already registered");
+                canadd = false;
+                isuserregistered = true;
+            }
+            else
+            {
+                isuserregistered = false;
+            }
+        }
 
-        if (name.isEmpty()|| pass.isEmpty() || conf.isEmpty()) {
+        if (name.isEmpty()|| pass.isEmpty() || conf.isEmpty())
+        {
             reactivelabel.setText("PLEASE MAKE SURE TO FILL ALL FIELDS!!!");
+            canadd = false;
         }
-        else if (pass.length()<9 || ! number_check(pass)) {
+        else if (pass.length()<9 || ! number_check(pass))
+        {
             reactivelabel.setText("PLEASE MAKE SURE TO FOLLOW PASSWORD INSTRUCTIONS");
+            canadd = false;
         }
-        else if (!pass.equals(conf)) {
+        else if (!pass.equals(conf))
+        {
             reactivelabel.setText("PASSWORD CONFIRMATION DOESN'T MATCH");
+            canadd = false;
 
         }
-        else if (type == null){
+        else if (type == null)
+        {
             reactivelabel.setText("PLEASE CHOOSE A VISITOR TYPE");
+            canadd = false;
         }
-        else { // NEW DATA HANDLING METHOD
-            ArrayList<Visitor> visitors=DataHandling.getVisitors();
-            Visitor v = new Visitor(name, pass, type, visitors.size()+1); // will cause a logical error in the future
-            visitors.add(v);
-            System.out.println("done");
-            // Write
-            DataHandling.setVisitors(visitors);
+        else
+        {
+            canadd=true;
+        }
+        if(canadd && isuserregistered==false)
+        {// NEW DATA HANDLING METHOD
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Account Creation");
+            alert.setHeaderText("Confirmation");
+            alert.setContentText("Are you sure you want to make a new account?");
+            if(alert.showAndWait().get() == ButtonType.OK)
+            {
+                Visitor v = new Visitor(name, pass, type, visitors.size() + 1); // will cause a logical error in the future
+                visitors.add(v);
+                System.out.println("done");
+                // Write
+                DataHandling.setVisitors(visitors);
+            }
         }
     }
     public boolean number_check(String pass) {
