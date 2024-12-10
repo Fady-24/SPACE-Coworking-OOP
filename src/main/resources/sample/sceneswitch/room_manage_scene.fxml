@@ -41,7 +41,7 @@
             <Font size="23.0" />
          </font>
       </Label>
-      <ImageView fx:id="money_calc" layoutX="725.0" layoutY="500.0" onMouseEntered="#on_hover_money" onMouseExited="#on_hover_away_money" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="money_calc" layoutX="725.0" layoutY="500.0" onMouseClicked="#calculate_total_fees" onMouseEntered="#on_hover_money" onMouseExited="#on_hover_away_money" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Asset%2048.png" />
          </image>
@@ -60,5 +60,6 @@
          </image>
       </ImageView>
       <Label fx:id="counter_label" alignment="CENTER" layoutX="380.0" layoutY="500.0" prefHeight="43.0" prefWidth="50.0" styleClass="label_small_thin" stylesheets="@admin_home.css" text="1" />
+      <Label fx:id="total_fees" alignment="CENTER" contentDisplay="CENTER" layoutX="633.0" layoutY="506.0" prefHeight="28.0" prefWidth="75.0" styleClass="label_small3_thin_green" stylesheets="@admin_home.css" text="1000$" />
    </children>
 </AnchorPane>

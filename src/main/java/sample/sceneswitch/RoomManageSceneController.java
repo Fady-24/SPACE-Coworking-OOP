@@ -25,6 +25,7 @@ public class RoomManageSceneController implements Initializable {
     @FXML
     private Rectangle rect;
     @FXML
+    private Label total_fees;
 
     int counter;
     Room room = roomhomepagecontroller.current_room;
@@ -76,7 +77,9 @@ public class RoomManageSceneController implements Initializable {
        String text="";
         System.out.println(counter);
         for (int i = counter*7; i < ((counter*7)+7)&& i < room.List_of_Visitors.size(); i++) {
-           text=text+room.List_of_Visitors.get(i).getName()+"\n";
+            for (int j = counter*7; j < ((counter*7)+7)&& j < room.List_of_Visitors.get(i).V_list_of_slots.size(); j++) {
+                text = text + room.List_of_Visitors.get(i).getName() + "                                           " +room.List_of_Visitors.get(i).V_list_of_slots.get(j).getDate()+"                   "+room.List_of_Visitors.get(i).V_list_of_slots.get(j).getTimef()+" to "+ room.List_of_Visitors.get(i).V_list_of_slots.get(j).getTimet()+"\n";
+            }
             lb_1.setText(text);
 
        }
@@ -103,10 +106,21 @@ public class RoomManageSceneController implements Initializable {
         helloApp.changescene("roomhomepage.fxml");
     }
 
+    public void calculate_total_fees (MouseEvent mouseEvent){
+        int fee=0;
+        for (Slots slots : room.List_of_Slots) {
+            if(slots.getReserved()){
+                fee+=slots.getFees();
+            }
+        }
+        total_fees.setText(String.valueOf(fee)+" $");
+    }
+
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        total_fees.setText("");
         counter=0;
         left_arrow.setOpacity(0.5);
         left_arrow.setMouseTransparent(true);

@@ -46,43 +46,20 @@ public class HelloApplication extends Application {
         primaryStage.setResizable(false);
         primaryStage.setScene(scene);
 
-//
+
 //        ArrayList<Room> rooms = DataHandling.getRooms();
 //        for (Room room : rooms) {
-//            if (room.getRoom_Id()==1){
-//                room.New_Visitor(new Visitor("casilias","testtest","General",99));
-//                room.New_Visitor(new Visitor("vector valdes","testtest","General",99));
-//                room.New_Visitor(new Visitor("ramos","testtest","General",99));
-//                room.New_Visitor(new Visitor("puyol","testtest","General",99));
-//                room.New_Visitor(new Visitor("pepe","testtest","General",99));
-//                room.New_Visitor(new Visitor("pique","testtest","General",99));
-//                room.New_Visitor(new Visitor("xabi alonso","testtest","General",99));
-//                room.New_Visitor(new Visitor("xavi","testtest","General",99));
-//                room.New_Visitor(new Visitor("higuain","testtest","General",99));
-//                room.New_Visitor(new Visitor("david villa","testtest","General",99));
-//                room.New_Visitor(new Visitor("cristiano","testtest","General",99));
-//                room.New_Visitor(new Visitor("messi","testtest","General",99));
+//            if (room.getRoom_Id()==1) {
+//                Visitor v1 = new Visitor("visitor1", "testtest", "General", 99);
+//                v1.reserveSlot(room.List_of_Slots.get(0));
+//                v1.reserveSlot(room.List_of_Slots.get(1));
+//                room.New_Visitor(v1);
 //                rooms.set(rooms.indexOf(room), room);
 //            }
-//            if (room.getRoom_Id()==2){
-//                room.New_Visitor(new Visitor("casilias","testtest","General",99));
-//                room.New_Visitor(new Visitor("vector valdes","testtest","General",99));
-//                room.New_Visitor(new Visitor("ramos","testtest","General",99));
-//                room.New_Visitor(new Visitor("puyol","testtest","General",99));
-//                room.New_Visitor(new Visitor("pepe","testtest","General",99));
-//                room.New_Visitor(new Visitor("pique","testtest","General",99));
-//                room.New_Visitor(new Visitor("xabi alonso","testtest","General",99));
-//                room.New_Visitor(new Visitor("xavi","testtest","General",99));
-//                room.New_Visitor(new Visitor("higuain","testtest","General",99));
-//                room.New_Visitor(new Visitor("david villa","testtest","General",99));
-//                room.New_Visitor(new Visitor("cristiano","testtest","General",99));
-//                room.New_Visitor(new Visitor("messi","testtest","General",99));
-//                rooms.set(rooms.indexOf(room), room);
-//            }
-//            DataHandling.setRooms(rooms);
+//
 //        }
 
-
+//
 //        ArrayList<Room> rooms =DataHandling.getRooms();
 //        Room room1 = new General_room("General Room 1",1);
 //        Room room2 = new General_room("General Room 2",2);
@@ -101,10 +78,10 @@ public class HelloApplication extends Application {
 //        rooms.add(room7);
 //        rooms.add(room8);
 //        DataHandling.setRooms(rooms);
-
-
-
-
+//
+//
+//
+//
         primaryStage.show();
     }
 
