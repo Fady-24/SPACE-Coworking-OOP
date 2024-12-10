@@ -69,6 +69,11 @@
     -fx-font-family: "Poppins Regular";
     -fx-font-size: 20;
 }
+.label_small3_thin_green{
+    -fx-text-fill: #9ECC1D;
+    -fx-font-family: "Poppins Regular";
+    -fx-font-size: 22;
+}
 .label_small2_thin_red{
     -fx-text-fill: red;
     -fx-font-family: "Poppins Medium";

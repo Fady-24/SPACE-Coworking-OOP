@@ -12,8 +12,9 @@ public class Slots implements Serializable
     private int ID;
     private LocalDate date;
     private LocalTime timef,timet;
-    private float fees;
-    public Slots(LocalDate date, LocalTime timef,LocalTime timet, float fees)
+    private int fees;
+    private Boolean reserved;
+    public Slots(LocalDate date, LocalTime timef,LocalTime timet, int fees)
     {
         this.date = date;
         this.timef = timef;
@@ -28,6 +29,18 @@ public class Slots implements Serializable
         this.date = date;
     }
 
+    public Boolean getReserved() {
+        return reserved;
+    }
+
+    public int getFees() {
+        return fees;
+    }
+
+    public void setReserved(Boolean reserved) {
+        this.reserved = reserved;
+    }
+
     public String preview(){
         String t = this.timef.toString()+ " to "+this.timet.toString();
         return t;
@@ -35,5 +48,9 @@ public class Slots implements Serializable
 
     public LocalTime getTimef() {
         return timef;
+    }
+
+    public LocalTime getTimet() {
+        return timet;
     }
 }

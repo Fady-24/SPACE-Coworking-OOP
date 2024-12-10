@@ -15,12 +15,12 @@
             <Image url="@guibg2.png" />
          </image>
       </ImageView>
-      <Rectangle fx:id="rect1" arcHeight="50.0" arcWidth="50.0" fill="#383838" height="40.0" layoutX="108.0" layoutY="177.0" onMouseClicked="#onclick" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="160.0" />
-      <Rectangle fx:id="rect2" arcHeight="50.0" arcWidth="50.0" fill="#383838" height="40.0" layoutX="316.0" layoutY="177.0" onMouseClicked="#onclick" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="160.0" />
-      <Rectangle fx:id="rect3" arcHeight="50.0" arcWidth="50.0" fill="#383838" height="40.0" layoutX="522.0" layoutY="177.0" onMouseClicked="#onclick" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="160.0" />
-      <Button fx:id="grbutton" layoutX="103.0" layoutY="181.0" mnemonicParsing="false" mouseTransparent="true" prefHeight="30.0" prefWidth="170.0" style="-fx-background-color: transparent;" styleClass="roomhomepagebuttons" stylesheets="@application.css" text="General Rooms" />
-      <Button fx:id="trbutton" layoutX="518.0" layoutY="181.0" mnemonicParsing="false" mouseTransparent="true" prefHeight="30.0" prefWidth="170.0" style="-fx-background-color: transparent;" styleClass="roomhomepagebuttons" stylesheets="@application.css" text="Teaching Rooms" />
-      <Button fx:id="mrbutton" layoutX="310.0" layoutY="181.0" mnemonicParsing="false" mouseTransparent="true" prefHeight="30.0" prefWidth="170.0" style="-fx-background-color: transparent;" styleClass="roomhomepagebuttons" stylesheets="@application.css" text="Meeting Rooms" />
+      <Rectangle fx:id="rect1" arcHeight="30.0" arcWidth="30.0" fill="#383838" height="40.0" layoutX="109.0" layoutY="157.0" onMouseClicked="#onclick" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="160.0" />
+      <Rectangle fx:id="rect2" arcHeight="30.0" arcWidth="30.0" fill="#383838" height="40.0" layoutX="317.0" layoutY="157.0" onMouseClicked="#onclick" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="160.0" />
+      <Rectangle fx:id="rect3" arcHeight="30.0" arcWidth="30.0" fill="#383838" height="40.0" layoutX="523.0" layoutY="157.0" onMouseClicked="#onclick" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="160.0" />
+      <Button fx:id="grbutton" layoutX="105.0" layoutY="160.0" mnemonicParsing="false" mouseTransparent="true" prefHeight="30.0" prefWidth="170.0" style="-fx-background-color: transparent;" styleClass="roomhomepagebuttons" stylesheets="@application.css" text="General Rooms" />
+      <Button fx:id="trbutton" layoutX="519.0" layoutY="160.0" mnemonicParsing="false" mouseTransparent="true" prefHeight="30.0" prefWidth="170.0" style="-fx-background-color: transparent;" styleClass="roomhomepagebuttons" stylesheets="@application.css" text="Teaching Rooms" />
+      <Button fx:id="mrbutton" layoutX="314.0" layoutY="160.0" mnemonicParsing="false" mouseTransparent="true" prefHeight="30.0" prefWidth="170.0" style="-fx-background-color: transparent;" styleClass="roomhomepagebuttons" stylesheets="@application.css" text="Meeting Rooms" />
       <ImageView layoutX="743.0" layoutY="30.0" onMouseClicked="#adminhome" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Asset_26_1.png" />

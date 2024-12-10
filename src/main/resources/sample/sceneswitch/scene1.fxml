@@ -103,23 +103,23 @@
             </Rectangle>
             <Label fx:id="visitortotalhourslabel" layoutX="447.0" layoutY="128.0" styleClass="label_med_bold" stylesheets="@admin_home.css" text="0" />
             <Label layoutX="484.0" layoutY="145.0" styleClass="label_small2_thin" stylesheets="@admin_home.css" text="HOURS" />
-            <ImageView fitHeight="103.0" fitWidth="434.0" layoutX="288.0" layoutY="203.0" onMouseEntered="#hover_in" onMouseExited="#hover_out" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="103.0" fitWidth="434.0" layoutX="288.0" layoutY="208.0" onMouseEntered="#hover_in" onMouseExited="#hover_out" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Asset%2064.png" />
                </image>
             </ImageView>
             <Label fx:id="visitortypelabel" layoutX="301.0" layoutY="143.0" prefHeight="28.0" prefWidth="100.0" styleClass="label_small2_thin" stylesheets="@admin_home.css" text="Type" />
             <Label fx:id="balance" layoutX="651.0" layoutY="144.0" prefHeight="28.0" prefWidth="65.0" styleClass="label_small2_thin" stylesheets="@admin_home.css" text="0 $" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="420.0" layoutX="500.0" layoutY="150.0" rotate="90.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1.0" />
-            <Label layoutX="324.0" layoutY="329.0" styleClass="label_small3_thin" stylesheets="@admin_home.css" text="LAST RESERVATION" />
-            <ImageView fitHeight="19.0" fitWidth="23.0" layoutX="297.0" layoutY="334.0" pickOnBounds="true" preserveRatio="true">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="420.0" layoutX="500.0" layoutY="173.0" rotate="90.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1.0" />
+            <Label layoutX="324.0" layoutY="352.0" styleClass="label_small3_thin" stylesheets="@admin_home.css" text="LAST RESERVATION" />
+            <ImageView fitHeight="19.0" fitWidth="23.0" layoutX="297.0" layoutY="357.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Asset%2065.png" />
                </image>
             </ImageView>
-            <Label alignment="CENTER" layoutX="291.0" layoutY="368.0" prefHeight="23.0" prefWidth="420.0" styleClass="label_small2_light" stylesheets="@admin_home.css" text="There are no current reservations" />
-            <Rectangle fx:id="rect" arcHeight="30.0" arcWidth="30.0" fill="#383838" height="43.0" layoutX="27.0" layoutY="407.0" onMouseClicked="#user_logout" onMouseEntered="#button_transition" onMouseExited="#button_transition2" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="button_custom" width="112.0" />
-            <Button layoutX="36.0" layoutY="411.0" mnemonicParsing="false" mouseTransparent="true" prefHeight="35.0" prefWidth="96.0" style="-fx-background-color: transparent;" styleClass="button_custom" stylesheets="@admin_home.css" text="LOGOUT" />
+            <Label alignment="CENTER" layoutX="291.0" layoutY="391.0" prefHeight="23.0" prefWidth="420.0" styleClass="label_small2_light" stylesheets="@admin_home.css" text="There are no current reservations" />
+            <Rectangle fx:id="rect" arcHeight="30.0" arcWidth="30.0" fill="#383838" height="43.0" layoutX="27.0" layoutY="453.0" onMouseClicked="#user_logout" onMouseEntered="#button_transition" onMouseExited="#button_transition2" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="button_custom" width="112.0" />
+            <Button layoutX="36.0" layoutY="457.0" mnemonicParsing="false" mouseTransparent="true" prefHeight="35.0" prefWidth="96.0" style="-fx-background-color: transparent;" styleClass="button_custom" stylesheets="@admin_home.css" text="LOGOUT" />
          </children>
       </AnchorPane>
    </children>

@@ -38,12 +38,17 @@ public class VisitorsController {
     private Rectangle rect;
 
     public void search (MouseEvent e) throws IOException, ClassNotFoundException {
-        int ID=Integer.parseInt(searchField.getText());
+
         ArrayList<Visitor> visitors = DataHandling.getVisitors();
-            for (Visitor visitor : visitors)
-            {
-                if (visitor.getID() == ID)
-                {
+        if (searchField.getText().isEmpty()){
+            visitornotfound.setVisible(true);
+            visitornotfound.setText("Make sure to enter ID first");
+            Animation.fade_in(visitornotfound);
+            Animation.fade_out(visitorinfo);
+        }else {
+            int ID=Integer.parseInt(searchField.getText());
+            for (Visitor visitor : visitors) {
+                if (visitor.getID() == ID) {
                     Animation.fade_in(visitorinfo);
                     visitornotfound.setVisible(false);
                     CurrentVisitor = visitor;
@@ -51,14 +56,14 @@ public class VisitorsController {
                     visitorname.setText("VISITOR NAME :  " + CurrentVisitor.getName());
                     visitortype.setText("VISITOR TYPE :  " + CurrentVisitor.getType());
                     break;
-                }
-                else
-                {
+                } else {
+                    visitornotfound.setText("User Not Found!");
                     visitornotfound.setVisible(true);
                     Animation.fade_in(visitornotfound);
                     Animation.fade_out(visitorinfo);
                 }
             }
+        }
     }
 
 
