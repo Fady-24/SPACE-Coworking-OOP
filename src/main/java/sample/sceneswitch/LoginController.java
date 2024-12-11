@@ -61,32 +61,31 @@ public class LoginController implements Initializable {
 
         ArrayList<Visitor> visitors = DataHandling.getVisitors();
         HelloApplication h = new HelloApplication();
-       for(Visitor visitor : visitors) {
-           System.out.println(visitor.toString());
-           String name = textfield01.getText();
-           String pass = passfield.getText();
+        String name = textfield01.getText();
+        String pass = passfield.getText();
 
-           if(name.equals("admin") && pass.equals("admin"))
-           {
-               h.changescene("admin.fxml");
-               break;
-           }
-           else if(visitor.getName().equals(name) && visitor.getPassword().equals(pass))
-           {
-               Currentvisitor = visitor;
-               System.out.println("current visitor " + Currentvisitor.getName());
-               System.out.println("current type " + Currentvisitor.getType());
-               mylabel.setText("Successfully logged in");
-               h.changescene("scene1.fxml");
-
-               break;
-           }
-           else
-           {
-               mylabel.setText("Incorrect username or password");
-           }
-
-       }
+        if(name.equals("admin") && pass.equals("admin"))
+        {
+            h.changescene("admin.fxml");
+        }
+        else
+        {
+            for (Visitor visitor : visitors) {
+                System.out.println(visitor.toString());
+                if (visitor.getName().equals(name) && visitor.getPassword().equals(pass)) {
+                    Currentvisitor = visitor;
+                    System.out.println("current visitor " + Currentvisitor.getName());
+                    System.out.println("current type " + Currentvisitor.getType());
+                    mylabel.setText("Successfully logged in");
+                    h.changescene("scene1.fxml");
+                    break;
+                }
+                else
+                {
+                    mylabel.setText("Incorrect username or password");
+                }
+            }
+        }
     }
 
     @Override
