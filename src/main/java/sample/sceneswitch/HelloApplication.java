@@ -59,7 +59,7 @@ public class HelloApplication extends Application {
 //
 //        }
 
-//
+
 //        ArrayList<Room> rooms =DataHandling.getRooms();
 //        Room room1 = new General_room("General Room 1",1);
 //        Room room2 = new General_room("General Room 2",2);
@@ -78,10 +78,7 @@ public class HelloApplication extends Application {
 //        rooms.add(room7);
 //        rooms.add(room8);
 //        DataHandling.setRooms(rooms);
-//
-//
-//
-//
+
         primaryStage.show();
     }
 
