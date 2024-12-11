@@ -47,37 +47,39 @@ public class HelloApplication extends Application {
         primaryStage.setScene(scene);
 
 
-//        ArrayList<Room> rooms = DataHandling.getRooms();
-//        for (Room room : rooms) {
-//            if (room.getRoom_Id()==1) {
-//                Visitor v1 = new Visitor("visitor1", "testtest", "General", 99);
-//                v1.reserveSlot(room.List_of_Slots.get(0));
-//                v1.reserveSlot(room.List_of_Slots.get(1));
-//                room.New_Visitor(v1);
-//                rooms.set(rooms.indexOf(room), room);
-//            }
-//
-//        }
+        ArrayList<Room> rooms = DataHandling.getRooms();
+        ArrayList<Visitor>visitors = DataHandling.getVisitors();
+        for (Room room : rooms) {
+            if (room.getRoom_Id()==1) {
+                Visitor v1 = new Visitor("visitor1", "testtest", "GENERAL", 99);
+                visitors.add(v1);
+                v1.reserveSlot(room.List_of_Slots.get(0));
+                v1.reserveSlot(room.List_of_Slots.get(1));
+                room.New_Visitor(v1);
+                rooms.set(rooms.indexOf(room), room);
+            }
+
+        }
 
 
-        ArrayList<Room> rooms =DataHandling.getRooms();
-        Room room1 = new General_room("General Room 1",1);
-        Room room2 = new General_room("General Room 2",2);
-        Room room3 = new Meeting_Room("Meeting Room 1", 3);
-        Room room4 = new Meeting_Room("Meeting Room 2", 4);
-        Room room5 = new Meeting_Room("Meeting Room 3", 5);
-        Room room6 = new Teaching_Room("Teaching Room 1", 6,"board", "projector", "instructor");
-        Room room7 = new Teaching_Room("Teaching Room 2", 7,"board", "projector", "instructor");
-        Room room8 = new Teaching_Room("Teaching Room 3", 8,"board", "projector", "instructor");
-        rooms.add(room1);
-        rooms.add(room2);
-        rooms.add(room3);
-        rooms.add(room4);
-        rooms.add(room5);
-        rooms.add(room6);
-        rooms.add(room7);
-        rooms.add(room8);
-        DataHandling.setRooms(rooms);
+//        ArrayList<Room> rooms =DataHandling.getRooms();
+//        Room room1 = new General_room("General Room 1",1);
+//        Room room2 = new General_room("General Room 2",2);
+//        Room room3 = new Meeting_Room("Meeting Room 1", 3);
+//        Room room4 = new Meeting_Room("Meeting Room 2", 4);
+//        Room room5 = new Meeting_Room("Meeting Room 3", 5);
+//        Room room6 = new Teaching_Room("Teaching Room 1", 6,"board", "projector", "instructor");
+//        Room room7 = new Teaching_Room("Teaching Room 2", 7,"board", "projector", "instructor");
+//        Room room8 = new Teaching_Room("Teaching Room 3", 8,"board", "projector", "instructor");
+//        rooms.add(room1);
+//        rooms.add(room2);
+//        rooms.add(room3);
+//        rooms.add(room4);
+//        rooms.add(room5);
+//        rooms.add(room6);
+//        rooms.add(room7);
+//        rooms.add(room8);
+//        DataHandling.setRooms(rooms);
 
         primaryStage.show();
     }

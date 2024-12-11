@@ -126,7 +126,8 @@ public class SlotSceneController implements Initializable {
                     alert.setContentText("Are you sure you want to create a new slot");
                     if(alert.showAndWait().get() == ButtonType.OK)
                     {
-                        room.New_Slot(new Slots(date, timef, timet, 100));
+                        Slots s = new Slots(date, timef, timet, 100,room.getRoom_name());
+                        room.New_Slot(s);
                         rooms.set(room.getRoom_Id() - 1, room);
                         DataHandling.setRooms(rooms);
                         System.out.println("slot added");
