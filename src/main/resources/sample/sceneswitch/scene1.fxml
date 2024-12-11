@@ -103,7 +103,7 @@
             </Rectangle>
             <Label fx:id="visitortotalhourslabel" layoutX="447.0" layoutY="128.0" styleClass="label_med_bold" stylesheets="@admin_home.css" text="0" />
             <Label layoutX="484.0" layoutY="145.0" styleClass="label_small2_thin" stylesheets="@admin_home.css" text="HOURS" />
-            <ImageView fitHeight="103.0" fitWidth="434.0" layoutX="288.0" layoutY="208.0" onMouseEntered="#hover_in" onMouseExited="#hover_out" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="ReservationButton" fitHeight="103.0" fitWidth="434.0" layoutX="288.0" layoutY="208.0" onMouseClicked="#SwitchToReservation" onMouseEntered="#hover_in" onMouseExited="#hover_out" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Asset%2064.png" />
                </image>
