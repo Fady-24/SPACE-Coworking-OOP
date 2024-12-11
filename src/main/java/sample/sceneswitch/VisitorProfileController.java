@@ -24,9 +24,13 @@ public class VisitorProfileController implements Initializable {
     @FXML
     Rectangle rect;
     @FXML
-    ImageView reservations,icon;
+    ImageView reservations,icon,ReservationButton;
 
     Visitor v = LoginController.Currentvisitor;
+
+    public void SwitchToReservation(MouseEvent e){
+    Animation.fade_transition((Node) e.getSource(),"AddReservation.fxml");
+    }
 
     public void user_logout(MouseEvent e) throws IOException {
         HelloApplication h = new HelloApplication();
