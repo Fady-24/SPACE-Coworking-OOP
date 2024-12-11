@@ -14,12 +14,23 @@ public class Slots implements Serializable
     private LocalTime timef,timet;
     private int fees;
     private Boolean reserved;
-    public Slots(LocalDate date, LocalTime timef,LocalTime timet, int fees)
+
+    public String getRoomName() {
+        return roomName;
+    }
+
+    public void setRoomName(String roomName) {
+        this.roomName = roomName;
+    }
+
+    private String roomName;
+    public Slots(LocalDate date, LocalTime timef,LocalTime timet, int fees,String roomName)
     {
         this.date = date;
         this.timef = timef;
         this.timet = timet;
         this.fees = fees;
+        this.roomName = roomName;
     }
     public LocalDate getDate() {
         return date;
