@@ -78,10 +78,7 @@ public class HelloApplication extends Application {
 //        rooms.add(room7);
 //        rooms.add(room8);
 //        DataHandling.setRooms(rooms);
-//
-//
-//
-//
+
         primaryStage.show();
     }
 
