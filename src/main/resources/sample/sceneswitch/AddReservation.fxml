@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.String?>
-<?import java.net.URL?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
@@ -10,24 +8,25 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.sceneswitch.ReservationController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #222222;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.sceneswitch.ReservationController">
    <children>
-      <AnchorPane opacity="0.0">
+      <AnchorPane fx:id="Anchor_add">
          <children>
             <ImageView pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@guibg2224.png" />
                </image>
             </ImageView>
-            <Label layoutX="83.0" layoutY="151.0" prefHeight="53.0" prefWidth="427.0" styleClass="label_small_yellow" stylesheets="@admin_home.css" text="RESERVE  A SUITABLE TIME SLOT" />
-            <ComboBox fx:id="roomBox" layoutX="108.0" layoutY="288.0" onAction="#Generate_TimeSlots" prefHeight="33.0" prefWidth="254.0" stylesheets="@admin_home.css" />
-            <ComboBox fx:id="time_slot_box" layoutX="112.0" layoutY="397.0" prefHeight="33.0" prefWidth="256.0" stylesheets="@admin_home.css" />
+            <Label layoutX="83.0" layoutY="151.0" prefHeight="53.0" prefWidth="427.0" styleClass="label_small_yellow" stylesheets="@admin_home.css" text="RESERVE A SUITABLE TIME SLOT" />
+            <ComboBox fx:id="roomBox" layoutX="108.0" layoutY="288.0" onAction="#Generate_TimeSlots" prefHeight="33.0" prefWidth="254.0" styleClass="combo-box2" stylesheets="@admin_home.css" />
+            <ComboBox fx:id="time_slot_box" layoutX="112.0" layoutY="397.0" prefHeight="33.0" prefWidth="256.0" styleClass="combo-box2" stylesheets="@admin_home.css" />
             <Label layoutX="119.0" layoutY="249.0" prefHeight="40.0" prefWidth="111.0" styleClass="label_small2_thin" stylesheets="@admin_home.css" text="ROOM" />
             <Label layoutX="115.0" layoutY="355.0" prefHeight="30.0" prefWidth="113.0" styleClass="label_small2_thin" stylesheets="@admin_home.css" text="TIME SLOT" />
-            <Button fx:id="confirm_button" layoutX="195.0" layoutY="491.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="160.0" text="Confirm Reservation" />
+            <Rectangle fx:id="confirm_button" arcHeight="30.0" arcWidth="30.0" fill="#383838" height="43.0" layoutX="140.0" layoutY="490.0" onMouseClicked="#cancel_res" onMouseEntered="#button_transition3" onMouseExited="#button_transition4" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="button_custom" width="220.0" />
+            <Button layoutX="140.0" layoutY="490.0" mnemonicParsing="false" mouseTransparent="true" prefHeight="43.0" prefWidth="220.0" style="-fx-background-color: transparent;" styleClass="button_custom" stylesheets="@Register.css" text="CONFIRM RESERVATION" />
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="Anchor_can" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0">
+      <AnchorPane fx:id="Anchor_can" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="0.0" prefHeight="600.0" prefWidth="800.0">
          <children>
             <ImageView fitHeight="600.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -35,41 +34,36 @@
                </image>
             </ImageView>
             <Label layoutX="58.0" layoutY="156.0" prefHeight="59.0" prefWidth="413.0" styleClass="label_small3_thin_red" stylesheets="@admin_home.css" text="CANCELING RESERVATION" />
-            <Label layoutX="109.0" layoutY="540.0" prefHeight="51.0" prefWidth="518.0" styleClass="label_small2_thin_red" text="THERE WILL BE A PENALTY FEE ADDED TO YOUR NEXT RESERVATION">
-               <stylesheets>
-                  <URL value="@application.css" />
-                  <URL value="@admin_home.css" />
-               </stylesheets>
-            </Label>
-            <ComboBox fx:id="Reservation_choice" layoutX="49.0" layoutY="260.0" onAction="#displayReservation" prefHeight="34.0" prefWidth="173.0" styleClass="combo-box" stylesheets="@admin_home.css" />
+            <Label layoutX="150.0" layoutY="526.0" prefHeight="51.0" prefWidth="313.0" styleClass="label_small4_thin_red" stylesheets="@admin_home.css" text="THERE WILL BE A PENALTY FEE ADDED TO YOUR NEXT RESERVATION" textAlignment="CENTER" wrapText="true" />
+            <ComboBox fx:id="Reservation_choice" layoutX="48.0" layoutY="256.0" onAction="#displayReservation" prefHeight="34.0" prefWidth="173.0" styleClass="combo-box2" stylesheets="@admin_home.css" />
             <Label layoutX="49.0" layoutY="216.0" styleClass="label_small3_thin" stylesheets="@admin_home.css" text="RESERVATION" />
-            <Button fx:id="cancel_rser" layoutX="246.0" layoutY="486.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="240.0" text="Cancel Reservation">
-               <stylesheets>
-                  <URL value="@Register.css" />
-                  <URL value="@application.css" />
-               </stylesheets>
-               <styleClass>
-                  <String fx:value="button_Reservation_custom" />
-                  <String fx:value="butto_222" />
-                  <String fx:value="button_custom_W" />
-               </styleClass>
-            </Button>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="0.85" layoutX="49.0" layoutY="360.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="491.0" />
-            <Label fx:id="res_d" layoutX="49.0" layoutY="372.0" styleClass="label_small3_thin" stylesheets="@admin_home.css" text="Label" />
+            <Label fx:id="res_d" layoutX="49.0" layoutY="372.0" prefHeight="28.0" prefWidth="612.0" styleClass="label_small3_thin" stylesheets="@admin_home.css" />
             <Label layoutX="49.0" layoutY="325.0" styleClass="label_small3_thin" stylesheets="@admin_home.css" text="Reservation Details" />
+            <Rectangle fx:id="cancel_res" arcHeight="30.0" arcWidth="30.0" fill="#383838" height="43.0" layoutX="204.0" layoutY="474.0" onMouseClicked="#cancel_res" onMouseEntered="#button_transition" onMouseExited="#button_transition2" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="button_custom" width="220.0" />
+            <Button layoutX="209.0" layoutY="474.0" mnemonicParsing="false" mouseTransparent="true" prefHeight="43.0" prefWidth="212.0" style="-fx-background-color: transparent;" styleClass="button_custom" stylesheets="@Register.css" text="CANCEL RESERVATION" />
          </children>
       </AnchorPane>
-      <ImageView layoutX="741.0" layoutY="432.0" pickOnBounds="true" preserveRatio="true">
+      <AnchorPane fx:id="Anchor_update" opacity="0.0">
+         <children>
+            <ImageView pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@gu2222222i.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <ImageView fx:id="del_icon" fitWidth="39.0" layoutX="730.0" layoutY="480.0" onMouseClicked="#on_click" onMouseEntered="#hover_in" onMouseExited="#hover_away" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Asset%2052.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="51.0" fitWidth="39.0" layoutX="741.0" layoutY="487.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="add_icon" fitHeight="51.0" fitWidth="39.0" layoutX="730.0" layoutY="430.0" onMouseClicked="#on_click" onMouseEntered="#hover_in" onMouseExited="#hover_away" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Asset%2053.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="51.0" fitWidth="39.0" layoutX="741.0" layoutY="542.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="edit_icon" fitHeight="51.0" fitWidth="39.0" layoutX="730.0" layoutY="530.0" onMouseClicked="#on_click" onMouseEntered="#hover_in" onMouseExited="#hover_away" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Asset%2066.png" />
          </image>
@@ -79,8 +73,8 @@
             <Image url="@Asset_15.png" />
          </image>
       </ImageView>
-      <Label layoutX="49.0" layoutY="78.0" styleClass="label_big" stylesheets="@admin_home.css" text="RESERVATIONS" />
-      <ImageView fx:id="vistorhome" layoutX="755.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
+      <Label layoutX="49.0" layoutY="73.0" styleClass="label_big" stylesheets="@admin_home.css" text="RESERVATIONS" />
+      <ImageView fx:id="visitorhome" layoutX="741.0" layoutY="45.0" onMouseClicked="#return_home" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Asset_26_1.png" />
          </image>
