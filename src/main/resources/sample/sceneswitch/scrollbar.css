@@ -1,0 +1,6 @@
+.scroll-pane.scroll-bar:horizontal.track{
+    -fx-background-color: #383838;
+}
+.scroll-pane.scroll-bar:horizontal.thumb{
+    -fx-background-color: #383838;
+}

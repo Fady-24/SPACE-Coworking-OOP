@@ -9,12 +9,24 @@ public class Visitor implements Serializable {
     private String password;
     private String type;
     private int hours;
+    private int balance;
+//    private int reserved_slot;
+    public ArrayList<Slots> V_list_of_slots=new ArrayList<>();
 
     public Visitor(String name, String password, String type,int ID) {
         this.name = name;
         this.password = password;
         this.type = type;
         this.ID = ID;
+        this.balance = 1000;
+    }
+    public void reserveSlot(Slots s){
+        V_list_of_slots.add(s);
+        s.setReserved(true);
+    }
+
+    public int getBalance() {
+        return balance;
     }
 
     public int getID() {

@@ -9,6 +9,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.shape.Shape;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -21,7 +25,7 @@ import java.util.ArrayList;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-public class LoginController{
+public class LoginController implements Initializable {
     @FXML
     private TextField textfield01;
     private Button button01;
@@ -30,6 +34,12 @@ public class LoginController{
 
     @FXML
     private PasswordField passfield;
+    @FXML
+    private AnchorPane anchor;
+    @FXML
+    private Button submitbutton;
+    @FXML
+    private Rectangle rect;
     //public static Visitor CurrentVisitor;
 
     int age;
@@ -39,37 +49,47 @@ public class LoginController{
     @FXML
     public static Visitor Currentvisitor;
     public void switch_to_register (ActionEvent e) throws IOException {
-        HelloApplication h = new HelloApplication();
-        h.changescene("register.fxml");
+        Animation.fade_transition(anchor,"register.fxml");
+    }
+    public void button_transition(MouseEvent e) {
+        Animation.colorfillin((Shape) e.getSource(), Color.rgb(56, 56, 56), Color.rgb(126, 96, 191));
+    }
+    public void button_transition2(MouseEvent e) {
+        Animation.colorfillout((Shape) e.getSource(), Color.rgb(126, 96, 191), Color.rgb(56, 56, 56));
+    }
+    public void submit(MouseEvent actionEvent) throws IOException, ClassNotFoundException {
 
+        ArrayList<Visitor> visitors = DataHandling.getVisitors();
+        HelloApplication h = new HelloApplication();
+        String name = textfield01.getText();
+        String pass = passfield.getText();
+
+        if(name.equals("admin") && pass.equals("admin"))
+        {
+            h.changescene("admin.fxml");
+        }
+        else
+        {
+            for (Visitor visitor : visitors) {
+                System.out.println(visitor.toString());
+                if (visitor.getName().equals(name) && visitor.getPassword().equals(pass)) {
+                    Currentvisitor = visitor;
+                    System.out.println("current visitor " + Currentvisitor.getName());
+                    System.out.println("current type " + Currentvisitor.getType());
+                    mylabel.setText("Successfully logged in");
+                    h.changescene("scene1.fxml");
+                    break;
+                }
+                else
+                {
+                    mylabel.setText("Incorrect username or password");
+                }
+            }
+        }
     }
 
-    public void submit(ActionEvent actionEvent) throws IOException, ClassNotFoundException {
-        File f = new File("visitor.dat");
-        ObjectInputStream ois = new ObjectInputStream(new FileInputStream(f));
-        ArrayList<Visitor> visitors = (ArrayList<Visitor>) ois.readObject();
-
-
-       for(Visitor visitor : visitors) {
-           System.out.println(visitor.toString());
-           String name = textfield01.getText();
-           String pass = passfield.getText();
-           HelloApplication h = new HelloApplication();
-           if(name.equals("admin") && pass.equals("admin")) {
-               h.changescene("admin.fxml");
-           }else if(visitor.getName().equals(name) && visitor.getPassword().equals(pass)) {
-               Currentvisitor = visitor;
-               System.out.println("current visitor " + Currentvisitor.getName());
-               System.out.println("current type " + Currentvisitor.getType());
-
-
-               h.changescene("scene1.fxml");
-               mylabel.setText("Successfully logged in");
-               break;
-           }else{
-               mylabel.setText("Incorrect username or password");
-           }
-
-       }
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        Animation.fade_in(anchor);
     }
 }
