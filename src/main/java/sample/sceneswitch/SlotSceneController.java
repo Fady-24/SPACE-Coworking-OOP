@@ -25,7 +25,7 @@ import java.util.ResourceBundle;
 public class SlotSceneController implements Initializable {
 
     @FXML
-    private ComboBox roomchoice,SlotTimeFrom,roomchoice1,Slot_picker;
+    private ComboBox<String> roomchoice,SlotTimeFrom,roomchoice1,Slot_picker;
     @FXML
     private TextField SlotTimeto;
     @FXML
@@ -140,7 +140,7 @@ public class SlotSceneController implements Initializable {
             }
         }
     }
-    public void check_slots(MouseEvent e){
+    public void check_slots(ActionEvent e){
 
 
 
@@ -157,9 +157,7 @@ public class SlotSceneController implements Initializable {
             }
         }
         // Still needs improvement
-        Slot_picker.getItems().clear();
-        Slot_picker.setVisibleRowCount(list.size());
-        Slot_picker.getItems().addAll(list);
+        Slot_picker.getItems().setAll(list);
     }
 
     public void selected(ActionEvent e){

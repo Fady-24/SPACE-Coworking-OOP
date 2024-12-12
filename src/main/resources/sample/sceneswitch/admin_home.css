@@ -84,6 +84,11 @@
     -fx-font-family: "Poppins Light";
     -fx-font-size: 32;
 }
+.label_small4_thin_red{
+    -fx-text-fill: #832121;
+    -fx-font-family: "Poppins Medium";
+    -fx-font-size: 16;
+}
 .label_small2_thin_green{
     -fx-text-fill: lightgreen;
     -fx-font-family: "Poppins Medium";
@@ -135,6 +140,35 @@
 .combo-box .arrow-button .arrow{
     -fx-background-color: white;
 }
+
+
+.combo-box2{
+    -fx-background-color:#383838;
+    -fx-background-radius: 10;
+}
+.combo-box2 .list-view {
+    -fx-background-color:#383838;
+    -fx-background-radius: 10;
+}
+.combo-box2 .list-cell{
+    -fx-background-color: transparent;
+    -fx-font-family: "Poppins";
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 15;
+}
+.combo-box2 .list-cell:selected:filled {
+    -fx-text-fill: white;
+    -fx-font-size: 15;
+}
+.combo-box2 .list-cell:hover{
+    -fx-background-radius: 10;
+    -fx-background-color: #758694;
+}
+.combo-box2 .arrow-button .arrow{
+    -fx-background-color: white;
+}
+
 
 
 .text-field_B {
