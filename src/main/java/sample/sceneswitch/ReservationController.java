@@ -15,6 +15,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
 
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
@@ -22,14 +23,15 @@ public class ReservationController implements Initializable {
     @FXML
     private ComboBox<String> roomBox, time_slot_box,Reservation_choice;
     @FXML
-     private Label res_d;
+     private Label time,date,name,fees;
     @FXML
     private Rectangle cancel_res,confirm_res,confirm_button;
     @FXML
     private ImageView add_icon,del_icon,edit_icon,visitorhome;
     @FXML
-    private AnchorPane Anchor_can,Anchor_add,Anchor_update;
+    private AnchorPane Anchor_can,Anchor_add,Anchor_update,res_d;
     private boolean in_can,in_add,in_edit;
+    private Slots targetSlot;
 
     Visitor visitor = LoginController.Currentvisitor;
 
@@ -140,11 +142,16 @@ public class ReservationController implements Initializable {
     for(Room r:DataHandling.getRooms()){
         if(r.getRoom_name().equals(room)){
             for(Slots s: r.List_of_Slots){
-                slots.add(s.getDate() + "   " + s.preview());
+
+                if(!s.getReserved()) {
+                    slots.add(s.getDate() + "   " + s.preview());
+                }
+
             }
         }
     }
         time_slot_box.getItems().setAll(slots);
+
     }
 
 
@@ -155,13 +162,32 @@ public class ReservationController implements Initializable {
     public void displayReservation(ActionEvent e){
         String selection = (String)Reservation_choice.getSelectionModel().getSelectedItem();
         int slot_Id= Integer.parseInt(selection.split(" ")[1]);
-        Slots targetSlot = visitor.V_list_of_slots.get(slot_Id-1);
-        res_d.setText(targetSlot.getRoomName()+"          "+targetSlot.getDate()+"          "+targetSlot.preview()+"          "+targetSlot.getFees()+"$");
+        targetSlot = visitor.V_list_of_slots.get(slot_Id-1);
+        name.setText(targetSlot.getRoomName());
+        date.setText(""+targetSlot.getDate());
+        time.setText(""+targetSlot.preview());
+        fees.setText(""+targetSlot.getFees());
         Animation.fade_in(res_d);
 
     }
 
     public void cancel_res(MouseEvent e){
+     visitor.V_list_of_slots.remove(targetSlot);
+     targetSlot.setReserved(false);
+     visitor.setBalance(visitor.getBalance()+targetSlot.getFees());
+     visitor.setExtraFee(visitor.getExtraFee()+20);
+     Reservation_choice.getSelectionModel().clearSelection();
+     Animation.fade_out(res_d);
+     System.out.println(visitor.getExtraFee());
+
+         System.out.println(visitor.V_list_of_slots);
+        ArrayList<String>slotsList = new ArrayList<>();
+        for(int i=0;i< visitor.V_list_of_slots.size();i++)
+        {
+            String x ="Reservation "+(i+1);
+            slotsList.add(x);
+        }
+        Reservation_choice.getItems().setAll(slotsList);
 
     }
 
