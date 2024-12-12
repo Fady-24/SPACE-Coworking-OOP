@@ -9,7 +9,23 @@ public class Visitor implements Serializable {
     private String password;
     private String type;
     private int hours;
+
+    public void setBalance(int balance) {
+        this.balance = balance;
+    }
+
     private int balance;
+    private int extraFee;
+
+    public int getExtraFee() {
+        return extraFee;
+    }
+
+    public void setExtraFee(int extraFee) {
+        this.extraFee = extraFee;
+    }
+
+
 //    private int reserved_slot;
     public ArrayList<Slots> V_list_of_slots=new ArrayList<>();
 
