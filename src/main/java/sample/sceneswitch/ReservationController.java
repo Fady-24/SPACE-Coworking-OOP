@@ -18,9 +18,9 @@ import java.util.ResourceBundle;
 
 public class ReservationController implements Initializable {
     @FXML
-    private ComboBox<String> roomBox, time_slot_box, Reservation_choice, reservation_combobox, room_combobox, timeslot_combobox;
+    private ComboBox<String> roomBox, time_slot_box, Reservation_choice, reservations_combobox, room_combobox, timeslot_combobox;
     @FXML
-    private Label time, date, name, fees;
+    private Label time, date, name, fees,name1,date1,fees1,time1;
     @FXML
     private Rectangle cancel_res, updatereservation_button, confirm_button;
     @FXML
@@ -199,10 +199,54 @@ public class ReservationController implements Initializable {
         time_slot_box.getItems().setAll(slots);
         combo_reinitialize();
     }
-
-
-
-
+    ///////////////////////////////////////////// Updating a Reservation ////////////////////////////////////////////////////////////
+    public void displayReservation_forupdate(ActionEvent e){
+        String selection = (String)reservations_combobox.getSelectionModel().getSelectedItem();
+        int slot_Id= Integer.parseInt(selection.split(" ")[1]);
+        targetSlot = visitor.V_list_of_slots.get(slot_Id-1);
+        name1.setText(targetSlot.getRoomName());
+        date1.setText(""+targetSlot.getDate());
+        time1.setText(""+targetSlot.preview());
+        fees1.setText(""+targetSlot.getFees());
+        Animation.fade_in(add_1det);
+    }
+    public void time_slot_selection(ActionEvent e)
+    {
+        selectedroom = (String) room_combobox.getSelectionModel().getSelectedItem();
+        ArrayList<String> slots = new ArrayList<>();
+        ArrayList<Room> rooms = DataHandling.getRooms();
+        timeslot_combobox.getSelectionModel().clearSelection();
+        for (Room room : rooms) {
+            if (room.getRoom_name().equals(selectedroom))
+            {
+                for (Slots slot : room.List_of_Slots)
+                {
+                    if (!slot.getReserved()) {
+                        slots.add(slot.getDate() + "   " + slot.preview());
+                    }
+                }
+            }
+        }
+        timeslot_combobox.getItems().setAll(slots);
+    }
+    public void updateReservation(MouseEvent e)
+    {
+        String selec=timeslot_combobox.getSelectionModel().getSelectedItem();
+        Slots s;
+        for (Room room : DataHandling.getRooms()) {
+            if (room.getRoom_name().equals(selectedroom))
+            {
+                for (Slots slot : room.List_of_Slots)
+                {
+                    if (selec.split(" ")[0].equals(""+slot.getDate()) && selec.split(" ")[3].equals(""+slot.getTimef())){
+                        s=slot;
+                        visitor.updateReservation(targetSlot,s);
+                    }
+                }
+            }
+        }
+        combo_reinitialize();
+    }
     ///////////////////////////////////////////// Canceling a Reservation ////////////////////////////////////////////////////////////
     public void displayReservation(ActionEvent e){
         String selection = (String)Reservation_choice.getSelectionModel().getSelectedItem();
@@ -213,8 +257,8 @@ public class ReservationController implements Initializable {
         time.setText(""+targetSlot.preview());
         fees.setText(""+targetSlot.getFees());
         Animation.fade_in(res_d);
-
     }
+
 
     public void cancel_res(MouseEvent e)
     {
@@ -244,6 +288,7 @@ public class ReservationController implements Initializable {
             slotsList.add(x);
         }
         Reservation_choice.getItems().setAll(slotsList);
+        reservations_combobox.getItems().setAll(slotsList);
     }
     public void combo_2_reinitialize(){
         ArrayList<String> slots = new ArrayList<>();
@@ -281,22 +326,23 @@ public class ReservationController implements Initializable {
             slotsList.add(x);
         }
         Reservation_choice.getItems().setAll(slotsList);
+        reservations_combobox.getItems().setAll(slotsList);
 
         if(visitor.getType().equals("GENERAL")){
             String[] RoomName = {"General Room 1","General Room 2"};
             roomBox.getItems().setAll(RoomName);
-
+            room_combobox.getItems().setAll(RoomName);
         }
         else if (visitor.getType().equals("INSTRUCTOR")) {
 
             String[] RoomName = {"Teaching Room 1", "Teaching Room 2","Teaching Room 3"};
             roomBox.getItems().setAll(RoomName);
-
+            room_combobox.getItems().setAll(RoomName);
         }
         else{
             String[] RoomName = {"Meeting Room 1","Meeting Room 2","Meeting Room 3"};
             roomBox.getItems().setAll(RoomName);
-
+            room_combobox.getItems().setAll(RoomName);
         }
     }
 }
