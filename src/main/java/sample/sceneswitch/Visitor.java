@@ -38,6 +38,15 @@ public class Visitor implements Serializable {
     public void reserveSlot(Slots s){
         V_list_of_slots.add(s);
         s.setReserved(true);
+        this.setBalance(this.getBalance()-(s.getFees()+this.getExtraFee()));
+        this.setExtraFee(0);
+
+    }
+    public void cancel_reservation(Slots s){
+        V_list_of_slots.remove(s);
+        s.setReserved(false);
+        this.setBalance(this.getBalance()+s.getFees());
+        this.setExtraFee(this.getExtraFee()+20);
     }
 
     public int getBalance() {

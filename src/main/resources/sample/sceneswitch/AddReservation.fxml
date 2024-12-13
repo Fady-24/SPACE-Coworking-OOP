@@ -20,7 +20,7 @@
             </ImageView>
             <Label layoutX="83.0" layoutY="151.0" prefHeight="53.0" prefWidth="427.0" styleClass="label_small_yellow" stylesheets="@admin_home.css" text="RESERVE A SUITABLE TIME SLOT" />
             <ComboBox fx:id="roomBox" layoutX="108.0" layoutY="288.0" onAction="#Generate_TimeSlots" prefHeight="33.0" prefWidth="254.0" styleClass="combo-box2" stylesheets="@admin_home.css" />
-            <ComboBox fx:id="time_slot_box" layoutX="112.0" layoutY="397.0" onAction="#wantedslot" prefHeight="33.0" prefWidth="256.0" styleClass="combo-box2" stylesheets="@admin_home.css" />
+            <ComboBox fx:id="time_slot_box" layoutX="112.0" layoutY="397.0" prefHeight="33.0" prefWidth="256.0" styleClass="combo-box2" stylesheets="@admin_home.css" />
             <Label layoutX="119.0" layoutY="249.0" prefHeight="40.0" prefWidth="111.0" styleClass="label_small2_thin" stylesheets="@admin_home.css" text="ROOM" />
             <Label layoutX="115.0" layoutY="355.0" prefHeight="30.0" prefWidth="113.0" styleClass="label_small2_thin" stylesheets="@admin_home.css" text="TIME SLOT" />
             <Rectangle fx:id="confirm_button" arcHeight="30.0" arcWidth="30.0" fill="#383838" height="43.0" layoutX="140.0" layoutY="490.0" onMouseClicked="#confirm_reservation" onMouseEntered="#addbutton_transition1" onMouseExited="#addbutton_transition2" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="button_custom" width="220.0" />

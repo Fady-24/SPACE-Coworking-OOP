@@ -107,6 +107,7 @@ public class ReservationController implements Initializable {
             Anchor_add.setMouseTransparent(true);
             Anchor_update.setMouseTransparent(false);
         }
+        combo_reset();
     }
 
     public void return_home(MouseEvent e) {
@@ -137,11 +138,21 @@ public class ReservationController implements Initializable {
         Animation.colorfillin((Shape)e.getSource(), Color.rgb(80, 220, 100), Color.rgb(56, 56, 56));
     }
 
+    public void combo_reset(){
+        roomBox.getSelectionModel().clearSelection();
+        time_slot_box.getSelectionModel().clearSelection();
+        Reservation_choice.getSelectionModel().clearSelection();
+        reservations_combobox.getSelectionModel().clearSelection();
+        room_combobox.getSelectionModel().clearSelection();
+        timeslot_combobox.getSelectionModel().clearSelection();
+        Animation.fade_out(res_d);
+    }
+
 
 
     ///////////////////////////////////////////// Adding a Reservation ////////////////////////////////////////////////////////////
     public void Generate_TimeSlots(ActionEvent e) {
-        selectedroom = (String) roomBox.getSelectionModel().getSelectedItem();
+        selectedroom = roomBox.getSelectionModel().getSelectedItem();
         ArrayList<String> slots = new ArrayList<>();
         ArrayList<Room> rooms = DataHandling.getRooms();
         time_slot_box.getSelectionModel().clearSelection();
@@ -159,11 +170,7 @@ public class ReservationController implements Initializable {
         time_slot_box.getItems().setAll(slots);
     }
 
-    public void wantedslot(ActionEvent e)
-    {
-        selectedslot = (String)time_slot_box.getSelectionModel().getSelectedItem().split("    ")[0];
-        System.out.println(selectedslot);
-    }
+
     public void confirm_reservation(MouseEvent e)
     {
         System.out.println("click");
@@ -175,7 +182,8 @@ public class ReservationController implements Initializable {
             {
                 for (Slots slot : room.List_of_Slots)
                 {
-                    if (selectedslot.equals(slot.getDate() + "   " + slot.preview()) && !time_slot_box.getSelectionModel().isEmpty())
+                   String selec=time_slot_box.getSelectionModel().getSelectedItem();
+                    if (selec.split(" ")[0].equals(""+slot.getDate()) && selec.split(" ")[3].equals(""+slot.getTimef()))
                     {
                         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                         alert.setTitle("Slot Reservations");
@@ -201,9 +209,12 @@ public class ReservationController implements Initializable {
     }
     ///////////////////////////////////////////// Updating a Reservation ////////////////////////////////////////////////////////////
     public void displayReservation_forupdate(ActionEvent e){
-        String selection = (String)reservations_combobox.getSelectionModel().getSelectedItem();
-        int slot_Id= Integer.parseInt(selection.split(" ")[1]);
-        targetSlot = visitor.V_list_of_slots.get(slot_Id-1);
+        String selection = reservations_combobox.getSelectionModel().getSelectedItem();
+        int slot_Id;
+        if (!reservations_combobox.getSelectionModel().isEmpty()) {
+            slot_Id = Integer.parseInt(selection.split(" ")[1]);
+            targetSlot = visitor.V_list_of_slots.get(slot_Id-1);
+        }
         name1.setText(targetSlot.getRoomName());
         date1.setText(""+targetSlot.getDate());
         time1.setText(""+targetSlot.preview());
@@ -212,7 +223,7 @@ public class ReservationController implements Initializable {
     }
     public void time_slot_selection(ActionEvent e)
     {
-        selectedroom = (String) room_combobox.getSelectionModel().getSelectedItem();
+        selectedroom =room_combobox.getSelectionModel().getSelectedItem();
         ArrayList<String> slots = new ArrayList<>();
         ArrayList<Room> rooms = DataHandling.getRooms();
         timeslot_combobox.getSelectionModel().clearSelection();
@@ -239,19 +250,26 @@ public class ReservationController implements Initializable {
                 for (Slots slot : room.List_of_Slots)
                 {
                     if (selec.split(" ")[0].equals(""+slot.getDate()) && selec.split(" ")[3].equals(""+slot.getTimef())){
-                        s=slot;
-                        visitor.updateReservation(targetSlot,s);
+                        visitor.updateReservation(targetSlot,slot);
                     }
                 }
             }
         }
+        room_combobox.getSelectionModel().clearSelection();
+        timeslot_combobox.getSelectionModel().clearSelection();
+        reservations_combobox.getSelectionModel().clearSelection();
+        Animation.fade_out(add_1det);
         combo_reinitialize();
+        combo_2_reinitialize();
     }
     ///////////////////////////////////////////// Canceling a Reservation ////////////////////////////////////////////////////////////
     public void displayReservation(ActionEvent e){
-        String selection = (String)Reservation_choice.getSelectionModel().getSelectedItem();
-        int slot_Id= Integer.parseInt(selection.split(" ")[1]);
-        targetSlot = visitor.V_list_of_slots.get(slot_Id-1);
+        String selection = Reservation_choice.getSelectionModel().getSelectedItem();
+        int slot_Id;
+        if (!Reservation_choice.getSelectionModel().isEmpty()) {
+            slot_Id = Integer.parseInt(selection.split(" ")[1]);
+            targetSlot = visitor.V_list_of_slots.get(slot_Id-1);
+        }
         name.setText(targetSlot.getRoomName());
         date.setText(""+targetSlot.getDate());
         time.setText(""+targetSlot.preview());
@@ -262,22 +280,13 @@ public class ReservationController implements Initializable {
 
     public void cancel_res(MouseEvent e)
     {
-     visitor.V_list_of_slots.remove(targetSlot);
-     targetSlot.setReserved(false);
-     visitor.setBalance(visitor.getBalance()+targetSlot.getFees());
-     visitor.setExtraFee(visitor.getExtraFee()+20);
+     visitor.cancel_reservation(targetSlot);
      Reservation_choice.getSelectionModel().clearSelection();
      Animation.fade_out(res_d);
      System.out.println(visitor.getExtraFee());
 
          System.out.println(visitor.V_list_of_slots);
-        ArrayList<String>slotsList = new ArrayList<>();
-        for(int i=0;i< visitor.V_list_of_slots.size();i++)
-        {
-            String x ="Reservation "+(i+1);
-            slotsList.add(x);
-        }
-        Reservation_choice.getItems().setAll(slotsList);
+        combo_reinitialize();
         combo_2_reinitialize();
     }
     public void combo_reinitialize(){
