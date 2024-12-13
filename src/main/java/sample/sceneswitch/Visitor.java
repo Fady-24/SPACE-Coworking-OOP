@@ -9,13 +9,12 @@ public class Visitor implements Serializable {
     private String password;
     private String type;
     private int hours;
+    private int balance;
+    private int extraFee;
 
     public void setBalance(int balance) {
         this.balance = balance;
     }
-
-    private int balance;
-    private int extraFee;
 
     public int getExtraFee() {
         return extraFee;

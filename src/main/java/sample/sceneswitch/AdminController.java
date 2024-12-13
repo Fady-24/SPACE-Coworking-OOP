@@ -4,7 +4,9 @@ import javafx.animation.FillTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.effect.GaussianBlur;
 import javafx.scene.image.ImageView;
@@ -37,7 +39,14 @@ public class AdminController {
     }
     public void log_out(MouseEvent event) throws IOException {
         HelloApplication h = new HelloApplication();
-        h.changescene("starting.fxml");
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("LOG OUT");
+        alert.setHeaderText("Going to login page");
+        alert.setContentText("Are you sure you want to logout?");
+        if (alert.showAndWait().get() == ButtonType.OK)
+        {
+            h.changescene("starting.fxml");
+        }
     }
     public void switch_to_visitor (MouseEvent e) throws IOException {
         Animation.fade_transition((Node)e.getSource(),"Visitor.fxml");

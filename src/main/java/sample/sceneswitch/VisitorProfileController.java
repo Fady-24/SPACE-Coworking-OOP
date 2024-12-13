@@ -4,9 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
@@ -34,7 +32,14 @@ public class VisitorProfileController implements Initializable {
 
     public void user_logout(MouseEvent e) throws IOException {
         HelloApplication h = new HelloApplication();
-        h.changescene("starting.fxml");
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("LOG OUT");
+        alert.setHeaderText("Going to login page");
+        alert.setContentText("Are you sure you want to logout?");
+        if (alert.showAndWait().get() == ButtonType.OK)
+        {
+            h.changescene("starting.fxml");
+        }
     }
     public void hover_in(MouseEvent e){
         Animation.enlarge_image((Node)e.getSource());
@@ -43,10 +48,10 @@ public class VisitorProfileController implements Initializable {
         Animation.ensmall_image(((Node)e.getSource()));
     }
     public void button_transition(MouseEvent e) {
-        Animation.colorfillin((Shape) e.getSource(), Color.rgb(56, 56, 56), Color.rgb(249, 178, 51));
+        Animation.colorfillin((Shape) e.getSource(), Color.rgb(56, 56, 56), Color.rgb(51,51,255));
     }
     public void button_transition2(MouseEvent e) {
-        Animation.colorfillout((Shape) e.getSource(), Color.rgb(249, 178, 51), Color.rgb(56, 56, 56));
+        Animation.colorfillout((Shape) e.getSource(), Color.rgb(51, 51, 255), Color.rgb(56, 56, 56));
     }
 
 

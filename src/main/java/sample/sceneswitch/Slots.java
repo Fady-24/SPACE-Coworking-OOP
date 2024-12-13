@@ -13,7 +13,7 @@ public class Slots implements Serializable
     private LocalDate date;
     private LocalTime timef,timet;
     private int fees;
-    private Boolean reserved;
+    private boolean reserved;
 
     public String getRoomName() {
         return roomName;

@@ -14,8 +14,7 @@ public class DataHandling {
         return visitors;
     }
 
-    public static void setVisitors(ArrayList<Visitor> visitors) {
-        DataHandling.visitors = visitors;
+    public static void setVisitors(ArrayList<Visitor> visitors) {DataHandling.visitors = visitors;
     }
 
     public static ArrayList<Room> getRooms() {

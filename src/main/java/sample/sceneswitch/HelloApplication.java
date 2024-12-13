@@ -20,7 +20,7 @@ public class HelloApplication extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-    private static Stage stg;
+    public static Stage stg;
     @Override
     public void start(Stage primaryStage) throws IOException, ClassNotFoundException {
         System.setProperty("prism.lcdtext", "false");
@@ -47,25 +47,21 @@ public class HelloApplication extends Application {
         primaryStage.setScene(scene);
 
 
-        ArrayList<Room> rooms = DataHandling.getRooms();
-        ArrayList<Visitor>visitors = DataHandling.getVisitors();
-        for (Room room : rooms) {
-            if (room.getRoom_Id()==1) {
-                Visitor v1 = new Visitor("visitor1", "testtest", "GENERAL", 99);
-                visitors.add(v1);
-                v1.reserveSlot(room.List_of_Slots.get(0));
-                v1.reserveSlot(room.List_of_Slots.get(1));
-                v1.reserveSlot(room.List_of_Slots.get(2));
-                v1.reserveSlot(room.List_of_Slots.get(3));
-                v1.reserveSlot(room.List_of_Slots.get(4));
-                room.New_Visitor(v1);
-                rooms.set(rooms.indexOf(room), room);
-            }
-
-        }
+//        ArrayList<Room> rooms = DataHandling.getRooms();
+//        ArrayList<Visitor>visitors = DataHandling.getVisitors();
+//        for (Room room : rooms)
+//        {
+//            if (room.getRoom_Id()==1)
+//            {
+//                Visitor v1 = new Visitor("visitor1", "testtest", "GENERAL", 99);
+//                visitors.add(v1);
+//                room.New_Visitor(v1);
+//                rooms.set(rooms.indexOf(room), room);
+//            }
+//        }
 
 
-
+//
 //        ArrayList<Room> rooms =DataHandling.getRooms();
 //        Room room1 = new General_room("General Room 1",1);
 //        Room room2 = new General_room("General Room 2",2);
