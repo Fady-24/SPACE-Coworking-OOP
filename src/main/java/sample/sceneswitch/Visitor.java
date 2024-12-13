@@ -12,6 +12,10 @@ public class Visitor implements Serializable {
     private int balance;
     private int extraFee;
 
+    public void setHours(int hours) {
+        this.hours = hours;
+    }
+
     public void setBalance(int balance) {
         this.balance = balance;
     }
@@ -40,6 +44,7 @@ public class Visitor implements Serializable {
         s.setReserved(true);
         this.setBalance(this.getBalance()-(s.getFees()+this.getExtraFee()));
         this.setExtraFee(0);
+        this.setHours(this.getHours()+1);
 
     }
     public void cancel_reservation(Slots s){
@@ -47,6 +52,7 @@ public class Visitor implements Serializable {
         s.setReserved(false);
         this.setBalance(this.getBalance()+s.getFees());
         this.setExtraFee(this.getExtraFee()+20);
+        this.setHours(this.getHours()-1);
     }
 
     public int getBalance() {
