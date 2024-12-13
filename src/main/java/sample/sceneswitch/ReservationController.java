@@ -29,7 +29,7 @@ public class ReservationController implements Initializable {
     private AnchorPane Anchor_can, Anchor_add, Anchor_update, res_d, add_1det;
     private boolean in_can, in_add, in_edit;
     private Slots targetSlot;
-    private String selectedroom, selectedslot;
+    private static String selectedroom, selectedslot;
 
     Visitor visitor = LoginController.Currentvisitor;
 
@@ -187,11 +187,17 @@ public class ReservationController implements Initializable {
                         {
                             visitor.reserveSlot(slot);
                             System.out.println("rizz");
+
                         }
+                    }
+                    if (!slot.getReserved()) {
+                        slots.add(slot.getDate() + "   " + slot.preview());
                     }
                 }
             }
         }
+        time_slot_box.getItems().setAll(slots);
+        combo_reinitialize();
     }
 
 
@@ -228,6 +234,33 @@ public class ReservationController implements Initializable {
             slotsList.add(x);
         }
         Reservation_choice.getItems().setAll(slotsList);
+        combo_2_reinitialize();
+    }
+    public void combo_reinitialize(){
+        ArrayList<String>slotsList = new ArrayList<>();
+        for(int i=0;i< visitor.V_list_of_slots.size();i++)
+        {
+            String x ="Reservation "+(i+1);
+            slotsList.add(x);
+        }
+        Reservation_choice.getItems().setAll(slotsList);
+    }
+    public void combo_2_reinitialize(){
+        ArrayList<String> slots = new ArrayList<>();
+        ArrayList<Room> rooms = DataHandling.getRooms();
+        time_slot_box.getSelectionModel().clearSelection();
+        for (Room room : rooms) {
+            if (room.getRoom_name().equals(selectedroom))
+            {
+                for (Slots slot : room.List_of_Slots)
+                {
+                    if (!slot.getReserved()) {
+                        slots.add(slot.getDate() + "   " + slot.preview());
+                    }
+                }
+            }
+        }
+        time_slot_box.getItems().setAll(slots);
     }
 
 
