@@ -80,7 +80,13 @@ public class Visitor implements Serializable {
         this.password = password;
     }
 
-
+    public void updateReservation(Slots old_slot,Slots new_slot)
+    {
+        this.V_list_of_slots.remove(old_slot);
+        this.V_list_of_slots.add(new_slot);
+        old_slot.setReserved(false);
+        new_slot.setReserved(true);
+    }
     @Override
     public String toString() {
         return "Visitor{" +
