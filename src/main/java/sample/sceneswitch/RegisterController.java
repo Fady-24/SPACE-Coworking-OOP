@@ -115,6 +115,8 @@ public class RegisterController implements Initializable {
             alert.setTitle("Account Creation");
             alert.setHeaderText("Confirmation");
             alert.setContentText("Are you sure you want to make a new account?");
+            alert.setX(HelloApplication.stg.getX() + 200);
+            alert.setY(HelloApplication.stg.getY() + 215);
             if(alert.showAndWait().get() == ButtonType.OK)
             {
                 if (visitors.isEmpty()){
