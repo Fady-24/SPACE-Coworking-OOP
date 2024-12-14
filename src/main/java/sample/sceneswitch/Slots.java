@@ -32,6 +32,10 @@ public class Slots implements Serializable
         this.fees = fees;
         this.roomName = roomName;
     }
+    public Slots()
+    {
+
+    }
     public LocalDate getDate() {
         return date;
     }

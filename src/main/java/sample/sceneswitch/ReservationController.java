@@ -20,19 +20,19 @@ public class ReservationController implements Initializable {
     @FXML
     private ComboBox<String> roomBox, time_slot_box, Reservation_choice, reservations_combobox, room_combobox, timeslot_combobox;
     @FXML
-    private Label time, date, name, fees,name1,date1,fees1,time1,update_res_success,update_res_fail;
+    private Label time, date, name, fees,reservationdetail_label, newreservationdetail_label,update_res_success;
     @FXML
     private Rectangle cancel_res, updatereservation_button, confirm_button;
     @FXML
     private ImageView add_icon, del_icon, edit_icon, visitorhome;
     @FXML
-    private AnchorPane Anchor_can, Anchor_add, Anchor_update, res_d, add_1det;
+    private AnchorPane Anchor_can, Anchor_add, Anchor_update, res_d, add_1det, add_newdetail;
     private boolean in_can, in_add, in_edit;
-    private Slots targetSlot;
+    private Slots targetSlot, updatedslot, deltargetslot;
     private static String selectedroom;
 
     Visitor visitor = LoginController.Currentvisitor;
-
+    ArrayList<Room> rooms = DataHandling.getRooms();
     ///////////////////////////////////////////// Scene Handling ////////////////////////////////////////////////////////////
     public void hover_in(MouseEvent e) {
         if (e.getSource() == del_icon) {
@@ -147,6 +147,7 @@ public class ReservationController implements Initializable {
         timeslot_combobox.getSelectionModel().clearSelection();
         Animation.fade_out(res_d);
         Animation.fade_out(add_1det);
+        Animation.fade_out(update_res_success);
     }
 
 
@@ -155,7 +156,6 @@ public class ReservationController implements Initializable {
     public void Generate_TimeSlots(ActionEvent e) {
         selectedroom = roomBox.getSelectionModel().getSelectedItem();
         ArrayList<String> slots = new ArrayList<>();
-        ArrayList<Room> rooms = DataHandling.getRooms();
         time_slot_box.getSelectionModel().clearSelection();
         for (Room room : rooms) {
             if (room.getRoom_name().equals(selectedroom))
@@ -178,7 +178,6 @@ public class ReservationController implements Initializable {
         System.out.println("click");
         selectedroom =roomBox.getSelectionModel().getSelectedItem();
         ArrayList<String> slots = new ArrayList<>();
-        ArrayList<Room> rooms = DataHandling.getRooms();
         for (Room room : rooms) {
             if (room.getRoom_name().equals(selectedroom))
             {
@@ -213,26 +212,43 @@ public class ReservationController implements Initializable {
         combo_reinitialize();
     }
     ///////////////////////////////////////////// Updating a Reservation ////////////////////////////////////////////////////////////
-    public void displayReservation_forupdate(ActionEvent e){
+    public void displayReservation_forupdate(ActionEvent e)
+    {
         String selection = reservations_combobox.getSelectionModel().getSelectedItem();
         int slot_Id;
         if (!reservations_combobox.getSelectionModel().isEmpty()) {
             slot_Id = Integer.parseInt(selection.split(" ")[1]);
             targetSlot = visitor.V_list_of_slots.get(slot_Id-1);
         }
-        name1.setText(targetSlot.getRoomName());
-        date1.setText(""+targetSlot.getDate());
-        time1.setText(""+targetSlot.preview());
-        fees1.setText(""+targetSlot.getFees());
+        reservationdetail_label.setText(targetSlot.toString());
         Animation.fade_in(add_1det);
+    }
+    public void displaynewdetails(ActionEvent e)
+    {
+        String selectedtime = timeslot_combobox.getSelectionModel().getSelectedItem();
+        for (Room room : rooms)
+        {
+            if (room.getRoom_name().equals(selectedroom))
+            {
+                for (Slots slot : room.List_of_Slots)
+                {
+                    if (selectedtime.split(" ")[0].equals("" + slot.getDate()) && selectedtime.split(" ")[3].equals("" + slot.getTimef()))
+                    {
+                        updatedslot = slot;
+                        newreservationdetail_label.setText(slot.toString());
+                        Animation.fade_in(add_newdetail);
+                    }
+                }
+            }
+        }
     }
     public void time_slot_selection(ActionEvent e)
     {
         selectedroom =room_combobox.getSelectionModel().getSelectedItem();
         ArrayList<String> slots = new ArrayList<>();
-        ArrayList<Room> rooms = DataHandling.getRooms();
         timeslot_combobox.getSelectionModel().clearSelection();
-        for (Room room : rooms) {
+        for (Room room : rooms)
+        {
             if (room.getRoom_name().equals(selectedroom))
             {
                 for (Slots slot : room.List_of_Slots)
@@ -248,34 +264,40 @@ public class ReservationController implements Initializable {
     public void updateReservation(MouseEvent e)
     {
         String selec=timeslot_combobox.getSelectionModel().getSelectedItem();
-        for (Room room : DataHandling.getRooms()) {
-            if (room.getRoom_name().equals(selectedroom))
-            {
-                for (Slots slot : room.List_of_Slots)
-                {
-                    if (selec.split(" ")[0].equals(""+slot.getDate()) && selec.split(" ")[3].equals(""+slot.getTimef())){
-                        visitor.updateReservation(targetSlot,slot);
+        for (Room room : rooms)
+        {
+                for (Slots slot : room.List_of_Slots) {
+                    if (targetSlot.toString().equals(slot.toString())) {
+                        System.out.println("mahmoud");
+                        visitor.updateReservation(slot, updatedslot);
+                        updatedslot.setReserved(true);
+                        slot.setReserved(false);
+                        break;
                     }
                 }
             }
-        }
         room_combobox.getSelectionModel().clearSelection();
         timeslot_combobox.getSelectionModel().clearSelection();
         reservations_combobox.getSelectionModel().clearSelection();
         Animation.fade_out(add_1det);
+        Animation.fade_out(add_newdetail);
     }
     public void update_res(MouseEvent e)
     {
         String selec=timeslot_combobox.getSelectionModel().getSelectedItem();
-        if(selec != null) {
+        if(selec != null)
+        {
+            update_res_success.setStyle("-fx-text-fill: green");
+            update_res_success.setText("Slot updated successfully");
             Animation.fade_in(update_res_success);
-            Animation.fade_out(update_res_fail);
         }
         else
         {
-            Animation.fade_in(update_res_fail);
-            Animation.fade_out(update_res_success);
-            }
+            update_res_success.setText("Please make sure to enter time");
+            update_res_success.setStyle("-fx-text-fill: red");
+            Animation.fade_in(update_res_success);
+        }
+
     }
 
     ///////////////////////////////////////////// Canceling a Reservation ////////////////////////////////////////////////////////////
@@ -284,26 +306,36 @@ public class ReservationController implements Initializable {
         int slot_Id;
         if (!Reservation_choice.getSelectionModel().isEmpty()) {
             slot_Id = Integer.parseInt(selection.split(" ")[1]);
-            targetSlot = visitor.V_list_of_slots.get(slot_Id-1);
+            deltargetslot = visitor.V_list_of_slots.get(slot_Id-1);
         }
-        name.setText(targetSlot.getRoomName());
-        date.setText(""+targetSlot.getDate());
-        time.setText(targetSlot.preview());
-        fees.setText(""+targetSlot.getFees());
+        name.setText(deltargetslot.getRoomName());
+        date.setText(""+deltargetslot.getDate());
+        time.setText(deltargetslot.preview());
+        fees.setText(""+deltargetslot.getFees());
         Animation.fade_in(res_d);
     }
 
 
     public void cancel_res(MouseEvent e)
     {
-     visitor.cancel_reservation(targetSlot);
+        for (Room room : rooms) {
+            for (Slots slot : room.List_of_Slots) {
+                if(deltargetslot.toString().equals(slot.toString()))
+                {
+                    System.out.println("sigma boy"); // our savior //
+                    slot.setReserved(false);
+                    visitor.cancel_reservation(deltargetslot);
+                    break;
+                }
+            }
+        }
+        System.out.println(deltargetslot.toString());
      Reservation_choice.getSelectionModel().clearSelection();
      Animation.fade_out(res_d);
      System.out.println(visitor.getExtraFee());
-
-         System.out.println(visitor.V_list_of_slots);
-        combo_reinitialize();
-        combo_2_reinitialize();
+     System.out.println(visitor.V_list_of_slots);
+     combo_reinitialize();
+     combo_2_reinitialize();
     }
     public void combo_reinitialize(){
         ArrayList<String>slotsList = new ArrayList<>();
@@ -317,7 +349,6 @@ public class ReservationController implements Initializable {
     }
     public void combo_2_reinitialize(){
         ArrayList<String> slots = new ArrayList<>();
-        ArrayList<Room> rooms = DataHandling.getRooms();
         time_slot_box.getSelectionModel().clearSelection();
         for (Room room : rooms) {
             if (room.getRoom_name().equals(selectedroom))

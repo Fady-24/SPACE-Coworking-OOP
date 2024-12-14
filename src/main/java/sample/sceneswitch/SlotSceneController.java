@@ -106,13 +106,19 @@ public class SlotSceneController implements Initializable {
         if (roomchoice.getSelectionModel().getSelectedItem() == null || SlotDate.getValue() == null || SlotTimeFrom.getValue()==null){
             red_label.setText("Make Sure That All Fields have entries");
             green_label.setText(" ");
-        }else if (SlotDate.getValue().isBefore(LocalDate.now())) {
+        }else if (SlotDate.getValue().isBefore(LocalDate.now()))
+        {
             green_label.setText(" ");
             red_label.setText("Make Sure That the Date is entered correctly");
         }else if(slot_already_exists((String) roomchoice.getSelectionModel().getSelectedItem(),SlotDate.getValue(),LocalTime.parse((String)SlotTimeFrom.getValue())))
         {
             red_label.setText("Slot Already Exists");
             green_label.setText(" ");
+        }
+        else if (LocalTime.parse(SlotTimeFrom.getSelectionModel().getSelectedItem()).isBefore(LocalTime.now()) && SlotDate.getValue().isEqual(LocalDate.now()))
+        {
+            green_label.setText(" ");
+            red_label.setText("Make Sure That the time is entered correctly");
         }
         else {
             String rname = (String) roomchoice.getSelectionModel().getSelectedItem();
@@ -124,6 +130,8 @@ public class SlotSceneController implements Initializable {
                     alert.setTitle("Create Slot");
                     alert.setHeaderText("Slot creation confirmation");
                     alert.setContentText("Are you sure you want to create a new slot");
+                    alert.setX(HelloApplication.stg.getX() + 200);
+                    alert.setY(HelloApplication.stg.getY() + 215);
                     if(alert.showAndWait().get() == ButtonType.OK)
                     {
                         Slots s = new Slots(date, timef, timet, 100,room.getRoom_name());
@@ -180,10 +188,6 @@ public class SlotSceneController implements Initializable {
                     room.List_of_Slots.removeIf(slot ->
                             slot.getDate().equals(SlotDate1.getValue()) && slot.getTimef().equals(timef)
                     );
-                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                    alert.setTitle("Delete Slot");
-                    alert.setHeaderText("Confirm slot deletion");
-                    alert.setContentText("Are you sure you want to delete the slot?");
                         red_label.setText("Slot Removed");
                         System.out.println("slot removed");
                         System.out.println(room.toString());
