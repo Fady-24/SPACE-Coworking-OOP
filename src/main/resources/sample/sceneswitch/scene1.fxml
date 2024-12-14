@@ -117,7 +117,7 @@
                   <Image url="@Asset%2065.png" />
                </image>
             </ImageView>
-            <Label alignment="CENTER" layoutX="291.0" layoutY="391.0" prefHeight="23.0" prefWidth="420.0" styleClass="label_small2_light" stylesheets="@admin_home.css" text="There are no current reservations" />
+            <Label fx:id="reser_details" alignment="CENTER" layoutX="291.0" layoutY="391.0" prefHeight="23.0" prefWidth="420.0" styleClass="label_small2_light" stylesheets="@admin_home.css" text="There are no current reservations" />
             <Rectangle fx:id="rect" arcHeight="30.0" arcWidth="30.0" fill="#383838" height="43.0" layoutX="27.0" layoutY="453.0" onMouseClicked="#user_logout" onMouseEntered="#button_transition" onMouseExited="#button_transition2" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="button_custom" width="112.0" />
             <Button layoutX="36.0" layoutY="457.0" mnemonicParsing="false" mouseTransparent="true" prefHeight="35.0" prefWidth="96.0" style="-fx-background-color: transparent;" styleClass="button_custom" stylesheets="@admin_home.css" text="LOGOUT" />
          </children>

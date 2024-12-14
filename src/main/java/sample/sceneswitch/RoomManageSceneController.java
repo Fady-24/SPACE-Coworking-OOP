@@ -78,11 +78,15 @@ public class RoomManageSceneController implements Initializable {
         System.out.println(counter);
         for (int i = counter*7; i < ((counter*7)+7)&& i < room.List_of_Visitors.size(); i++) {
             for (int j = counter*7; j < ((counter*7)+7)&& j < room.List_of_Visitors.get(i).V_list_of_slots.size(); j++) {
+
+                if((room.List_of_Visitors.get(i).V_list_of_slots.get(j).getRoomName().equals(room.getRoom_name()))){
+                    System.out.println("loop");
                 text = text + room.List_of_Visitors.get(i).getName() + "                                           " +room.List_of_Visitors.get(i).V_list_of_slots.get(j).getDate()+"                   "+room.List_of_Visitors.get(i).V_list_of_slots.get(j).getTimef()+" to "+ room.List_of_Visitors.get(i).V_list_of_slots.get(j).getTimet()+"\n";
-            }
+            }}
             lb_1.setText(text);
 
        }
+        System.out.println(room.List_of_Visitors);
 
     }
 
