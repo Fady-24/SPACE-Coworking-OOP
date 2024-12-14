@@ -20,7 +20,7 @@ public class ReservationController implements Initializable {
     @FXML
     private ComboBox<String> roomBox, time_slot_box, Reservation_choice, reservations_combobox, room_combobox, timeslot_combobox;
     @FXML
-    private Label time, date, name, fees,name1,date1,fees1,time1;
+    private Label time, date, name, fees,name1,date1,fees1,time1,update_res_success,update_res_fail;
     @FXML
     private Rectangle cancel_res, updatereservation_button, confirm_button;
     @FXML
@@ -262,6 +262,20 @@ public class ReservationController implements Initializable {
         combo_reinitialize();
         combo_2_reinitialize();
     }
+    public void update_res(MouseEvent e)
+    {
+        String selec=timeslot_combobox.getSelectionModel().getSelectedItem();
+        if(selec != null) {
+            Animation.fade_in(update_res_success);
+            Animation.fade_out(update_res_fail);
+        }
+        else
+        {
+            Animation.fade_in(update_res_fail);
+            Animation.fade_out(update_res_success);
+            }
+    }
+
     ///////////////////////////////////////////// Canceling a Reservation ////////////////////////////////////////////////////////////
     public void displayReservation(ActionEvent e){
         String selection = Reservation_choice.getSelectionModel().getSelectedItem();
