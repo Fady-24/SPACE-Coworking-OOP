@@ -29,7 +29,7 @@ public class ReservationController implements Initializable {
     private AnchorPane Anchor_can, Anchor_add, Anchor_update, res_d, add_1det;
     private boolean in_can, in_add, in_edit;
     private Slots targetSlot;
-    private static String selectedroom, selectedslot;
+    private static String selectedroom;
 
     Visitor visitor = LoginController.Currentvisitor;
 
@@ -146,6 +146,7 @@ public class ReservationController implements Initializable {
         room_combobox.getSelectionModel().clearSelection();
         timeslot_combobox.getSelectionModel().clearSelection();
         Animation.fade_out(res_d);
+        Animation.fade_out(add_1det);
     }
 
 
@@ -161,6 +162,7 @@ public class ReservationController implements Initializable {
             {
                 for (Slots slot : room.List_of_Slots)
                 {
+                    System.out.println(slot.preview() + " "+slot.getReserved());
                     if (!slot.getReserved()) {
                         slots.add(slot.getDate() + "   " + slot.preview());
                     }
@@ -174,7 +176,7 @@ public class ReservationController implements Initializable {
     public void confirm_reservation(MouseEvent e)
     {
         System.out.println("click");
-        selectedroom = (String) roomBox.getSelectionModel().getSelectedItem();
+        selectedroom =roomBox.getSelectionModel().getSelectedItem();
         ArrayList<String> slots = new ArrayList<>();
         ArrayList<Room> rooms = DataHandling.getRooms();
         for (Room room : rooms) {
@@ -194,7 +196,10 @@ public class ReservationController implements Initializable {
                         if (alert.showAndWait().get() == ButtonType.OK)
                         {
                             visitor.reserveSlot(slot);
-                            System.out.println("rizz");
+                            if (!room.List_of_Visitors.contains(visitor)) {
+                                room.List_of_Visitors.add(visitor);
+                            }
+                            room.setTotal_fees(room.getTotal_fees()+ (slot.getFees()+visitor.getExtraFee()));
 
                         }
                     }
@@ -243,7 +248,6 @@ public class ReservationController implements Initializable {
     public void updateReservation(MouseEvent e)
     {
         String selec=timeslot_combobox.getSelectionModel().getSelectedItem();
-        Slots s;
         for (Room room : DataHandling.getRooms()) {
             if (room.getRoom_name().equals(selectedroom))
             {
@@ -259,8 +263,6 @@ public class ReservationController implements Initializable {
         timeslot_combobox.getSelectionModel().clearSelection();
         reservations_combobox.getSelectionModel().clearSelection();
         Animation.fade_out(add_1det);
-        combo_reinitialize();
-        combo_2_reinitialize();
     }
     ///////////////////////////////////////////// Canceling a Reservation ////////////////////////////////////////////////////////////
     public void displayReservation(ActionEvent e){
@@ -272,7 +274,7 @@ public class ReservationController implements Initializable {
         }
         name.setText(targetSlot.getRoomName());
         date.setText(""+targetSlot.getDate());
-        time.setText(""+targetSlot.preview());
+        time.setText(targetSlot.preview());
         fees.setText(""+targetSlot.getFees());
         Animation.fade_in(res_d);
     }

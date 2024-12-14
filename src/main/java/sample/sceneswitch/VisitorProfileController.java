@@ -18,7 +18,7 @@ import java.util.ResourceBundle;
 public class VisitorProfileController implements Initializable {
 
     @FXML
-    Label welcome,visitortypelabel,visitortotalhourslabel,balance;
+    Label welcome,visitortypelabel,visitortotalhourslabel,balance,reser_details;
     @FXML
     Rectangle rect;
     @FXML
@@ -57,6 +57,11 @@ public class VisitorProfileController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        if (!v.V_list_of_slots.isEmpty()) {
+            reser_details.setText(v.V_list_of_slots.getLast().toString());
+        }else{
+            reser_details.setText("There are no current reservations");
+        }
         visitortypelabel.setText(v.getType());
         if (v.getType().equals("INSTRUCTOR")){
             Animation.changeImage(icon,"Asset 58.png");

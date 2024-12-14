@@ -20,7 +20,7 @@
             <Font size="45.0" />
          </font>
       </Label>
-      <Label fx:id="roomid" layoutX="49.0" layoutY="124.0" prefWidth="269.0" styleClass="label_small_yellow" stylesheets="@admin_home.css" text="ROOM ID : #1" textFill="WHITE">
+      <Label fx:id="roomid" layoutX="49.0" layoutY="135.0" prefWidth="269.0" styleClass="label_small_yellow" stylesheets="@admin_home.css" text="ROOM ID : #1" textFill="WHITE">
          <font>
             <Font size="45.0" />
          </font>
@@ -48,7 +48,7 @@
       </ImageView>
       <Rectangle fx:id="rect" arcHeight="30.0" arcWidth="30.0" fill="#383838" height="43.0" layoutX="55.0" layoutY="500.0" onMouseClicked="#switch_to_rooms" onMouseEntered="#button_transition" onMouseExited="#button_transition2" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="button_custom" width="112.0" />
       <Button layoutX="64.0" layoutY="504.0" mnemonicParsing="false" mouseTransparent="true" prefHeight="35.0" prefWidth="96.0" styleClass="button_custom" stylesheets="@admin_home.css" text="BACK" />
-      <Label fx:id="lb_1" alignment="TOP_LEFT" layoutX="64.0" layoutY="239.0" prefHeight="250.0" prefWidth="673.0" styleClass="label_small_thin" stylesheets="@admin_home.css" text="Label" />
+      <Label fx:id="lb_1" alignment="TOP_LEFT" layoutX="64.0" layoutY="239.0" prefHeight="250.0" prefWidth="673.0" styleClass="label_small_thin" stylesheets="@admin_home.css" />
       <ImageView fx:id="right_arrow" layoutX="442.0" layoutY="510.0" onMouseClicked="#right_pressed" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Asset%2051.png" />

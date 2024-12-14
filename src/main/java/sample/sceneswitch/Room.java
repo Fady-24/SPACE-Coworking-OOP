@@ -10,11 +10,21 @@ public abstract class Room implements Serializable {
     public ArrayList<Visitor> List_of_Visitors=new ArrayList<>();
     public ArrayList<Slots> List_of_Slots=new ArrayList<>();
     protected int numberofslots;
+    protected int total_fees;
 
     public Room(String room_name, int room_Id) {
         this.room_name = room_name;
         this.room_Id = room_Id;
     }
+
+    public int getTotal_fees() {
+        return total_fees;
+    }
+
+    public void setTotal_fees(int total_fees) {
+        this.total_fees = total_fees;
+    }
+
     public void New_Visitor(Visitor visitor){
         this.List_of_Visitors.add(visitor);
     }

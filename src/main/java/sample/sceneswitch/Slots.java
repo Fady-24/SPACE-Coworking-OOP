@@ -64,4 +64,10 @@ public class Slots implements Serializable
     public LocalTime getTimet() {
         return timet;
     }
+
+    @Override
+    public String toString() {
+        return roomName+"   " + date +"   "+ this.preview() ;
+
+    }
 }
