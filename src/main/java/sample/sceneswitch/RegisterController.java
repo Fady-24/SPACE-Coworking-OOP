@@ -128,7 +128,7 @@ public class RegisterController implements Initializable {
                 visitors.add(v);
                 System.out.println("done");
                 // Write
-                DataHandling.setVisitors(visitors);
+                //DataHandling.setVisitors(visitors);
             }
         }
     }

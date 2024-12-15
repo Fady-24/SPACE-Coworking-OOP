@@ -2,6 +2,7 @@ package sample.sceneswitch;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Visitor implements Serializable {
     private String name;
@@ -110,4 +111,6 @@ public class Visitor implements Serializable {
                 ", type='" + type + '\'' + "ID=" + ID +
                 '}';
     }
+
+
 }

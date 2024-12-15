@@ -60,6 +60,7 @@ public class LoginController implements Initializable {
     public void submit(MouseEvent actionEvent) throws IOException, ClassNotFoundException {
 
         ArrayList<Visitor> visitors = DataHandling.getVisitors();
+        System.out.println(DataHandling.getVisitors().size());
         HelloApplication h = new HelloApplication();
         String name = textfield01.getText();
         String pass = passfield.getText();

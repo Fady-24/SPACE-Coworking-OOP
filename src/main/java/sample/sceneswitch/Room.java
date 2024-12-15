@@ -24,7 +24,36 @@ public abstract class Room implements Serializable {
     public void setTotal_fees(int total_fees) {
         this.total_fees = total_fees;
     }
+    public void visit_check(Visitor visitor){
+        if(List_of_Visitors.isEmpty())
+        {
+            List_of_Visitors.add(visitor);
+        }else for (Visitor v : List_of_Visitors) {
+            if (!v.getName().equals(visitor.getName())) {
+                System.out.println("in");
+                List_of_Visitors.add(visitor);
+            }
+        }
 
+    }
+    public void visit_check2(Visitor visitor){
+        int checker=0;
+       for(Slots s : visitor.V_list_of_slots){
+            if(s.getRoomName().equals(this.getRoom_name())){
+                checker++;
+                break;
+            }
+       }
+        if(checker == 0){
+            for(Visitor v : List_of_Visitors){
+                if(v.getName().equals(visitor.getName())){
+                    this.List_of_Visitors.remove(visitor);
+                    break;
+                }
+            }
+
+        }
+    }
     public void New_Visitor(Visitor visitor){
         this.List_of_Visitors.add(visitor);
     }

@@ -195,9 +195,12 @@ public class ReservationController implements Initializable {
                         if (alert.showAndWait().get() == ButtonType.OK)
                         {
                             visitor.reserveSlot(slot);
-                            if (!room.List_of_Visitors.contains(visitor)) {
-                                room.List_of_Visitors.add(visitor);
-                            }
+                            slot.setReserved(true);
+//                            if(!room.List_of_Visitors.contains(visitor)){
+//                                room.List_of_Visitors.add(visitor);
+//                            }
+                            check_and_replace();
+                            System.out.println(room.List_of_Visitors);
                             room.setTotal_fees(room.getTotal_fees()+ (slot.getFees()+visitor.getExtraFee()));
 
                         }
@@ -270,7 +273,7 @@ public class ReservationController implements Initializable {
                     if (targetSlot.toString().equals(slot.toString())) {
                         System.out.println("mahmoud");
                         visitor.updateReservation(slot, updatedslot);
-//                        visit_check(updatedslot.getRoomName());
+//                       visit_check(updatedslot.getRoomName());
                         updatedslot.setReserved(true);
                         slot.setReserved(false);
                         break;
@@ -326,12 +329,15 @@ public class ReservationController implements Initializable {
                     System.out.println("sigma boy"); // our savior //
                     slot.setReserved(false);
                     visitor.cancel_reservation(deltargetslot);
-                    room.List_of_Visitors.set(index_check(),visitor);
+                    System.out.println(room.List_of_Visitors);
+                    check_and_cancel();
+                    //room.List_of_Visitors.set(index_check(),visitor);
                     break;
                 }
             }
         }
-        System.out.println(deltargetslot.toString());
+
+     System.out.println(deltargetslot.toString());
      Reservation_choice.getSelectionModel().clearSelection();
      Animation.fade_out(res_d);
      System.out.println(visitor.getExtraFee());
@@ -365,6 +371,60 @@ public class ReservationController implements Initializable {
         }
         time_slot_box.getItems().setAll(slots);
     }
+
+    public void check_and_cancel(){
+        boolean flag=false;
+        for(Room room : rooms){
+            if (room.getRoom_name().equals(deltargetslot.getRoomName())){
+                for (Visitor v:room.List_of_Visitors){
+                    if(v.getID() == visitor.getID()) {
+                        System.out.println("replaced");
+                        room.List_of_Visitors.remove(v);
+                        room.List_of_Visitors.add(visitor);
+                        flag = true;
+                        break;
+                    }
+                }
+                if(!flag) {
+                    room.List_of_Visitors.add(visitor);
+                    break;
+                }
+            }
+        }
+
+    }
+
+
+
+    public void check_and_replace(){
+        boolean flag=false;
+        for(Room room : rooms){
+            if (room.getRoom_name().equals(selectedroom)){
+                if(room.List_of_Visitors.isEmpty()){
+                    room.List_of_Visitors.add(visitor);
+                }
+                else
+                {
+                    for (Visitor v:room.List_of_Visitors){
+                        if(v.getID() == visitor.getID()) {
+                            System.out.println("replaced");
+                            room.List_of_Visitors.remove(v);
+                            room.List_of_Visitors.add(visitor);
+                            flag = true;
+                            break;
+                        }
+                    }
+                    if(!flag) {
+                        room.List_of_Visitors.add(visitor);
+                        break;
+                    }
+                }
+            }}
+        }
+
+
+
+
     public int index_check(){
         int index=0;
         for (Room room : rooms){
