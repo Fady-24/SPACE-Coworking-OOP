@@ -137,7 +137,6 @@ public class SlotSceneController implements Initializable {
                         Slots s = new Slots(date, timef, timet, 100,room.getRoom_name());
                         room.New_Slot(s);
                         rooms.set(room.getRoom_Id() - 1, room);
-                        DataHandling.setRooms(rooms);
                         System.out.println("slot added");
                         System.out.println(room.toString());
                         red_label.setText(" ");
