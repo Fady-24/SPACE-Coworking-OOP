@@ -99,4 +99,8 @@ public class VisitorsController {
             System.out.println("DONE");
         }
     }
+    public void switch_to_leaderboard(MouseEvent e) throws IOException {
+        HelloApplication h = new HelloApplication();
+        h.changescene("leaderboard.fxml");
+    }
 }

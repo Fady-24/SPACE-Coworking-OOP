@@ -270,6 +270,7 @@ public class ReservationController implements Initializable {
                     if (targetSlot.toString().equals(slot.toString())) {
                         System.out.println("mahmoud");
                         visitor.updateReservation(slot, updatedslot);
+//                        visit_check(updatedslot.getRoomName());
                         updatedslot.setReserved(true);
                         slot.setReserved(false);
                         break;
@@ -325,6 +326,7 @@ public class ReservationController implements Initializable {
                     System.out.println("sigma boy"); // our savior //
                     slot.setReserved(false);
                     visitor.cancel_reservation(deltargetslot);
+                    room.List_of_Visitors.set(index_check(),visitor);
                     break;
                 }
             }
@@ -362,6 +364,29 @@ public class ReservationController implements Initializable {
             }
         }
         time_slot_box.getItems().setAll(slots);
+    }
+    public int index_check(){
+        int index=0;
+        for (Room room : rooms){
+            for (int i=0;i<room.List_of_Visitors.size();i++){
+                if (deltargetslot.getRoomName().equals(room.getRoom_name())&&room.List_of_Visitors.get(i).getName().equals(visitor.getName())){
+                    index = i;
+                }
+            }
+
+        }
+        return index;
+    }
+    public void visit_check(String room_name){
+        for (Room room : rooms) {
+            if (room.getRoom_name().equals(room_name)) {
+                if(!room.List_of_Visitors.contains(visitor)){
+                    room.List_of_Visitors.add(visitor);
+                }else{
+                    System.out.println("already in there");
+                }
+            }
+        }
     }
 
 
