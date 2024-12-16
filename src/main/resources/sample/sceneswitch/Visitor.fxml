@@ -41,7 +41,7 @@
             <Font size="14.0" />
          </font>
       </TextField>
-      <AnchorPane fx:id="visitorinfo" layoutX="45.0" layoutY="191.0" opacity="0.0" prefHeight="356.0" prefWidth="734.0">
+      <AnchorPane fx:id="visitorinfo" layoutX="45.0" layoutY="191.0" prefHeight="356.0" prefWidth="734.0">
          <children>
             <Label fx:id="visitorid" layoutX="31.0" layoutY="35.0" prefHeight="60.0" prefWidth="155.0" styleClass="label_info" stylesheets="@Register.css" text="VISITOR ID :" textFill="WHITE" />
             <Label fx:id="visitortotalhours" layoutX="35.0" layoutY="185.0" prefHeight="38.0" prefWidth="387.0" styleClass="label_info" stylesheets="@Register.css" text="VISITOR TOTAL HOURS :" textFill="WHITE" />

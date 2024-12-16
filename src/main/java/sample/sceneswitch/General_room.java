@@ -6,7 +6,8 @@ public class General_room extends Room {
  }
 
     @Override
-    public boolean fully_booked() {
+    public boolean fully_booked()
+    {
         return this.numofvisitors == 20;
     }
 

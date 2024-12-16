@@ -14,7 +14,7 @@ public class Slots implements Serializable
     private LocalTime timef,timet;
     private int fees;
     private boolean reserved;
-
+    private String roomName;
     public String getRoomName() {
         return roomName;
     }
@@ -23,7 +23,6 @@ public class Slots implements Serializable
         this.roomName = roomName;
     }
 
-    private String roomName;
     public Slots(LocalDate date, LocalTime timef,LocalTime timet, int fees,String roomName)
     {
         this.date = date;
@@ -31,10 +30,6 @@ public class Slots implements Serializable
         this.timet = timet;
         this.fees = fees;
         this.roomName = roomName;
-    }
-    public Slots()
-    {
-
     }
     public LocalDate getDate() {
         return date;

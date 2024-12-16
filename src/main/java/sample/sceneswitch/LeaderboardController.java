@@ -28,8 +28,6 @@ public class LeaderboardController implements Initializable {
 
 
 
-
-
     public void right_pressed(MouseEvent event) {
         left_arrow.setOpacity(1);
         left_arrow.setMouseTransparent(false);
@@ -99,14 +97,16 @@ public class LeaderboardController implements Initializable {
 
 
     @Override
-        public void initialize(URL url, ResourceBundle resourceBundle) {
+        public void initialize(URL url, ResourceBundle resourceBundle)
+    {
             visitors.sort(Comparator.comparing(Visitor::getHours).reversed());
             counter=0;
             left_arrow.setOpacity(0.5);
             left_arrow.setMouseTransparent(true);
             right_arrow.setOpacity(1);
             right_arrow.setMouseTransparent(false);
-            if (visitors.size()<=7){
+            if (visitors.size()<=7)
+            {
                 right_arrow.setOpacity(0.5);
                 right_arrow.setMouseTransparent(true);
             }

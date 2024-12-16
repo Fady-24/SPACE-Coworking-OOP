@@ -55,6 +55,7 @@ public class VisitorsController {
                     visitorid.setText("VISITOR ID :  " + CurrentVisitor.getID());
                     visitorname.setText("VISITOR NAME :  " + CurrentVisitor.getName());
                     visitortype.setText("VISITOR TYPE :  " + CurrentVisitor.getType());
+                    visitortotalhours.setText("VISITOR TOTAL HOURS :  " + CurrentVisitor.getHours());
                     break;
                 } else {
                     visitornotfound.setText("User Not Found!");
