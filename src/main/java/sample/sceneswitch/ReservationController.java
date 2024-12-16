@@ -31,6 +31,7 @@ public class ReservationController implements Initializable {
     private Slots targetSlot, updatedslot, deltargetslot;
     private static String selectedroom;
 
+
     Visitor visitor = LoginController.Currentvisitor;
     ArrayList<Room> rooms = DataHandling.getRooms();
     ///////////////////////////////////////////// Scene Handling ////////////////////////////////////////////////////////////
@@ -175,7 +176,6 @@ public class ReservationController implements Initializable {
 
     public void confirm_reservation(MouseEvent e)
     {
-        System.out.println("click");
         selectedroom =roomBox.getSelectionModel().getSelectedItem();
         ArrayList<String> slots = new ArrayList<>();
         for (Room room : rooms) {
@@ -189,12 +189,20 @@ public class ReservationController implements Initializable {
                         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                         alert.setTitle("Slot Reservations");
                         alert.setHeaderText("CONFIRMATION");
-                        alert.setContentText("Are you sure you want to reserve this slot? \n This slot will cost you 100$ ");
+                        if(visitor.getFreehours() == 1)
+                        {
+                            alert.setContentText("Are you sure you want to reserve this slot? \n Since you have a free hours this slot will cost you nothing!!");
+                        }
+                        else
+                        {
+                            alert.setContentText("Are you sure you want to reserve this slot? \n This slot will cost you 100$ ");
+                        }
                         alert.setX(HelloApplication.stg.getX() + 200);
                         alert.setY(HelloApplication.stg.getY() + 215);
                         if (alert.showAndWait().get() == ButtonType.OK)
                         {
                             visitor.reserveSlot(slot);
+                            System.out.println(visitor.getFreehours());
                             slot.setReserved(true);
 //                            if(!room.List_of_Visitors.contains(visitor)){
 //                                room.List_of_Visitors.add(visitor);
@@ -398,15 +406,20 @@ public class ReservationController implements Initializable {
 
     public void check_and_replace(){
         boolean flag=false;
-        for(Room room : rooms){
-            if (room.getRoom_name().equals(selectedroom)){
-                if(room.List_of_Visitors.isEmpty()){
+        for(Room room : rooms)
+        {
+            if (room.getRoom_name().equals(selectedroom))
+            {
+                if(room.List_of_Visitors.isEmpty())
+                {
                     room.List_of_Visitors.add(visitor);
                 }
                 else
                 {
-                    for (Visitor v:room.List_of_Visitors){
-                        if(v.getID() == visitor.getID()) {
+                    for (Visitor v:room.List_of_Visitors)
+                    {
+                        if(v.getID() == visitor.getID())
+                        {
                             System.out.println("replaced");
                             room.List_of_Visitors.remove(v);
                             room.List_of_Visitors.add(visitor);
@@ -414,13 +427,15 @@ public class ReservationController implements Initializable {
                             break;
                         }
                     }
-                    if(!flag) {
+                    if(!flag)
+                    {
                         room.List_of_Visitors.add(visitor);
                         break;
                     }
                 }
-            }}
+            }
         }
+    }
 
 
 
@@ -451,8 +466,8 @@ public class ReservationController implements Initializable {
 
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-
+    public void initialize(URL url, ResourceBundle resourceBundle)
+    {
         in_add = true;
         in_edit = false;
         in_can = false;

@@ -5,13 +5,11 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class Visitor implements Serializable {
-    private String name;
     private final int ID;
-    private String password;
-    private String type;
-    private int hours;
-    private int balance;
-    private int extraFee;
+    private String name, password, type;
+    private int hours, balance, extraFee, freehours, freehourscounter;
+    //    private int reserved_slot;
+    public ArrayList<Slots> V_list_of_slots=new ArrayList<>();
 
     public void setHours(int hours) {
         this.hours = hours;
@@ -30,23 +28,39 @@ public class Visitor implements Serializable {
     }
 
 
-//    private int reserved_slot;
-    public ArrayList<Slots> V_list_of_slots=new ArrayList<>();
 
     public Visitor(String name, String password, String type,int ID) {
         this.name = name;
         this.password = password;
         this.type = type;
         this.ID = ID;
-        this.balance = 1000;
+        this.balance = 3000;
     }
     public void reserveSlot(Slots s){
+        this.freehourscounter++;
         V_list_of_slots.add(s);
         s.setReserved(true);
-        this.setBalance(this.getBalance()-(s.getFees()+this.getExtraFee()));
-        this.setExtraFee(0);
-        this.setHours(this.getHours()+1);
-
+        this.setHours(this.getHours() + 1);
+        System.out.println(this.getHours());
+        if(this.getFreehours() == 0)
+        {
+            this.setBalance(this.getBalance() - (s.getFees() + this.getExtraFee()));
+            this.setExtraFee(0);
+        }
+        else
+        {
+            this.setFreehours(this.getFreehours()-1);
+        }
+        if(this.getType().equals("FORMAL") | this.getType().equals("GENERAL") && this.freehourscounter == 6)
+        {
+            this.setFreehours(1);
+            this.freehourscounter = 0;
+        }
+        else if (this.getType().equals("INSTRUCTOR") && this.freehourscounter == 12)
+        {
+            this.setFreehours(1);
+            this.freehourscounter = 0;
+        }
     }
     public void cancel_reservation(Slots s){
         V_list_of_slots.remove(s);
@@ -54,6 +68,14 @@ public class Visitor implements Serializable {
         this.setBalance(this.getBalance()+s.getFees());
         this.setExtraFee(this.getExtraFee()+20);
         this.setHours(this.getHours()-1);
+        this.freehourscounter--;
+    }
+    public void updateReservation(Slots old_slot,Slots new_slot)
+    {
+        this.V_list_of_slots.remove(old_slot);
+        this.V_list_of_slots.add(new_slot);
+        old_slot.setReserved(false);
+        new_slot.setReserved(true);
     }
 
     public int getBalance() {
@@ -67,7 +89,14 @@ public class Visitor implements Serializable {
     public int getHours() {
         return hours;
     }
-
+    public int getFreehours()
+    {
+        return freehours;
+    }
+    public void setFreehours(int freehours)
+    {
+        this.freehours = freehours;
+    }
     public String getType() {
         return type;
     }
@@ -87,7 +116,6 @@ public class Visitor implements Serializable {
 
 
 
-
     public String getPassword() {
         return password;
     }
@@ -96,13 +124,6 @@ public class Visitor implements Serializable {
         this.password = password;
     }
 
-    public void updateReservation(Slots old_slot,Slots new_slot)
-    {
-        this.V_list_of_slots.remove(old_slot);
-        this.V_list_of_slots.add(new_slot);
-        old_slot.setReserved(false);
-        new_slot.setReserved(true);
-    }
     @Override
     public String toString() {
         return "Visitor{" +
