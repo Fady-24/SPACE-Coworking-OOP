@@ -20,7 +20,7 @@ public class RoomManageSceneController implements Initializable
 {
 
     @FXML
-    private Label roomname,roomid,counter_label,lb_1;
+    private Label roomname,roomid,counter_label,v_name,v_date,v_time;
     @FXML
     private ImageView right_arrow,left_arrow;
     @FXML
@@ -78,21 +78,28 @@ public class RoomManageSceneController implements Initializable
     public void page_check(int counter)
     {
         int x = counter * 7;
-       String text="";
+        String names="";
+        String dates="";
+        String times="";
         System.out.println(counter);
         for (int i = x; i < x+7 && i < room.List_of_Visitors.size(); i++)
         {
-            for (int j = x; j < x + 7 &&  j < room.List_of_Visitors.get(i).V_list_of_slots.size(); j++)
+            for (int j = 0; j < 7 &&  j < room.List_of_Visitors.get(i).V_list_of_slots.size(); j++)
             {
                 if(room.List_of_Visitors.get(i).V_list_of_slots.get(j).getRoomName().equals(room.getRoom_name()))
                 {
                     System.out.println(room.List_of_Visitors.get(i).getName() + " " + room.List_of_Visitors.get(i).V_list_of_slots.get(j));
                     System.out.println("loop");
-                    text = text + room.List_of_Visitors.get(i).getName() + "                                           " + room.List_of_Visitors.get(i).V_list_of_slots.get(j).getDate() + "                   " + room.List_of_Visitors.get(i).V_list_of_slots.get(j).getTimef() + " to " + room.List_of_Visitors.get(i).V_list_of_slots.get(j).getTimet() + "\n";
+                    names = names + room.List_of_Visitors.get(i).getName() +"\n";
+                    dates = dates + room.List_of_Visitors.get(i).V_list_of_slots.get(j).getDate() +"\n";
+                    times = times + room.List_of_Visitors.get(i).V_list_of_slots.get(j).preview()+"\n";
                 }
+
             }
         }
-        lb_1.setText(text);
+        v_name.setText(names);
+        v_date.setText(dates);
+        v_time.setText(times);
         System.out.println(room.List_of_Visitors);
     }
 

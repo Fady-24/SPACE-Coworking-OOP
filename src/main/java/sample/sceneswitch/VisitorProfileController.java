@@ -13,12 +13,13 @@ import javafx.scene.shape.Shape;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.ResourceBundle;
 
 public class VisitorProfileController implements Initializable {
-
     @FXML
-    Label welcome,visitortypelabel,visitortotalhourslabel,balance,reser_details;
+    Label welcome,visitortypelabel,visitortotalhourslabel,balance,reser_details,freehours_label;
     @FXML
     Rectangle rect;
     @FXML
@@ -57,6 +58,17 @@ public class VisitorProfileController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        ArrayList<Visitor> sorted =DataHandling.getVisitors();
+        sorted.sort(Comparator.comparing(Visitor::getHours).reversed());;
+
+        if (v.getID() == sorted.getFirst().getID() && !v.isRewardapplied()&&sorted.size()>7){
+            v.setFreehours(v.getFreehours()+7);
+            v.setRewardapplied(true);
+        }else if (v.getID() != sorted.getFirst().getID()&&v.getFreehours()==0){
+            v.setRewardapplied(false);
+        }
+
+
         if (!v.V_list_of_slots.isEmpty()) {
             reser_details.setText(v.V_list_of_slots.getLast().toString());
         }else{
@@ -72,6 +84,11 @@ public class VisitorProfileController implements Initializable {
         visitortotalhourslabel.setText(String.valueOf(v.getHours()));
         welcome.setText(v.getName().toUpperCase().split(" ")[0]);
         balance.setText(String.valueOf(v.getBalance())+" $");
+        if (v.getFreehours()>0) {
+            freehours_label.setText("you have " + v.getFreehours() + " free hours remaining");
+        }else{
+            freehours_label.setText(" ");
+        }
         System.out.println(v.getType());
     }
 }

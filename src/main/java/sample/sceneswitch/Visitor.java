@@ -8,6 +8,7 @@ public class Visitor implements Serializable {
     private final int ID;
     private String name, password, type;
     private int hours, balance, extraFee, freehours, freehourscounter;
+    private boolean rewardapplied;
     //    private int reserved_slot;
     public ArrayList<Slots> V_list_of_slots=new ArrayList<>();
 
@@ -27,9 +28,15 @@ public class Visitor implements Serializable {
         this.extraFee = extraFee;
     }
 
+    public boolean isRewardapplied() {
+        return rewardapplied;
+    }
 
+    public void setRewardapplied(boolean rewardapplied) {
+        this.rewardapplied = rewardapplied;
+    }
 
-    public Visitor(String name, String password, String type,int ID) {
+    public Visitor(String name, String password, String type, int ID) {
         this.name = name;
         this.password = password;
         this.type = type;
@@ -53,12 +60,12 @@ public class Visitor implements Serializable {
         }
         if(this.getType().equals("FORMAL") | this.getType().equals("GENERAL") && this.freehourscounter == 6)
         {
-            this.setFreehours(1);
+            this.setFreehours(getFreehours()+1);
             this.freehourscounter = 0;
         }
         else if (this.getType().equals("INSTRUCTOR") && this.freehourscounter == 12)
         {
-            this.setFreehours(1);
+            this.setFreehours(getFreehours()+1);
             this.freehourscounter = 0;
         }
     }
