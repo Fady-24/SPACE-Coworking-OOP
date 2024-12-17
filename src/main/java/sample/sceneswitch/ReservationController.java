@@ -20,16 +20,14 @@ public class ReservationController implements Initializable {
     @FXML
     private ComboBox<String> roomBox, time_slot_box, Reservation_choice, reservations_combobox, room_combobox, timeslot_combobox;
     @FXML
-    private Label time, date, name, fees,reservationdetail_label, newreservationdetail_label,update_res_success;
-    @FXML
-    private Rectangle cancel_res, updatereservation_button, confirm_button;
+    private Label time, date, name, fees,reservationdetail_label, newreservationdetail_label,update_res_success, addingreservationlabel;
     @FXML
     private ImageView add_icon, del_icon, edit_icon, visitorhome;
     @FXML
     private AnchorPane Anchor_can, Anchor_add, Anchor_update, res_d, add_1det, add_newdetail;
     private boolean in_can, in_add, in_edit;
     private Slots targetSlot, updatedslot, deltargetslot;
-    private static String selectedroom;
+    private static String selectedroom, beforeupdateroom;
 
 
     Visitor visitor = LoginController.Currentvisitor;
@@ -274,20 +272,25 @@ public class ReservationController implements Initializable {
     }
     public void updateReservation(MouseEvent e)
     {
-        String selec=timeslot_combobox.getSelectionModel().getSelectedItem();
         for (Room room : rooms)
         {
-                for (Slots slot : room.List_of_Slots) {
-                    if (targetSlot.toString().equals(slot.toString())) {
+                for (Slots slot : room.List_of_Slots)
+                {
+                    if (targetSlot.toString().equals(slot.toString()))
+                    {
+                        beforeupdateroom = targetSlot.toString().split("   ")[0];
+                        System.out.println(beforeupdateroom);
                         System.out.println("mahmoud");
-                        visitor.updateReservation(slot, updatedslot);
+                        visitor.updateReservation(targetSlot, updatedslot);
 //                       visit_check(updatedslot.getRoomName());
                         updatedslot.setReserved(true);
+                        targetSlot.setReserved(false);
                         slot.setReserved(false);
                         break;
                     }
                 }
             }
+        check_and_replace2();
         room_combobox.getSelectionModel().clearSelection();
         timeslot_combobox.getSelectionModel().clearSelection();
         reservations_combobox.getSelectionModel().clearSelection();
@@ -404,8 +407,44 @@ public class ReservationController implements Initializable {
 
 
 
-    public void check_and_replace(){
+    public void check_and_replace()
+    {
         boolean flag=false;
+        for(Room room : rooms)
+        {
+            if (room.getRoom_name().equals(selectedroom))
+            {
+                if(room.List_of_Visitors.isEmpty())
+                {
+                    room.List_of_Visitors.add(visitor);
+                }
+                else
+                {
+                    for (Visitor v:room.List_of_Visitors)
+                    {
+                        if(v.getID() == visitor.getID())
+                        {
+                            System.out.println("replaced");
+                            System.out.println(room.List_of_Visitors.size() + " size ");
+                            room.List_of_Visitors.remove(v);
+                            room.List_of_Visitors.add(visitor);
+                            flag = true;
+                            break;
+                        }
+                    }
+                    if(!flag)
+                    {
+                        room.List_of_Visitors.add(visitor);
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
+
+    public void check_and_replace2()
+    {
         for(Room room : rooms)
         {
             if (room.getRoom_name().equals(selectedroom))
@@ -423,12 +462,18 @@ public class ReservationController implements Initializable {
                             System.out.println("replaced");
                             room.List_of_Visitors.remove(v);
                             room.List_of_Visitors.add(visitor);
-                            flag = true;
                             break;
                         }
                     }
-                    if(!flag)
+                }
+            }
+            if(room.getRoom_name().equals(beforeupdateroom))
+            {
+                for(Visitor v:room.List_of_Visitors)
+                {
+                    if(v.getID() == visitor.getID())
                     {
+                        room.List_of_Visitors.remove(v);
                         room.List_of_Visitors.add(visitor);
                         break;
                     }
@@ -436,7 +481,6 @@ public class ReservationController implements Initializable {
             }
         }
     }
-
 
 
 

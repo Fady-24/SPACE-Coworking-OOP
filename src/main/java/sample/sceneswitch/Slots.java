@@ -39,6 +39,8 @@ public class Slots implements Serializable
         this.date = date;
     }
 
+    public int getID() {return this.ID;}
+
     public Boolean getReserved() {
         return reserved;
     }
