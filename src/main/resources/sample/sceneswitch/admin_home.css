@@ -64,6 +64,12 @@
     -fx-font-family: "Poppins light";
     -fx-font-size: 16;
 }
+
+.label_small2_light_yellow{
+    -fx-text-fill: #f9b233;
+    -fx-font-family: "Poppins light";
+    -fx-font-size: 16;
+}
 .label_small3_thin{
     -fx-text-fill: white;
     -fx-font-family: "Poppins Regular";

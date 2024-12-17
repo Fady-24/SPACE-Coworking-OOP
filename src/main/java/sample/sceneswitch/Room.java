@@ -56,6 +56,7 @@ public abstract class Room implements Serializable {
     }
     public void New_Visitor(Visitor visitor){
         this.List_of_Visitors.add(visitor);
+        this.numofvisitors = this.List_of_Visitors.size();
     }
     public void New_Slot(Slots slot){
         List_of_Slots.add(slot);

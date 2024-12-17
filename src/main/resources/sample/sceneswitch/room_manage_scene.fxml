@@ -26,17 +26,17 @@
          </font>
       </Label>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="3.0" layoutX="46.0" layoutY="223.0" stroke="BLACK" strokeType="INSIDE" width="700.0" />
-      <Label layoutX="55.0" layoutY="192.0" styleClass="label_small_thin" stylesheets="@admin_home.css" text="VISITORS">
+      <Label layoutX="67.0" layoutY="192.0" styleClass="label_small_thin" stylesheets="@admin_home.css" text="VISITORS">
          <font>
             <Font size="23.0" />
          </font>
       </Label>
-      <Label layoutX="383.0" layoutY="192.0" styleClass="label_small_thin" stylesheets="@admin_home.css" text="DATE">
+      <Label layoutX="400.0" layoutY="192.0" styleClass="label_small_thin" stylesheets="@admin_home.css" text="DATE">
          <font>
             <Font size="23.0" />
          </font>
       </Label>
-      <Label layoutX="598.0" layoutY="192.0" styleClass="label_small_thin" stylesheets="@admin_home.css" text="TIME">
+      <Label layoutX="618.0" layoutY="192.0" styleClass="label_small_thin" stylesheets="@admin_home.css" text="TIME">
          <font>
             <Font size="23.0" />
          </font>
@@ -48,7 +48,7 @@
       </ImageView>
       <Rectangle fx:id="rect" arcHeight="30.0" arcWidth="30.0" fill="#383838" height="43.0" layoutX="55.0" layoutY="500.0" onMouseClicked="#switch_to_rooms" onMouseEntered="#button_transition" onMouseExited="#button_transition2" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="button_custom" width="112.0" />
       <Button layoutX="64.0" layoutY="504.0" mnemonicParsing="false" mouseTransparent="true" prefHeight="35.0" prefWidth="96.0" styleClass="button_custom" stylesheets="@admin_home.css" text="BACK" />
-      <Label fx:id="lb_1" alignment="TOP_LEFT" layoutX="64.0" layoutY="239.0" prefHeight="250.0" prefWidth="673.0" styleClass="label_small_thin" stylesheets="@admin_home.css" />
+      <Label fx:id="v_name" alignment="TOP_LEFT" layoutX="64.0" layoutY="239.0" prefHeight="250.0" prefWidth="250.0" styleClass="label_small_thin" stylesheets="@admin_home.css" />
       <ImageView fx:id="right_arrow" layoutX="442.0" layoutY="510.0" onMouseClicked="#right_pressed" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Asset%2051.png" />
@@ -61,5 +61,7 @@
       </ImageView>
       <Label fx:id="counter_label" alignment="CENTER" layoutX="380.0" layoutY="500.0" prefHeight="43.0" prefWidth="50.0" styleClass="label_small_thin" stylesheets="@admin_home.css" text="1" />
       <Label fx:id="total_fees" alignment="CENTER" contentDisplay="CENTER" layoutX="633.0" layoutY="506.0" prefHeight="28.0" prefWidth="75.0" styleClass="label_small3_thin_green" stylesheets="@admin_home.css" text="1000$" />
+      <Label fx:id="v_date" alignment="TOP_CENTER" layoutX="329.0" layoutY="239.0" prefHeight="250.0" prefWidth="202.0" styleClass="label_small_thin" stylesheets="@admin_home.css" />
+      <Label fx:id="v_time" alignment="TOP_CENTER" layoutX="542.0" layoutY="239.0" prefHeight="250.0" prefWidth="202.0" styleClass="label_small_thin" stylesheets="@admin_home.css" />
    </children>
 </AnchorPane>

@@ -182,7 +182,7 @@ public class ReservationController implements Initializable {
                 for (Slots slot : room.List_of_Slots)
                 {
                    String selec=time_slot_box.getSelectionModel().getSelectedItem();
-                    if (selec.split(" ")[0].equals(""+slot.getDate()) && selec.split(" ")[3].equals(""+slot.getTimef()))
+                    if (selec.split(" ")[0].equals(""+slot.getDate()) && selec.split(" ")[3].equals(""+slot.getTimef())&&!room.fully_booked())
                     {
                         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                         alert.setTitle("Slot Reservations");
@@ -202,9 +202,6 @@ public class ReservationController implements Initializable {
                             visitor.reserveSlot(slot);
                             System.out.println(visitor.getFreehours());
                             slot.setReserved(true);
-//                            if(!room.List_of_Visitors.contains(visitor)){
-//                                room.List_of_Visitors.add(visitor);
-//                            }
                             check_and_replace();
                             System.out.println(room.List_of_Visitors);
                             room.setTotal_fees(room.getTotal_fees()+ (slot.getFees()+visitor.getExtraFee()));
@@ -276,13 +273,12 @@ public class ReservationController implements Initializable {
         {
                 for (Slots slot : room.List_of_Slots)
                 {
-                    if (targetSlot.toString().equals(slot.toString()))
+                    if (targetSlot.toString().equals(slot.toString())&&!room.fully_booked())
                     {
                         beforeupdateroom = targetSlot.toString().split("   ")[0];
                         System.out.println(beforeupdateroom);
                         System.out.println("mahmoud");
                         visitor.updateReservation(targetSlot, updatedslot);
-//                       visit_check(updatedslot.getRoomName());
                         updatedslot.setReserved(true);
                         targetSlot.setReserved(false);
                         slot.setReserved(false);
@@ -337,11 +333,12 @@ public class ReservationController implements Initializable {
             for (Slots slot : room.List_of_Slots) {
                 if(deltargetslot.toString().equals(slot.toString()))
                 {
-                    System.out.println("sigma boy"); // our savior //
                     slot.setReserved(false);
                     visitor.cancel_reservation(deltargetslot);
                     System.out.println(room.List_of_Visitors);
-                    check_and_cancel();
+                    remove_visitor( check_and_cancel());;
+                    System.out.println("after removal");
+                    System.out.println(room.List_of_Visitors);
                     //room.List_of_Visitors.set(index_check(),visitor);
                     break;
                 }
@@ -383,23 +380,36 @@ public class ReservationController implements Initializable {
         time_slot_box.getItems().setAll(slots);
     }
 
-    public void check_and_cancel(){
+    public Visitor check_and_cancel(){
         boolean flag=false;
         for(Room room : rooms){
             if (room.getRoom_name().equals(deltargetslot.getRoomName())){
                 for (Visitor v:room.List_of_Visitors){
-                    if(v.getID() == visitor.getID()) {
+                    if(v.getID() == visitor.getID()) { // have another slots in the same room
                         System.out.println("replaced");
                         room.List_of_Visitors.remove(v);
-                        room.List_of_Visitors.add(visitor);
+                        room.New_Visitor(visitor);
                         flag = true;
-                        break;
+                        return v;
                     }
                 }
-                if(!flag) {
-                    room.List_of_Visitors.add(visitor);
-                    break;
-                }
+            }
+        }
+        return null;
+    }
+    public void remove_visitor(Visitor v){
+        int counter=0;
+        for(Room room : rooms){
+            if (room.getRoom_name().equals(deltargetslot.getRoomName())){
+                        for(Slots s : visitor.V_list_of_slots){
+                            if(s.getRoomName().equals(room.getRoom_name())) {
+                                counter++;
+                                break;
+                            }
+                        }
+                    }
+            if (counter==0){
+                room.List_of_Visitors.remove(v);
             }
         }
 
@@ -427,14 +437,14 @@ public class ReservationController implements Initializable {
                             System.out.println("replaced");
                             System.out.println(room.List_of_Visitors.size() + " size ");
                             room.List_of_Visitors.remove(v);
-                            room.List_of_Visitors.add(visitor);
+                            room.New_Visitor(visitor);
                             flag = true;
                             break;
                         }
                     }
                     if(!flag)
                     {
-                        room.List_of_Visitors.add(visitor);
+                        room.New_Visitor(visitor);
                         break;
                     }
                 }
