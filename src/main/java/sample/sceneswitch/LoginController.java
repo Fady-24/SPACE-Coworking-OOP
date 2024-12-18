@@ -8,6 +8,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
@@ -28,18 +29,14 @@ import java.util.ResourceBundle;
 public class LoginController implements Initializable {
     @FXML
     private TextField textfield01;
-    private Button button01;
     @FXML
     private Label mylabel;
-
     @FXML
     private PasswordField passfield;
     @FXML
-    private AnchorPane anchor;
+    private AnchorPane anchor, headanchor, anchor_credit;
     @FXML
-    private Button submitbutton;
-    @FXML
-    private Rectangle rect;
+    private ImageView creditsimage;
     //public static Visitor CurrentVisitor;
 
     int age;
@@ -48,8 +45,43 @@ public class LoginController implements Initializable {
     private Parent root;
     @FXML
     public static Visitor Currentvisitor;
-    public void switch_to_register (ActionEvent e) throws IOException {
+    public void switch_to_register (ActionEvent e) throws IOException
+    {
         Animation.fade_transition(anchor,"register.fxml");
+    }
+    public void switch_to_credits (MouseEvent e)
+    {
+        Animation.fade_out(anchor);
+        Animation.fade_out(headanchor);
+        Animation.fade_in(anchor_credit);
+        anchor_credit.setMouseTransparent(false);
+    }
+    public void switch_to_login(MouseEvent e)
+    {
+        Animation.fade_in(anchor);
+        Animation.fade_in(headanchor);
+        Animation.fade_out(anchor_credit);
+        anchor_credit.setMouseTransparent(true);
+    }
+    public void imagefillin(MouseEvent e)
+    {
+        Animation.fade_out(creditsimage);
+        Animation.changeImage(creditsimage,"Asset_79.png");
+        Animation.fade_in(creditsimage);
+    }
+    public void imagefillout(MouseEvent e)
+    {
+        Animation.fade_out(creditsimage);
+        Animation.changeImage(creditsimage,"Asset_78.png");
+        Animation.fade_in(creditsimage);
+    }
+    public void backbutton_transition(MouseEvent e)
+    {
+        Animation.colorfillin((Shape) e.getSource(), Color.rgb(56,56,56), Color.rgb(246, 201, 14));
+    }
+    public void backbutton_transition2(MouseEvent e)
+    {
+        Animation.colorfillout((Shape) e.getSource(), Color.rgb(246, 201, 14), Color.rgb(56,56,56));
     }
     public void button_transition(MouseEvent e) {
         Animation.colorfillin((Shape) e.getSource(), Color.rgb(56, 56, 56), Color.rgb(126, 96, 191));

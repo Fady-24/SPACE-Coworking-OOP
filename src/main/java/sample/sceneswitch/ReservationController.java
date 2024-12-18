@@ -172,50 +172,52 @@ public class ReservationController implements Initializable {
     }
 
 
-    public void confirm_reservation(MouseEvent e)
-    {
-        selectedroom =roomBox.getSelectionModel().getSelectedItem();
+    public void confirm_reservation(MouseEvent e) {
+        Alert alert = new Alert(Alert.AlertType.NONE);
+        alert.setX(HelloApplication.stg.getX() + 200);
+        alert.setY(HelloApplication.stg.getY() + 215);
+        selectedroom = roomBox.getSelectionModel().getSelectedItem();
+        String selec = time_slot_box.getSelectionModel().getSelectedItem();
         ArrayList<String> slots = new ArrayList<>();
         for (Room room : rooms) {
-            if (room.getRoom_name().equals(selectedroom))
-            {
-                for (Slots slot : room.List_of_Slots)
-                {
-                   String selec=time_slot_box.getSelectionModel().getSelectedItem();
-                    if (selec.split(" ")[0].equals(""+slot.getDate()) && selec.split(" ")[3].equals(""+slot.getTimef())&&!room.fully_booked())
+            if (room.getRoom_name().equals(selectedroom)) {
+                for (Slots slot : room.List_of_Slots) {
+                    if (room.fully_booked() && !visitorinrow()) {
+                        alert.setAlertType(Alert.AlertType.WARNING);
+                        alert.setTitle("Warning");
+                        alert.setHeaderText("Can't reserve");
+                        alert.setContentText("this room is fully_booked");
+                        alert.show();
+                    }
+                    else if (selec.split(" ")[0].equals("" + slot.getDate()) && selec.split(" ")[3].equals("" + slot.getTimef()))
                     {
-                        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                        alert.setTitle("Slot Reservations");
-                        alert.setHeaderText("CONFIRMATION");
-                        if(visitor.getFreehours() == 1)
-                        {
+                        alert.setAlertType(Alert.AlertType.CONFIRMATION);
+                        alert.setTitle("Confirmation");
+                        alert.setHeaderText("Reservation");
+                        if (visitor.getFreehours() > 0) {
                             alert.setContentText("Are you sure you want to reserve this slot? \n Since you have a free hours this slot will cost you nothing!!");
-                        }
-                        else
-                        {
+                        } else {
                             alert.setContentText("Are you sure you want to reserve this slot? \n This slot will cost you 100$ ");
                         }
-                        alert.setX(HelloApplication.stg.getX() + 200);
-                        alert.setY(HelloApplication.stg.getY() + 215);
-                        if (alert.showAndWait().get() == ButtonType.OK)
-                        {
+                        if (alert.showAndWait().get() == ButtonType.OK) {
                             visitor.reserveSlot(slot);
                             System.out.println(visitor.getFreehours());
                             slot.setReserved(true);
                             check_and_replace();
                             System.out.println(room.List_of_Visitors);
-                            room.setTotal_fees(room.getTotal_fees()+ (slot.getFees()+visitor.getExtraFee()));
+                            room.setTotal_fees(room.getTotal_fees() + (slot.getFees() + visitor.getExtraFee()));
 
                         }
                     }
                     if (!slot.getReserved()) {
                         slots.add(slot.getDate() + "   " + slot.preview());
                     }
+
                 }
             }
+            time_slot_box.getItems().setAll(slots);
+            combo_reinitialize();
         }
-        time_slot_box.getItems().setAll(slots);
-        combo_reinitialize();
     }
     ///////////////////////////////////////////// Updating a Reservation ////////////////////////////////////////////////////////////
     public void displayReservation_forupdate(ActionEvent e)
@@ -339,7 +341,6 @@ public class ReservationController implements Initializable {
                     remove_visitor( check_and_cancel());;
                     System.out.println("after removal");
                     System.out.println(room.List_of_Visitors);
-                    //room.List_of_Visitors.set(index_check(),visitor);
                     break;
                 }
             }
@@ -408,11 +409,11 @@ public class ReservationController implements Initializable {
                             }
                         }
                     }
-            if (counter==0){
-                room.List_of_Visitors.remove(v);
+            if (counter==0)
+            {
+                room.Remove_Visitor(v);
             }
         }
-
     }
 
 
@@ -491,7 +492,23 @@ public class ReservationController implements Initializable {
             }
         }
     }
-
+    public boolean visitorinrow()
+    {
+        for(Room room:rooms)
+        {
+            if(room.getRoom_name().equals(selectedroom))
+            {
+                for(Visitor v:room.List_of_Visitors)
+                {
+                    if(v.getID() == visitor.getID())
+                    {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
 
 
     public int index_check(){
