@@ -97,11 +97,11 @@ public class LoginController implements Initializable {
         String name = textfield01.getText();
         String pass = passfield.getText();
 
-        if(name.equals("admin") && pass.equals("admin"))
+        if(name.equals(Admin.getName()) && pass.equals(Admin.getPassword()))
         {
             h.changescene("admin.fxml");
         }
-        else
+        else if (!visitors.isEmpty())
         {
             for (Visitor visitor : visitors) {
                 System.out.println(visitor.toString());
@@ -118,6 +118,10 @@ public class LoginController implements Initializable {
                     mylabel.setText("Incorrect username or password");
                 }
             }
+        }
+        else
+        {
+            mylabel.setText("Incorrect username or password");
         }
     }
 

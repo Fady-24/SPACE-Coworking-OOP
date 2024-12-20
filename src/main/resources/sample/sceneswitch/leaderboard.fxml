@@ -6,7 +6,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.sceneswitch.LeaderboardController">
    <children>
       <ImageView pickOnBounds="true" preserveRatio="true">
@@ -19,7 +18,7 @@
             <Image url="@Asset_15.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="home_icon" layoutX="738.0" layoutY="54.0" onMouseClicked="#switch_back" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="home" layoutX="738.0" layoutY="54.0" onMouseClicked="#switch_back" onMouseEntered="#homelogo1" onMouseExited="#homelogo2" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Asset_26_1.png" />
          </image>

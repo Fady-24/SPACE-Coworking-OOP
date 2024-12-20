@@ -16,13 +16,14 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class ReservationController implements Initializable {
+public class ReservationController implements Initializable
+{
     @FXML
     private ComboBox<String> roomBox, time_slot_box, Reservation_choice, reservations_combobox, room_combobox, timeslot_combobox;
     @FXML
     private Label time, date, name, fees,reservationdetail_label, newreservationdetail_label,update_res_success, addingreservationlabel;
     @FXML
-    private ImageView add_icon, del_icon, edit_icon, visitorhome;
+    private ImageView add_icon, del_icon, edit_icon, home;
     @FXML
     private AnchorPane Anchor_can, Anchor_add, Anchor_update, res_d, add_1det, add_newdetail;
     private boolean in_can, in_add, in_edit;
@@ -33,59 +34,83 @@ public class ReservationController implements Initializable {
     Visitor visitor = LoginController.Currentvisitor;
     ArrayList<Room> rooms = DataHandling.getRooms();
     ///////////////////////////////////////////// Scene Handling ////////////////////////////////////////////////////////////
-    public void hover_in(MouseEvent e) {
-        if (e.getSource() == del_icon) {
+    public void hover_in(MouseEvent e)
+    {
+        if (e.getSource() == del_icon)
+        {
             Animation.changeImageSmoothly(del_icon, "Asset 54.png");
-        } else if (e.getSource() == add_icon) {
+        }
+        else if (e.getSource() == add_icon)
+        {
             Animation.changeImageSmoothly(add_icon, "Asset 55.png");
-        } else if (e.getSource() == edit_icon) {
+        }
+        else if (e.getSource() == edit_icon)
+        {
             Animation.changeImageSmoothly(edit_icon, "Asset 67.png");
         }
     }
 
-    public void hover_away(MouseEvent e) {
-        if (e.getSource() == del_icon) {
+    public void hover_away(MouseEvent e)
+    {
+        if (e.getSource() == del_icon)
+        {
             Animation.changeImageSmoothly(del_icon, "Asset 52.png");
-        } else if (e.getSource() == add_icon) {
+        }
+        else if (e.getSource() == add_icon)
+        {
             Animation.changeImageSmoothly(add_icon, "Asset 53.png");
-        } else if (e.getSource() == edit_icon) {
+        }
+        else if (e.getSource() == edit_icon)
+        {
             Animation.changeImageSmoothly(edit_icon, "Asset 66.png");
         }
     }
 
 
-    public void on_click(MouseEvent e) {
-        if (e.getSource() == del_icon && in_add) {
+    public void on_click(MouseEvent e)
+    {
+        if (e.getSource() == del_icon && in_add)
+        {
             Animation.fade_out(Anchor_add);
             Animation.fade_in(Anchor_can);
             in_can = true;
             in_add = false;
             in_edit = false;
-        } else if (e.getSource() == del_icon && in_edit) {
+        }
+        else if (e.getSource() == del_icon && in_edit)
+        {
             Animation.fade_out(Anchor_update);
             Animation.fade_in(Anchor_can);
             in_can = true;
             in_add = false;
             in_edit = false;
-        } else if (e.getSource() == edit_icon && in_can) {
+        }
+        else if (e.getSource() == edit_icon && in_can)
+        {
             Animation.fade_out(Anchor_can);
             Animation.fade_in(Anchor_update);
             in_can = false;
             in_add = false;
             in_edit = true;
-        } else if (e.getSource() == edit_icon && in_add) {
+        }
+        else if (e.getSource() == edit_icon && in_add)
+        {
             Animation.fade_out(Anchor_add);
             Animation.fade_in(Anchor_update);
             in_can = false;
             in_add = false;
             in_edit = true;
-        } else if (e.getSource() == add_icon && in_edit) {
+        }
+        else if (e.getSource() == add_icon && in_edit)
+        {
             Animation.fade_out(Anchor_update);
             Animation.fade_in(Anchor_add);
             in_can = false;
             in_add = true;
             in_edit = false;
-        } else if (e.getSource() == add_icon && in_can) {
+        }
+        else if (e.getSource() == add_icon && in_can)
+        {
             Animation.fade_out(Anchor_can);
             Animation.fade_in(Anchor_add);
             in_can = false;
@@ -93,15 +118,20 @@ public class ReservationController implements Initializable {
             in_edit = false;
         }
 
-        if (in_can) {
+        if (in_can)
+        {
             Anchor_can.setMouseTransparent(false);
             Anchor_add.setMouseTransparent(true);
             Anchor_update.setMouseTransparent(true);
-        } else if (in_add) {
+        }
+        else if (in_add)
+        {
             Anchor_can.setMouseTransparent(true);
             Anchor_add.setMouseTransparent(false);
             Anchor_update.setMouseTransparent(true);
-        } else if (in_edit) {
+        }
+        else if (in_edit)
+        {
             Anchor_can.setMouseTransparent(true);
             Anchor_add.setMouseTransparent(true);
             Anchor_update.setMouseTransparent(false);
@@ -112,20 +142,31 @@ public class ReservationController implements Initializable {
     public void return_home(MouseEvent e) {
         Animation.fade_transition((Node) e.getSource(), "scene1.fxml");
     }
-
-    public void delbutton_transition1(MouseEvent e) {
+    public void homelogo1(MouseEvent e)
+    {
+        Animation.changeImageSmoothly(home, "Asset_262.png");
+    }
+    public void homelogo2(MouseEvent e)
+    {
+        Animation.changeImageSmoothly(home, "Asset_26_1.png");
+    }
+    public void delbutton_transition1(MouseEvent e)
+    {
         Animation.colorfillin((Shape) e.getSource(), Color.rgb(56, 56, 56), Color.rgb(180, 63, 63));
     }
 
-    public void delbutton_transition2(MouseEvent e) {
+    public void delbutton_transition2(MouseEvent e)
+    {
         Animation.colorfillout((Shape) e.getSource(), Color.rgb(180, 63, 63), Color.rgb(56, 56, 56));
     }
 
-    public void addbutton_transition1(MouseEvent e) {
+    public void addbutton_transition1(MouseEvent e)
+    {
         Animation.colorfillin((Shape) e.getSource(), Color.rgb(56, 56, 56), Color.rgb(249, 178, 51));
     }
 
-    public void addbutton_transition2(MouseEvent e) {
+    public void addbutton_transition2(MouseEvent e)
+    {
         Animation.colorfillout((Shape) e.getSource(), Color.rgb(249, 178, 51), Color.rgb(56, 56, 56));
     }
     public void editbutton_transition1(MouseEvent e)
@@ -137,7 +178,8 @@ public class ReservationController implements Initializable {
         Animation.colorfillin((Shape)e.getSource(), Color.rgb(80, 220, 100), Color.rgb(56, 56, 56));
     }
 
-    public void combo_reset(){
+    public void combo_reset()
+    {
         roomBox.getSelectionModel().clearSelection();
         time_slot_box.getSelectionModel().clearSelection();
         Reservation_choice.getSelectionModel().clearSelection();
@@ -152,17 +194,20 @@ public class ReservationController implements Initializable {
 
 
     ///////////////////////////////////////////// Adding a Reservation ////////////////////////////////////////////////////////////
-    public void Generate_TimeSlots(ActionEvent e) {
+    public void Generate_TimeSlots(ActionEvent e)
+    {
         selectedroom = roomBox.getSelectionModel().getSelectedItem();
         ArrayList<String> slots = new ArrayList<>();
         time_slot_box.getSelectionModel().clearSelection();
-        for (Room room : rooms) {
+        for (Room room : rooms)
+        {
             if (room.getRoom_name().equals(selectedroom))
             {
                 for (Slots slot : room.List_of_Slots)
                 {
                     System.out.println(slot.preview() + " "+slot.getReserved());
-                    if (!slot.getReserved()) {
+                    if (!slot.getReserved())
+                    {
                         slots.add(slot.getDate() + "   " + slot.preview());
                     }
                 }
@@ -172,17 +217,22 @@ public class ReservationController implements Initializable {
     }
 
 
-    public void confirm_reservation(MouseEvent e) {
+    public void confirm_reservation(MouseEvent e)
+    {
         Alert alert = new Alert(Alert.AlertType.NONE);
         alert.setX(HelloApplication.stg.getX() + 200);
         alert.setY(HelloApplication.stg.getY() + 215);
         selectedroom = roomBox.getSelectionModel().getSelectedItem();
         String selec = time_slot_box.getSelectionModel().getSelectedItem();
         ArrayList<String> slots = new ArrayList<>();
-        for (Room room : rooms) {
-            if (room.getRoom_name().equals(selectedroom)) {
-                for (Slots slot : room.List_of_Slots) {
-                    if (room.fully_booked() && !visitorinrow()) {
+        for (Room room : rooms)
+        {
+            if (room.getRoom_name().equals(selectedroom))
+            {
+                for (Slots slot : room.List_of_Slots)
+                {
+                    if (room.fully_booked() && !visitorinrow())
+                    {
                         alert.setAlertType(Alert.AlertType.WARNING);
                         alert.setTitle("Warning");
                         alert.setHeaderText("Can't reserve");
@@ -194,12 +244,16 @@ public class ReservationController implements Initializable {
                         alert.setAlertType(Alert.AlertType.CONFIRMATION);
                         alert.setTitle("Confirmation");
                         alert.setHeaderText("Reservation");
-                        if (visitor.getFreehours() > 0) {
+                        if (visitor.getFreehours() > 0)
+                        {
                             alert.setContentText("Are you sure you want to reserve this slot? \n Since you have a free hours this slot will cost you nothing!!");
-                        } else {
-                            alert.setContentText("Are you sure you want to reserve this slot? \n This slot will cost you 100$ ");
                         }
-                        if (alert.showAndWait().get() == ButtonType.OK) {
+                        else
+                        {
+                            alert.setContentText("Are you sure you want to reserve this slot? \n This slot will cost you " + (slot.getFees() + visitor.getExtraFee()) + "$");
+                        }
+                        if (alert.showAndWait().get() == ButtonType.OK)
+                        {
                             visitor.reserveSlot(slot);
                             System.out.println(visitor.getFreehours());
                             slot.setReserved(true);
@@ -209,10 +263,10 @@ public class ReservationController implements Initializable {
 
                         }
                     }
-                    if (!slot.getReserved()) {
+                    if (!slot.getReserved())
+                    {
                         slots.add(slot.getDate() + "   " + slot.preview());
                     }
-
                 }
             }
             time_slot_box.getItems().setAll(slots);
@@ -224,7 +278,8 @@ public class ReservationController implements Initializable {
     {
         String selection = reservations_combobox.getSelectionModel().getSelectedItem();
         int slot_Id;
-        if (!reservations_combobox.getSelectionModel().isEmpty()) {
+        if (!reservations_combobox.getSelectionModel().isEmpty())
+        {
             slot_Id = Integer.parseInt(selection.split(" ")[1]);
             targetSlot = visitor.V_list_of_slots.get(slot_Id-1);
         }
@@ -314,7 +369,8 @@ public class ReservationController implements Initializable {
     }
 
     ///////////////////////////////////////////// Canceling a Reservation ////////////////////////////////////////////////////////////
-    public void displayReservation(ActionEvent e){
+    public void displayReservation(ActionEvent e)
+    {
         String selection = Reservation_choice.getSelectionModel().getSelectedItem();
         int slot_Id;
         if (!Reservation_choice.getSelectionModel().isEmpty()) {
@@ -324,11 +380,9 @@ public class ReservationController implements Initializable {
         name.setText(deltargetslot.getRoomName());
         date.setText(""+deltargetslot.getDate());
         time.setText(deltargetslot.preview());
-        fees.setText(""+deltargetslot.getFees());
+        fees.setText(""+(deltargetslot.getFees() + visitor.getExtraFee()));
         Animation.fade_in(res_d);
     }
-
-
     public void cancel_res(MouseEvent e)
     {
         for (Room room : rooms) {
@@ -345,7 +399,6 @@ public class ReservationController implements Initializable {
                 }
             }
         }
-
      System.out.println(deltargetslot.toString());
      Reservation_choice.getSelectionModel().clearSelection();
      Animation.fade_out(res_d);

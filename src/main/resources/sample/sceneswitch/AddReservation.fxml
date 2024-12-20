@@ -136,7 +136,7 @@
          </image>
       </ImageView>
       <Label layoutX="49.0" layoutY="73.0" styleClass="label_big" stylesheets="@admin_home.css" text="RESERVATIONS" />
-      <ImageView fx:id="visitorhome" layoutX="741.0" layoutY="45.0" onMouseClicked="#return_home" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="home" layoutX="741.0" layoutY="45.0" onMouseClicked="#return_home" onMouseEntered="#homelogo1" onMouseExited="#homelogo2" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Asset_26_1.png" />
          </image>

@@ -53,10 +53,12 @@ public class Visitor implements Serializable {
         {
             this.setBalance(this.getBalance() - (s.getFees() + this.getExtraFee()));
             this.setExtraFee(0);
+            s.setFees(100);
         }
         else
         {
             this.setFreehours(this.getFreehours()-1);
+            s.setFees(0);
         }
         if(this.getType().equals("FORMAL") | this.getType().equals("GENERAL") && this.freehourscounter == 6)
         {

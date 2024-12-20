@@ -19,7 +19,7 @@ public class LeaderboardController implements Initializable {
     private AnchorPane medals_anchor;
 
     @FXML
-    private ImageView right_arrow,left_arrow,home_icon;
+    private ImageView right_arrow,left_arrow,home;
     @FXML
     private Label counter_label,visitor_names,visitor_hours,visitor_order;
 
@@ -28,11 +28,13 @@ public class LeaderboardController implements Initializable {
 
 
 
-    public void right_pressed(MouseEvent event) {
+    public void right_pressed(MouseEvent event)
+    {
         left_arrow.setOpacity(1);
         left_arrow.setMouseTransparent(false);
         medals_anchor.setVisible(false);
-        if (visitors.size()>(counter+1)*7){
+        if (visitors.size()>(counter+1)*7)
+        {
             counter=counter+1;
             counter_label.setText(String.valueOf(counter+1));
             page_check(counter);
@@ -43,10 +45,12 @@ public class LeaderboardController implements Initializable {
             right_arrow.setOpacity(0.5);
         }
     }
-    public void left_pressed(MouseEvent event) {
+    public void left_pressed(MouseEvent event)
+    {
         right_arrow.setMouseTransparent(false);
         right_arrow.setOpacity(1);
-        if (counter-1 == 0){
+        if (counter-1 == 0)
+        {
             counter--;
             counter_label.setText(String.valueOf(counter+1));
             left_arrow.setMouseTransparent(true);
@@ -70,11 +74,9 @@ public class LeaderboardController implements Initializable {
             left_arrow.setMouseTransparent(false);
             left_arrow.setOpacity(1);
         }
-
-
     }
-    public void page_check(int counter){
-
+    public void page_check(int counter)
+    {
         String order="",names="",hours="";
         System.out.println(counter);
         for (int i = counter*7; i < ((counter*7)+7)&& i < visitors.size(); i++)
@@ -89,13 +91,18 @@ public class LeaderboardController implements Initializable {
             visitor_names.setText(names);
 
         }
-    public void switch_back(MouseEvent mouseEvent){
+    public void switch_back(MouseEvent mouseEvent)
+    {
         Animation.fade_transition((Node) mouseEvent.getSource(),"admin.fxml");
     }
-
-
-
-
+    public void homelogo1(MouseEvent e)
+    {
+        Animation.changeImageSmoothly(home, "Asset_262.png");
+    }
+    public void homelogo2(MouseEvent e)
+    {
+        Animation.changeImageSmoothly(home, "Asset_26_1.png");
+    }
     @Override
         public void initialize(URL url, ResourceBundle resourceBundle)
     {

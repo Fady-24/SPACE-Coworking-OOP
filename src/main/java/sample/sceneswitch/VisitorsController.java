@@ -21,9 +21,10 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.ResourceBundle;
-public class VisitorsController {
+public class VisitorsController
+{
     @FXML
-    private ImageView search,adminhome;
+    private ImageView adminhome;
     @FXML
     private TextField searchField;
     public static Visitor visitor;
@@ -32,23 +33,27 @@ public class VisitorsController {
     @FXML
     private AnchorPane visitorinfo;
     @FXML
-    private Button deletebutton;
     private Visitor CurrentVisitor;
-    @FXML
-    private Rectangle rect;
 
-    public void search (MouseEvent e) throws IOException, ClassNotFoundException {
+
+    public void search (MouseEvent e) throws IOException, ClassNotFoundException
+    {
 
         ArrayList<Visitor> visitors = DataHandling.getVisitors();
-        if (searchField.getText().isEmpty()){
+        if (searchField.getText().isEmpty())
+        {
             visitornotfound.setVisible(true);
             visitornotfound.setText("Make sure to enter ID first");
             Animation.fade_in(visitornotfound);
             Animation.fade_out(visitorinfo);
-        }else {
+        }
+        else
+        {
             int ID=Integer.parseInt(searchField.getText());
-            for (Visitor visitor : visitors) {
-                if (visitor.getID() == ID) {
+            for (Visitor visitor : visitors)
+            {
+                if (visitor.getID() == ID)
+                {
                     Animation.fade_in(visitorinfo);
                     visitornotfound.setVisible(false);
                     CurrentVisitor = visitor;
@@ -57,7 +62,9 @@ public class VisitorsController {
                     visitortype.setText("VISITOR TYPE :  " + CurrentVisitor.getType());
                     visitortotalhours.setText("VISITOR TOTAL HOURS :  " + CurrentVisitor.getHours());
                     break;
-                } else {
+                }
+                else
+                {
                     visitornotfound.setText("User Not Found!");
                     visitornotfound.setVisible(true);
                     Animation.fade_in(visitornotfound);
@@ -66,22 +73,39 @@ public class VisitorsController {
             }
         }
     }
-
-
-    public void adminhome(MouseEvent e) throws IOException, ClassNotFoundException {
+    public void homelogo1(MouseEvent e)
+    {
+        Animation.changeImageSmoothly(adminhome, "Asset_262.png");
+    }
+    public void homelogo2(MouseEvent e)
+    {
+        Animation.changeImageSmoothly(adminhome, "Asset_26_1.png");
+    }
+    public void adminhome(MouseEvent e) throws IOException, ClassNotFoundException
+    {
         Animation.fade_transition((Node)e.getSource(),"Admin.fxml");
     }
-
-    public void button_transition(MouseEvent e) {
+    public void searchbuttontransition(MouseEvent e)
+    {
+        Animation.colorfillin((Shape) e.getSource(), Color.rgb(29,29,29), Color.rgb(56, 56, 56));
+    }
+    public void searchbuttontransition2(MouseEvent e)
+    {
+        Animation.colorfillout((Shape) e.getSource(), Color.rgb(56, 56, 56), Color.rgb(29, 29, 29));
+    }
+    public void button_transition(MouseEvent e)
+    {
         Animation.colorfillin((Shape) e.getSource(), Color.rgb(56, 56, 56), Color.rgb(51, 51, 255));
     }
 
-    public void button_transition2(MouseEvent e) {
+    public void button_transition2(MouseEvent e)
+    {
         Animation.colorfillout((Shape) e.getSource(), Color.rgb(51, 51, 255), Color.rgb(56, 56, 56));
     }
 
 
-    public void deletevisitor(MouseEvent e) throws IOException, ClassNotFoundException {
+    public void deletevisitor(MouseEvent e) throws IOException, ClassNotFoundException
+    {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Delete Visitor");
         alert.setHeaderText("Confirm Delete Visitor");
@@ -90,9 +114,12 @@ public class VisitorsController {
         {
             ArrayList<Visitor> visitors = DataHandling.getVisitors();
             System.out.println(visitors);
-            try {
+            try
+            {
                 visitors.remove(CurrentVisitor.getID() - 1);
-            } catch (Exception bounds) {
+            }
+            catch (Exception bounds)
+            {
 
             }
             DataHandling.setVisitors(visitors);
@@ -100,7 +127,8 @@ public class VisitorsController {
             System.out.println("DONE");
         }
     }
-    public void switch_to_leaderboard(MouseEvent e) throws IOException {
+    public void switch_to_leaderboard(MouseEvent e) throws IOException
+    {
         HelloApplication h = new HelloApplication();
         h.changescene("leaderboard.fxml");
     }
