@@ -7,8 +7,12 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.shape.Shape;
 
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -22,11 +26,23 @@ public class LeaderboardController implements Initializable {
     private ImageView right_arrow,left_arrow,home;
     @FXML
     private Label counter_label,visitor_names,visitor_hours,visitor_order;
+    @FXML
+    private Rectangle rect;
 
     int counter;
     ArrayList<Visitor> visitors=DataHandling.getVisitors();
-
-
+    public void backbutton_transition(MouseEvent e)
+    {
+        Animation.colorfillin((Shape) e.getSource(), Color.rgb(56,56,56), Color.rgb(246, 201, 14));
+    }
+    public void backbutton_transition2(MouseEvent e)
+    {
+        Animation.colorfillout((Shape) e.getSource(), Color.rgb(246, 201, 14), Color.rgb(56,56,56));
+    }
+    public void switch_to_visitor(MouseEvent e) throws IOException {
+        HelloApplication h = new HelloApplication();
+        h.changescene("Visitor.fxml");
+    }
 
     public void right_pressed(MouseEvent event)
     {
@@ -103,6 +119,7 @@ public class LeaderboardController implements Initializable {
     {
         Animation.changeImageSmoothly(home, "Asset_26_1.png");
     }
+
     @Override
         public void initialize(URL url, ResourceBundle resourceBundle)
     {

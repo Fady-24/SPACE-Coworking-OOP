@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -64,5 +65,7 @@
          </image>
       </ImageView>
       <Label fx:id="counter_label" alignment="CENTER" layoutX="182.0" layoutY="518.0" prefHeight="43.0" prefWidth="50.0" styleClass="label_small_thin" stylesheets="@admin_home.css" text="1" />
+      <Rectangle fx:id="rect" arcHeight="30.0" arcWidth="30.0" fill="#383838" height="43.0" layoutX="626.0" layoutY="518.0" onMouseClicked="#switch_to_visitor" onMouseEntered="#backbutton_transition" onMouseExited="#backbutton_transition2" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="button_custom" width="112.0" />
+      <Button layoutX="635.0" layoutY="522.0" mnemonicParsing="false" mouseTransparent="true" prefHeight="35.0" prefWidth="96.0" styleClass="button_custom" stylesheets="@admin_home.css" text="BACK" />
    </children>
 </AnchorPane>
