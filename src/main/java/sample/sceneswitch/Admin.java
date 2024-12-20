@@ -3,18 +3,24 @@ package sample.sceneswitch;
 import java.sql.Date;
 import java.sql.Time;
 
-public class Admin {
-    private String name;
-    private String password;
-
-
-    public void DisplaySlotsForAllRooms(Date date, Time time, Slots slot[])
+public class Admin
+{
+    private static String name = "admin";
+    private static String password = "admin";
+    public static String getPassword()
     {
-        int  numOfSlots=10;   //when rooms is created this num will increase
-        for(int i=0;i<numOfSlots;i++)
-        {
-
-        }
+        return password;
     }
-
+    public static void setPassword(String password)
+    {
+        Admin.password = password;
+    }
+    public static String getName()
+    {
+        return name;
+    }
+    public static void setName(String name)
+    {
+        Admin.name = name;
+    }
 }

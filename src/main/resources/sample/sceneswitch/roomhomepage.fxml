@@ -21,7 +21,7 @@
       <Button fx:id="grbutton" layoutX="105.0" layoutY="160.0" mnemonicParsing="false" mouseTransparent="true" prefHeight="30.0" prefWidth="170.0" style="-fx-background-color: transparent;" styleClass="roomhomepagebuttons" stylesheets="@application.css" text="General Rooms" />
       <Button fx:id="trbutton" layoutX="519.0" layoutY="160.0" mnemonicParsing="false" mouseTransparent="true" prefHeight="30.0" prefWidth="170.0" style="-fx-background-color: transparent;" styleClass="roomhomepagebuttons" stylesheets="@application.css" text="Teaching Rooms" />
       <Button fx:id="mrbutton" layoutX="314.0" layoutY="160.0" mnemonicParsing="false" mouseTransparent="true" prefHeight="30.0" prefWidth="170.0" style="-fx-background-color: transparent;" styleClass="roomhomepagebuttons" stylesheets="@application.css" text="Meeting Rooms" />
-      <ImageView layoutX="743.0" layoutY="30.0" onMouseClicked="#adminhome" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="home" layoutX="743.0" layoutY="30.0" onMouseClicked="#adminhome" onMouseEntered="#homelogo1" onMouseExited="#homelogo2" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Asset_26_1.png" />
          </image>

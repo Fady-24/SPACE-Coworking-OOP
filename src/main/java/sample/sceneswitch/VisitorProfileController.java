@@ -40,6 +40,8 @@ public class VisitorProfileController implements Initializable
         alert.setTitle("LOG OUT");
         alert.setHeaderText("Going to login page");
         alert.setContentText("Are you sure you want to logout?");
+        alert.setX(HelloApplication.stg.getX() + 200);
+        alert.setY(HelloApplication.stg.getY() + 215);
         if (alert.showAndWait().get() == ButtonType.OK)
         {
             h.changescene("starting.fxml");

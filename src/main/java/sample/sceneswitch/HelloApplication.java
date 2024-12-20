@@ -48,18 +48,7 @@ public class HelloApplication extends Application {
         primaryStage.setScene(scene);
 
 
-//        ArrayList<Room> rooms = DataHandling.getRooms();
-//        ArrayList<Visitor>visitors = DataHandling.getVisitors();
-//        for (Room room : rooms)
-//        {
-//            if (room.getRoom_Id()==1)
-//            {
-//                Visitor v1 = new Visitor("visitor1", "testtest", "GENERAL", 99);
-//                visitors.add(v1);
-//                room.New_Visitor(v1);
-//                rooms.set(rooms.indexOf(room), room);
-//            }
-//        }
+
 
 
 //        ArrayList<Room> rooms =DataHandling.getRooms();

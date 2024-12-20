@@ -12,7 +12,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #1E1E1E;" stylesheets="@admin_home.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.sceneswitch.SlotSceneController">
    <children>
-      <ImageView layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@guibg22.png" />
          </image>
@@ -61,12 +61,12 @@
             <ComboBox fx:id="Slot_picker" layoutX="2.0" layoutY="241.0" onAction="#selected" prefHeight="41.0" prefWidth="259.0" visibleRowCount="3" />
          </children>
       </AnchorPane>
-      <ImageView fx:id="home" layoutX="743.0" layoutY="30.0" onMouseClicked="#switch_back" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="home" layoutX="743.0" layoutY="30.0" onMouseClicked="#switch_back" onMouseEntered="#homelogo1" onMouseExited="#homelogo2" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Asset_26_1.png" />
          </image>
       </ImageView>
-      <Label fx:id="red_label" alignment="CENTER" layoutX="19.0" layoutY="513.0" prefHeight="23.0" prefWidth="340.0" styleClass="label_small2_thin_red" stylesheets="@admin_home.css" text=" " />
-      <Label fx:id="green_label" alignment="CENTER" layoutX="14.0" layoutY="515.0" prefHeight="23.0" prefWidth="340.0" styleClass="label_small2_thin_green" stylesheets="@admin_home.css" text=" " />
+      <Label fx:id="red_label" alignment="CENTER" layoutX="19.0" layoutY="513.0" prefHeight="75.0" prefWidth="340.0" styleClass="label_small2_thin_red" stylesheets="@admin_home.css" text=" " textAlignment="CENTER" wrapText="true" />
+      <Label fx:id="green_label" alignment="CENTER" layoutX="14.0" layoutY="515.0" prefHeight="63.0" prefWidth="352.0" styleClass="label_small2_thin_green" stylesheets="@admin_home.css" text=" " textAlignment="CENTER" wrapText="true" />
    </children>
 </AnchorPane>
